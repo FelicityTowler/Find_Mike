@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :venues, except: [:index] do
     resources :events do
+      resources :bookings, except: [:index]
     end
+
+    resources :ratings, only: [:new, :create]
 
   end
 
