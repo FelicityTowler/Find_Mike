@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_27_150032) do
+ActiveRecord::Schema.define(version: 2021_02_27_150851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,17 +28,18 @@ ActiveRecord::Schema.define(version: 2021_02_27_150032) do
   end
 
   create_table "venues", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "stage_name"
-    t.string "email"
+    t.string "name"
+    t.string "address"
+    t.string "postcode"
     t.string "telephone"
-    t.string "city"
-    t.text "biography"
-    t.string "video"
-    t.string "dependability"
+    t.string "email"
+    t.string "website"
+    t.bigint "user_id", null: false
+    t.boolean "verified"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_venues_on_user_id"
   end
 
+  add_foreign_key "venues", "users"
 end
