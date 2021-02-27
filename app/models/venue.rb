@@ -4,5 +4,5 @@ class Venue < ApplicationRecord
   has_many :ratings
 
   validates :name, :address, :postcode, :user, presence: true
-  validates :name, unique: true
+  validates :name, uniqueness: true
 end

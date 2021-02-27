@@ -8,6 +8,6 @@ class User < ApplicationRecord
   has_many :ratings
   has_many :bookings
 
-  validates :first_name, :last_name, prescence: true
-  validates :email, unique: true
+  validates :first_name, :last_name, presence: true
+  validates :email, uniqueness: true
 end
