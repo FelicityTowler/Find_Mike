@@ -30,7 +30,7 @@ user_1 = User.create!(
 )
 puts "Created user 1"
 
-venue_1 = Venue.new(
+venue_1 = Venue.create!(
   name: "Cavendish Arms",
   address: "128 Hartington Road",
   postcode: "SW8 2HJ",
@@ -42,7 +42,7 @@ venue_1 = Venue.new(
 )
 puts "Created venue 1"
 
-event_1 = Event.new(
+event_1 = Event.create!(
   name: "Comedy Virgins",
   time: "19:00",
   date: "03/05/2021",
@@ -65,7 +65,7 @@ user_2 = User.create!(
 )
 puts "Created user 2"
 
-venue_2 = Venue.new(
+venue_2 = Venue.create!(
   name: "The Jago",
   address: "440 Kingsland Rd",
   postcode: "E8 4AA",
@@ -77,7 +77,7 @@ venue_2 = Venue.new(
 )
 puts "Created venue 2"
 
-event_2 = Event.new(
+event_2 = Event.create!(
   name: "We Are Funny Project",
   time: "19:00",
   date: "03/05/2021",
@@ -100,7 +100,7 @@ user_3 = User.create!(
 )
 puts "Created user 3"
 
-venue_3 = Venue.new(
+venue_3 = Venue.create!(
   name: "Cornershop Bar",
   address: "123 Shoreditch High St",
   postcode: "E1 6JE",
@@ -112,7 +112,7 @@ venue_3 = Venue.new(
 )
 puts "Created venue 3"
 
-event_3 = Event.new(
+event_3 = Event.create!(
   name: "Sam Rhodes Comedy Explosion",
   time: "19:00",
   date: "05/05/2021",
@@ -136,7 +136,7 @@ user_4 = User.create!(
 )
 puts "Created user 4"
 
-venue_4 = Venue.new(
+venue_4 = Venue.create!(
   name: "Vauxhall Street Food Garden",
   address: "6 South Lambeth Place",
   postcode: "SW8 1SP",
@@ -148,7 +148,7 @@ venue_4 = Venue.new(
 )
 puts "Created venue 4"
 
-event_4 = Event.new(
+event_4 = Event.create!(
   name: "Vauxhall Comedy Club",
   time: "19:00",
   date: "06/05/2021",
@@ -171,7 +171,7 @@ user_5 = User.create!(
 )
 puts "Created user 5"
 
-venue_5 = Venue.new(
+venue_5 = Venue.create!(
   name: "The Grafton",
   address: "20 Prince of Wales Road",
   postcode: "NW5 3LG",
@@ -183,7 +183,7 @@ venue_5 = Venue.new(
 )
 puts "Created venue 5"
 
-event_5 = Event.new(
+event_5 = Event.create!(
   name: "Not Another Comedy Night",
   time: "19:00",
   date: "04/05/2021",
@@ -206,7 +206,7 @@ user_6 = User.create!(
 )
 puts "Created user 6"
 
-venue_6 = Venue.new(
+venue_6 = Venue.create!(
   name: "Bar Rumba",
   address: "36 Shaftesbury Avenue",
   postcode: "W1D 7EP",
@@ -218,7 +218,7 @@ venue_6 = Venue.new(
 )
 puts "Created venue 6"
 
-event_6 = Event.new(
+event_6 = Event.create!(
   name: "Lion’s Den Comedy Car Crash",
   time: "19:00",
   date: "04/05/2021",
@@ -241,9 +241,9 @@ user_7 = User.create!(
 )
 puts "Created user 7"
 
-venue_7 = Venue.new(
+venue_7 = Venue.create!(
   name: "The Old Crown",
-  address: "33 New Oxford St",
+  address: "33 create! Oxford St",
   postcode: "WC1A 1BH",
   telephone: "020 7836 9121",
   email: Faker::Internet.email,
@@ -253,7 +253,7 @@ venue_7 = Venue.new(
 )
 puts "Created venue 7"
 
-event_7 = Event.new(
+event_7 = Event.create!(
   name: "Rising Stars",
   time: "19:00",
   date: "09/05/2021",
@@ -277,7 +277,7 @@ user_8 = User.create!(
 )
 puts "Created user 8"
 
-venue_8 = Venue.new(
+venue_8 = Venue.create!(
   name: "South Kensington Comedy Club",
   address: "34a Thurloe Place",
   postcode: "SW7 2HQ",
@@ -289,7 +289,7 @@ venue_8 = Venue.new(
 )
 puts "Created venue 8"
 
-event_8 = Event.new(
+event_8 = Event.create!(
   name: "South Kensington Comedy Club",
   time: "19:00",
   date: "08/05/2021",
@@ -312,7 +312,7 @@ user_9 = User.create!(
 )
 puts "Created user 9"
 
-venue_9 = Venue.new(
+venue_9 = Venue.create!(
   name: "The Dean Swift",
   address: "10 Gainsford St",
   postcode: "SE1 2NE",
@@ -324,7 +324,7 @@ venue_9 = Venue.new(
 )
 puts "Created venue 9"
 
-event_9 = Event.new(
+event_9 = Event.create!(
   name: "Funny Feckers",
   time: "19:00",
   date: "06/05/2021",
@@ -349,7 +349,7 @@ user_10 = User.create!(
 )
 puts "Created user 10"
 
-venue_10 = Venue.new(
+venue_10 = Venue.create!(
   name: "Savoy Tap",
   address: "2 Savoy St",
   postcode: "WC2R 0BA",
@@ -361,7 +361,7 @@ venue_10 = Venue.new(
 )
 puts "Created venue 10"
 
-event_10 = Event.new(
+event_10 = Event.create!(
   name: "Birdies Comedy",
   time: "19:00",
   date: "07/05/2021",
@@ -384,7 +384,7 @@ user_11 = User.create!(
 )
 puts "Created user 11"
 
-venue_11 = Venue.new(
+venue_11 = Venue.create!(
   name: "The King’s Head",
   address: "2 Crouch End Hill",
   postcode: "N8 8AA",
@@ -396,7 +396,7 @@ venue_11 = Venue.new(
 )
 puts "Created venue 11"
 
-event_11 = Event.new(
+event_11 = Event.create!(
   name: "Downstairs at the King’s Head",
   time: "19:00",
   date: "06/05/2021",
@@ -420,7 +420,7 @@ user_12 = User.create!(
 )
 puts "Created user 12"
 
-venue_12 = Venue.new(
+venue_12 = Venue.create!(
   name: "Up The Creek",
   address: "302 Creek Rd",
   postcode: "SE10 9SW",
@@ -432,7 +432,7 @@ venue_12 = Venue.new(
 )
 puts "Created venue 12"
 
-event_12 = Event.new(
+event_12 = Event.create!(
   name: "The Blackout",
   time: "19:00",
   date: "06/05/2021",
@@ -455,7 +455,7 @@ user_13 = User.create!(
 )
 puts "Created user 13"
 
-venue_13 = Venue.new(
+venue_13 = Venue.create!(
   name: "The Comedy Store",
   address: "1a Oxendon St",
   postcode: "SW1Y 4EE",
@@ -467,7 +467,7 @@ venue_13 = Venue.new(
 )
 puts "Created venue 13"
 
-event_13 = Event.new(
+event_13 = Event.create!(
   name: "King Gong",
   time: "19:00",
   date: "31/05/2021",
@@ -492,7 +492,7 @@ user_14 = User.create!(
 )
 puts "Created user 14"
 
-venue_14 = Venue.new(
+venue_14 = Venue.create!(
   name: "The Rose & Crown",
   address: "71-73 Torriano Avenue",
   postcode: "NW5 2SG",
@@ -504,7 +504,7 @@ venue_14 = Venue.new(
 )
 puts "Created venue 14"
 
-event_14 = Event.new(
+event_14 = Event.create!(
   name: "Freedom Fridge",
   time: "19:00",
   date: "06/05/2021",
@@ -527,7 +527,7 @@ user_15 = User.create!(
 )
 puts "Created user 15"
 
-venue_15 = Venue.new(
+venue_15 = Venue.create!(
   name: "The Oak & Pastor",
   address: "86 Junction Road",
   postcode: "N19 5QZ",
@@ -539,7 +539,7 @@ venue_15 = Venue.new(
 )
 puts "Created venue 15"
 
-event_15 = Event.new(
+event_15 = Event.create!(
   name: "Jesters: Raconteur Night",
   time: "19:00",
   date: "05/05/2021",
@@ -563,7 +563,7 @@ user_16 = User.create!(
 )
 puts "Created user 16"
 
-venue_16 = Venue.new(
+venue_16 = Venue.create!(
   name: "The Grove",
   address: "83 Hammersmith Grove",
   postcode: "W6 0NQ",
@@ -575,7 +575,7 @@ venue_16 = Venue.new(
 )
 puts "Created venue 16"
 
-event_16 = Event.new(
+event_16 = Event.create!(
   name: "Instant Laughs",
   time: "19:00",
   date: "04/05/2021",
@@ -598,7 +598,7 @@ user_17 = User.create!(
 )
 puts "Created user 17"
 
-venue_17 = Venue.new(
+venue_17 = Venue.create!(
   name: "The Gregorian",
   address: "96 Jamaica Rd",
   postcode: "SE16 4SQ",
@@ -610,7 +610,7 @@ venue_17 = Venue.new(
 )
 puts "Created venue 17"
 
-event_17 = Event.new(
+event_17 = Event.create!(
   name: "Comedy Gobbledegook",
   time: "19:00",
   date: "11/05/2021",
@@ -633,7 +633,7 @@ user_18 = User.create!(
 )
 puts "Created user 18"
 
-venue_18 = Venue.new(
+venue_18 = Venue.create!(
   name: "The Vine",
   address: "86 Highgate Rd",
   postcode: "NW5 1PB",
@@ -645,7 +645,7 @@ venue_18 = Venue.new(
 )
 puts "Created venue 18"
 
-event_18 = Event.new(
+event_18 = Event.create!(
   name: "TNT Comedy",
   time: "19:00",
   date: "04/05/2021",
@@ -668,7 +668,7 @@ user_19 = User.create!(
 )
 puts "Created user 19"
 
-venue_19 = Venue.new(
+venue_19 = Venue.create!(
   name: "The Princess Victoria",
   address: "217 Uxbridge Rd",
   postcode: "W12 9DH",
@@ -680,7 +680,7 @@ venue_19 = Venue.new(
 )
 puts "Created venue 19"
 
-event_19 = Event.new(
+event_19 = Event.create!(
   name: "Heavenly Comedy",
   time: "19:00",
   date: "05/05/2021",
@@ -703,7 +703,7 @@ user_20 = User.create!(
 )
 puts "Created user 20"
 
-venue_20 = Venue.new(
+venue_20 = Venue.create!(
   name: "Arch One",
   address: "West Ham Arches",
   postcode: "E16 4BJ",
@@ -715,7 +715,7 @@ venue_20 = Venue.new(
 )
 puts "Created venue 20"
 
-event_20 = Event.new(
+event_20 = Event.create!(
   name: "G&B Comedy",
   time: "19:00",
   date: "04/05/2021",
