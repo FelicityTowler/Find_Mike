@@ -1,7 +1,12 @@
-<ul>
-  <% @events.each do |event| %>
-    <li>
-      <%= event.name %>
-    </li>
-  <% end %>
-</ul>
+<% if @events.blank? %>
+  There are no events on this date.
+<% else %>
+  <ul>
+    <% @events.each do |event| %>
+      <li>
+        <%= event.name %>: <%= event.date %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
