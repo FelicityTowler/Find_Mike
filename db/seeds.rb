@@ -13,3 +13,17 @@ Event.destroy_all
 Venue.destroy_all
 puts "Database Cleaned"
 
+# Creating 20 users
+
+user_1 = User.create!(
+  first_name: "Chris",
+  last_name: "Bellairs",
+  stage_name: "Tha Fresh Prince of Bellairs",
+  email: "c.m.bellairs@gmail.com",
+  password: "password",
+  telephone: "0800 123 456",
+  city: "London",
+  biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
+  dependability: 4.5,
+)
+puts "Created user 1"
