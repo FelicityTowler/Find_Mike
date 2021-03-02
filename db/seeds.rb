@@ -27,3 +27,24 @@ user_1 = User.create!(
   dependability: 4.5,
 )
 puts "Created user 1"
+
+venue_1 = Venue.new(
+  name: "Cavendish Arms",
+  address: "128 Hartington Road",
+  postcode: "SW8 2HJ",
+  telephone: "020 7498 7464",
+  email: "INFO@THECAVENDISHARMSSTOCKWELL.CO.UK",
+  website: "https://www.facebook.com/thecavendisharms",
+  verified: true,
+  user: user_1,
+)
+puts "Created venue 1"
+
+event_1 = Event.new(
+  name: "Comedy Virgins",
+  time: "19:00",
+  date: "03/05/2021",
+  venue: venue_1,
+  total_spots: 12,
+)
+puts "Created event 1"
