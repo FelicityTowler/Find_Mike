@@ -51,32 +51,32 @@ event_1 = Event.new(
 puts "Created event 1"
 
 user_2 = User.create!(
-  first_name: "",
-  last_name: "",
-  stage_name: "",
-  email: "",
-  password: "",
+  first_name: "Felicity",
+  last_name: "Towler",
+  stage_name: "The Towler Prowler",
+  email: "felicity@scaldendfarm.com",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
-  biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
-  dependability: 4.5,
+  biography: "I'm the funniest person I know....",
+  dependability: 2.5,
 )
 puts "Created user 2"
 
 venue_2 = Venue.new(
-  name: "",
-  address: "",
-  postcode: "",
-  telephone: "",
-  email: "",
-  website: "",
+  name: "The Jago",
+  address: "440 Kingsland Rd",
+  postcode: "E8 4AA",
+  telephone: "020 7683 0438",
+  email: "hello@thejagodalston.com",
+  website: "https://www.thejagodalston.com/",
   verified: true,
   user: user_2,
 )
 puts "Created venue 2"
 
 event_2 = Event.new(
-  name: "",
+  name: "We Are Funny Project",
   time: "19:00",
   date: "03/05/2021",
   venue: venue_2,
@@ -86,70 +86,70 @@ event_2 = Event.new(
 puts "Created event 2"
 
 user_3 = User.create!(
-  first_name: "",
-  last_name: "",
-  stage_name: "",
-  email: "",
-  password: "",
+  first_name: "Matt",
+  last_name: "Woods",
+  stage_name: "Got Woods",
+  email: "woodsmj17@gmail.com",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
-  biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
-  dependability: 4.5,
+  biography: "I was inspired by Freddie to give comedy a go.",
+  dependability: 3.5,
 )
 puts "Created user 3"
 
 venue_3 = Venue.new(
-  name: "",
-  address: "",
-  postcode: "",
-  telephone: "",
-  email: "",
-  website: "",
+  name: "Cornershop Bar",
+  address: "123 Shoreditch High St",
+  postcode: "E1 6JE",
+  telephone: "020 7613 3554",
+  email: "bookings@thecornershopbar.co.uk",
+  website: "thecornershopbar.co.uk",
   verified: true,
   user: user_3,
 )
 puts "Created venue 3"
 
 event_3 = Event.new(
-  name: "",
+  name: "Sam Rhodes Comedy Explosion",
   time: "19:00",
-  date: "03/05/2021",
+  date: "05/05/2021",
   venue: venue_3,
   total_spots: 12,
-  bringer: true,
+  bringer: false,
 )
 puts "Created event 3"
 
 
 user_4 = User.create!(
-  first_name: "",
-  last_name: "",
-  stage_name: "",
-  email: "",
-  password: "",
+  first_name: "Freddie",
+  last_name: "Millburn-Fryer",
+  stage_name: "Freddie Fryer",
+  email: "freddiefryercode@gmail.com",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
-  biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
+  biography: "I'm amazing at music and comedy.",
   dependability: 4.5,
 )
 puts "Created user 4"
 
 venue_4 = Venue.new(
-  name: "",
-  address: "",
-  postcode: "",
-  telephone: "",
-  email: "",
-  website: "",
+  name: "Vauxhall Street Food Garden",
+  address: "6 South Lambeth Place",
+  postcode: "SW8 1SP",
+  telephone: "020 3242 0040",
+  email: "INFO@VAUXHALLSTREETFOOD.CO.UK",
+  website: "https://www.facebook.com/VauxhallComedyClub/",
   verified: true,
   user: user_4,
 )
 puts "Created venue 4"
 
 event_4 = Event.new(
-  name: "",
+  name: "Vauxhall Comedy Club",
   time: "19:00",
-  date: "03/05/2021",
+  date: "06/05/2021",
   venue: venue_4,
   total_spots: 12,
   bringer: true,
@@ -159,9 +159,9 @@ puts "Created event 4"
 user_5 = User.create!(
   first_name: "",
   last_name: "",
-  stage_name: "",
+  stage_name: Faker::FunnyName.two_word_name,
   email: "",
-  password: "",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
   biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
@@ -194,9 +194,9 @@ puts "Created event 5"
 user_6 = User.create!(
   first_name: "",
   last_name: "",
-  stage_name: "",
+  stage_name: Faker::FunnyName.two_word_name,
   email: "",
-  password: "",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
   biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
@@ -229,9 +229,9 @@ puts "Created event 6"
 user_7 = User.create!(
   first_name: "",
   last_name: "",
-  stage_name: "",
+  stage_name: Faker::FunnyName.two_word_name,
   email: "",
-  password: "",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
   biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
@@ -265,9 +265,9 @@ puts "Created event 7"
 user_8 = User.create!(
   first_name: "",
   last_name: "",
-  stage_name: "",
+  stage_name: Faker::FunnyName.two_word_name,
   email: "",
-  password: "",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
   biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
@@ -300,9 +300,9 @@ puts "Created event 8"
 user_9 = User.create!(
   first_name: "",
   last_name: "",
-  stage_name: "",
+  stage_name: Faker::FunnyName.two_word_name,
   email: "",
-  password: "",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
   biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
@@ -337,9 +337,9 @@ puts "Created event 9"
 user_10 = User.create!(
   first_name: "",
   last_name: "",
-  stage_name: "",
+  stage_name: Faker::FunnyName.two_word_name,
   email: "",
-  password: "",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
   biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
@@ -372,9 +372,9 @@ puts "Created event 10"
 user_11 = User.create!(
   first_name: "",
   last_name: "",
-  stage_name: "",
+  stage_name: Faker::FunnyName.two_word_name,
   email: "",
-  password: "",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
   biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
@@ -408,9 +408,9 @@ puts "Created event 11"
 user_12 = User.create!(
   first_name: "",
   last_name: "",
-  stage_name: "",
+  stage_name: Faker::FunnyName.two_word_name,
   email: "",
-  password: "",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
   biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
@@ -443,9 +443,9 @@ puts "Created event 12"
 user_13 = User.create!(
   first_name: "",
   last_name: "",
-  stage_name: "",
+  stage_name: Faker::FunnyName.two_word_name,
   email: "",
-  password: "",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
   biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
@@ -480,9 +480,9 @@ puts "Created event 13"
 user_14 = User.create!(
   first_name: "",
   last_name: "",
-  stage_name: "",
+  stage_name: Faker::FunnyName.two_word_name,
   email: "",
-  password: "",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
   biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
@@ -515,9 +515,9 @@ puts "Created event 14"
 user_15 = User.create!(
   first_name: "",
   last_name: "",
-  stage_name: "",
+  stage_name: Faker::FunnyName.two_word_name,
   email: "",
-  password: "",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
   biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
@@ -551,9 +551,9 @@ puts "Created event 15"
 user_16 = User.create!(
   first_name: "",
   last_name: "",
-  stage_name: "",
+  stage_name: Faker::FunnyName.two_word_name,
   email: "",
-  password: "",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
   biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
@@ -586,9 +586,9 @@ puts "Created event 16"
 user_17 = User.create!(
   first_name: "",
   last_name: "",
-  stage_name: "",
+  stage_name: Faker::FunnyName.two_word_name,
   email: "",
-  password: "",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
   biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
@@ -621,9 +621,9 @@ puts "Created event 17"
 user_18 = User.create!(
   first_name: "",
   last_name: "",
-  stage_name: "",
+  stage_name: Faker::FunnyName.two_word_name,
   email: "",
-  password: "",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
   biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
@@ -656,9 +656,9 @@ puts "Created event 18"
 user_19 = User.create!(
   first_name: "",
   last_name: "",
-  stage_name: "",
+  stage_name: Faker::FunnyName.two_word_name,
   email: "",
-  password: "",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
   biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
@@ -691,9 +691,9 @@ puts "Created event 19"
 user_20 = User.create!(
   first_name: "",
   last_name: "",
-  stage_name: "",
+  stage_name: Faker::FunnyName.two_word_name,
   email: "",
-  password: "",
+  password: "password",
   telephone: "0800 123 456",
   city: "London",
   biography: "I'm pretty new to comedy. Thought I'd give it a bash.",
