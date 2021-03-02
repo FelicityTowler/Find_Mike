@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'open-uri'
+Booking.destroy_all
+User.destroy_all
+Event.destroy_all
+Venue.destroy_all
+puts "Database Cleaned"
+
