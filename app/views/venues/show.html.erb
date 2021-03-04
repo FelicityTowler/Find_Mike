@@ -11,3 +11,7 @@
   <li>Telephone: <%= @venue.telephone %></li>
   <li>Website: <%= @venue.website %></li>
 </ul>
+
+<% if @venue.user == current_user %>
+  <div><%= link_to "Edit venue", edit_venue_path(@venue) %></div>
+<% end %>
