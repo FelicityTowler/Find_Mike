@@ -1,0 +1,13 @@
+<h1>
+  <%= @venue.name %>
+</h1>
+<h2>
+  Created by: <%= @venue.user.first_name %> <%= @venue.user.last_name %>
+</h2>
+<ul>
+  <li>Address: <%= @venue.address %></li>
+  <li>Postcode: <%= @venue.postcode %></li>
+  <li>Email: <%= @venue.email %></li>
+  <li>Telephone: <%= @venue.telephone %></li>
+  <li>Website: <%= @venue.website %></li>
+</ul>
