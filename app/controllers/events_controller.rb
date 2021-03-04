@@ -1,11 +1,11 @@
 class EventsController < ApplicationController
   def index
     if params[:query].present? && params[:availability].present?
-      @events = Event.where(["date = ? and available_spots > ?", params[:query], 0])
+      @events = Event.where(["date = ? and available_spots > ? and cancelled = ?", params[:query], 0, false])
     elsif params[:query].present?
-      @events = Event.where(["date = ?", params[:query]])
+      @events = Event.where(["date = ? and cancelled = ?", params[:query], false])
     else
-      @events = Event.all
+      @events = Event.where(["cancelled = ?", false])
     end
   end
 
