@@ -24,7 +24,7 @@ class VenuesController < ApplicationController
   def update
     @venue = Venue.find(params[:id])
     @venue.update(venue_params)
-    redirect_to Venue_path(@venue)
+    redirect_to venue_path(@venue)
   end
 
   def destroy
@@ -36,7 +36,7 @@ class VenuesController < ApplicationController
   private
 
   def venue_params
-    params.require(:venue).permit(:name, :address, :postocde, :telephone, :email,
+    params.require(:venue).permit(:name, :address, :postcode, :telephone, :email,
       :website, :user, :verified)
   end
 end
