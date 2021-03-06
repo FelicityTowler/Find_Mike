@@ -32,7 +32,7 @@ puts "Created user 1"
 
 venue_1 = Venue.create!(
   name: "Cavendish Arms",
-  address: "128 Hartington Road",
+  address: "128 Hartington Road, London",
   postcode: "SW8 2HJ",
   telephone: "020 7498 7464",
   email: "INFO@THECAVENDISHARMSSTOCKWELL.CO.UK",
@@ -67,7 +67,7 @@ puts "Created user 2"
 
 venue_2 = Venue.create!(
   name: "The Jago",
-  address: "440 Kingsland Rd",
+  address: "440 Kingsland Rd, London",
   postcode: "E8 4AA",
   telephone: "020 7683 0438",
   email: "hello@thejagodalston.com",
@@ -102,7 +102,7 @@ puts "Created user 3"
 
 venue_3 = Venue.create!(
   name: "Cornershop Bar",
-  address: "123 Shoreditch High St",
+  address: "123 Shoreditch High St, London",
   postcode: "E1 6JE",
   telephone: "020 7613 3554",
   email: "bookings@thecornershopbar.co.uk",
@@ -138,7 +138,7 @@ puts "Created user 4"
 
 venue_4 = Venue.create!(
   name: "Vauxhall Street Food Garden",
-  address: "6 South Lambeth Place",
+  address: "6 South Lambeth Place, London",
   postcode: "SW8 1SP",
   telephone: "020 3242 0040",
   email: "INFO@VAUXHALLSTREETFOOD.CO.UK",
@@ -173,7 +173,7 @@ puts "Created user 5"
 
 venue_5 = Venue.create!(
   name: "The Grafton",
-  address: "20 Prince of Wales Road",
+  address: "20 Prince of Wales Road, London",
   postcode: "NW5 3LG",
   telephone: "020 7482 4466",
   email: Faker::Internet.email,
@@ -208,7 +208,7 @@ puts "Created user 6"
 
 venue_6 = Venue.create!(
   name: "Bar Rumba",
-  address: "36 Shaftesbury Avenue",
+  address: "36 Shaftesbury Avenue, London",
   postcode: "W1D 7EP",
   telephone: "020 7287 6933",
   email: Faker::Internet.email,
@@ -243,7 +243,7 @@ puts "Created user 7"
 
 venue_7 = Venue.create!(
   name: "The Old Crown",
-  address: "33 create! Oxford St",
+  address: "33 New Oxford St, London",
   postcode: "WC1A 1BH",
   telephone: "020 7836 9121",
   email: Faker::Internet.email,
@@ -279,7 +279,7 @@ puts "Created user 8"
 
 venue_8 = Venue.create!(
   name: "South Kensington Comedy Club",
-  address: "34a Thurloe Place",
+  address: "34a Thurloe Place, London",
   postcode: "SW7 2HQ",
   telephone: "0800 123 456",
   email: Faker::Internet.email,
@@ -314,7 +314,7 @@ puts "Created user 9"
 
 venue_9 = Venue.create!(
   name: "The Dean Swift",
-  address: "10 Gainsford St",
+  address: "10 Gainsford St, London",
   postcode: "SE1 2NE",
   telephone: "020 3196 6949",
   email: Faker::Internet.email,
@@ -351,7 +351,7 @@ puts "Created user 10"
 
 venue_10 = Venue.create!(
   name: "Savoy Tap",
-  address: "2 Savoy St",
+  address: "2 Savoy St, London",
   postcode: "WC2R 0BA",
   telephone: "020 7836 9738",
   email: Faker::Internet.email,
@@ -386,7 +386,7 @@ puts "Created user 11"
 
 venue_11 = Venue.create!(
   name: "The King’s Head",
-  address: "2 Crouch End Hill",
+  address: "2 Crouch End Hill, London",
   postcode: "N8 8AA",
   telephone: "01920 823265",
   email: Faker::Internet.email,
@@ -422,7 +422,7 @@ puts "Created user 12"
 
 venue_12 = Venue.create!(
   name: "Up The Creek",
-  address: "302 Creek Rd",
+  address: "302 Creek Rd, London",
   postcode: "SE10 9SW",
   telephone: "020 8858 4581",
   email: "contactus@up-the-creek.com",
@@ -457,7 +457,7 @@ puts "Created user 13"
 
 venue_13 = Venue.create!(
   name: "The Comedy Store",
-  address: "1a Oxendon St",
+  address: "1a Oxendon St, London",
   postcode: "SW1Y 4EE",
   telephone: "020 7024 2060",
   email: "London@thecomedystore.co.uk",
@@ -494,7 +494,7 @@ puts "Created user 14"
 
 venue_14 = Venue.create!(
   name: "The Rose & Crown",
-  address: "71-73 Torriano Avenue",
+  address: "71-73 Torriano Avenue, London",
   postcode: "NW5 2SG",
   telephone: "0800 123 456",
   email: Faker::Internet.email,
@@ -529,7 +529,7 @@ puts "Created user 15"
 
 venue_15 = Venue.create!(
   name: "The Oak & Pastor",
-  address: "86 Junction Road",
+  address: "86 Junction Road, London",
   postcode: "N19 5QZ",
   telephone: "0800 123 456",
   email: Faker::Internet.email,
@@ -565,7 +565,7 @@ puts "Created user 16"
 
 venue_16 = Venue.create!(
   name: "The Grove",
-  address: "83 Hammersmith Grove",
+  address: "83 Hammersmith Grove, London",
   postcode: "W6 0NQ",
   telephone: "020 8748 29661",
   email: Faker::Internet.email,
@@ -600,7 +600,7 @@ puts "Created user 17"
 
 venue_17 = Venue.create!(
   name: "The Gregorian",
-  address: "96 Jamaica Rd",
+  address: "96 Jamaica Rd, London",
   postcode: "SE16 4SQ",
   telephone: "020 7252 0449",
   email: Faker::Internet.email,
@@ -635,7 +635,7 @@ puts "Created user 18"
 
 venue_18 = Venue.create!(
   name: "The Vine",
-  address: "86 Highgate Rd",
+  address: "86 Highgate Rd, London",
   postcode: "NW5 1PB",
   telephone: "020 7209 0038",
   email: Faker::Internet.email,
@@ -669,7 +669,7 @@ user_19 = User.create!(
 puts "Created user 19"
 
 venue_19 = Venue.create!(
-  name: "The Princess Victoria",
+  name: "The Princess Victoria, London",
   address: "217 Uxbridge Rd",
   postcode: "W12 9DH",
   telephone: "020 8749 4466",
@@ -705,7 +705,7 @@ puts "Created user 20"
 
 venue_20 = Venue.create!(
   name: "Arch One",
-  address: "West Ham Arches",
+  address: "West Ham Arches, London",
   postcode: "E16 4BJ",
   telephone: "07969 604094",
   email: "arch1@arch1.co.uk",
