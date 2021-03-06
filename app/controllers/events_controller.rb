@@ -12,6 +12,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @booking = Booking.new
+    booking = Booking.find_by(user: current_user, event: @event)
+    booking ? @booking = booking : @booking = Booking.new
   end
 
   def new
@@ -22,6 +24,24 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event[:venue_id] = current_user.venues.first.id
     @event[:available_spots] = @event.total_spots
+    @event[:booked_spots] = 0
+    @event.save
+    redirect_to event_path(@event)
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    redirect_to event_path(@event)
+  end
+
+  def cancel
+    @event = Event.find(params[:id])
+    @event.cancelled = true
     @event.save
     redirect_to event_path(@event)
   end
@@ -29,6 +49,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :time, :date, :bringer, :information, :total_spots, :photo)
+    params.require(:event).permit(:name, :time, :date, :bringer, :information, :total_spots, :cancelled, :photo)
   end
 end

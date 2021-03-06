@@ -17,5 +17,9 @@
 
 <% if @venue.user == current_user %>
   <div><%= link_to "Edit venue", edit_venue_path(@venue) %></div>
-  <p>Delete venue</p>
+<% end %>
+
+<h2>Events at the <%= @venue.name %></h2>
+<% @venue.events.each do |event| %>
+  <%= link_to event.name, event_path(event) %> on <%= event.date %><br>
 <% end %>
