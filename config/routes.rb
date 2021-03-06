@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   end
 
   resources :events do
-    resources :bookings, except: [:index]
+    resources :bookings, except: [:index] do
+      patch :approve
+    end
     member do
       patch :cancel
     end

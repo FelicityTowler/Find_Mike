@@ -18,6 +18,14 @@ class BookingsController < ApplicationController
     redirect_to event_path(@event)
   end
 
+  def approve
+    @booking = Booking.find(params[:booking_id])
+    @event = Event.find(params[:event_id])
+    @booking.approved = true
+    @booking.save
+    redirect_to event_path(@event)
+  end
+
   private
 
   def booking_params
