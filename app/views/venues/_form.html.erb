@@ -8,7 +8,9 @@
                   required: true %>
       <%= f.input :email %>
       <%= f.input :telephone %>
-      <%= f.input :website %>       
+      <%= f.input :website %>
+      <%= f.input :photo, as: :file%>
+
     </div>
     <div class="form-actions">
       <%= f.button :submit, "Submit" %>

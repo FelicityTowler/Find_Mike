@@ -1,6 +1,9 @@
 <h1>
   <%= @venue.name %>
 </h1>
+<% if @venue.photo.attached? %>
+  <div><%= cl_image_tag @venue.photo.key, height: 200, width: 8000, crop: :fill %></div>
+<% end %>
 <h2>
   Created by: <%= @venue.user.first_name %> <%= @venue.user.last_name %>
 </h2>

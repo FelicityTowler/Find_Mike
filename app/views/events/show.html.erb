@@ -1,3 +1,4 @@
+<h1>
 <% if @event.cancelled == true %>
   <h2>CANCELLED</h2>
 <% end %>
@@ -8,7 +9,13 @@
 <%= @event.information %><br>
 <%= @event.bringer %><br>
 <%= @event.available_spots %><br>
-
+</h1>
+<h2>
+  <% if @event.photo.attached? %>
+  <div><%= cl_image_tag @event.photo.key, height: 200, width: 800, crop: :fill %></div>
+  <% end %>
+</h2>
+<h3>
 <% if @event.venue == current_user.venues.first %>
   <%= link_to 'Edit Event', edit_event_path(@event) %><br>
   <%= link_to 'Cancel Event', cancel_event_path(@event), method: :patch %><br>
@@ -26,7 +33,6 @@
     <% end %>
   <% end %>
 <% end %>
-
 <% if Booking.where(["user_id = ? and event_id = ?", current_user, params[:id]]).empty? %>
 <%= simple_form_for([@event, @booking]) do |f| %>
   <%= f.submit %>
@@ -36,5 +42,4 @@
 <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, event_booking_path(@event, @booking),
     method: :delete, data: { confirm: "Delete your booking for #{@event.name}?" } %>
 <% end %>
-
-
+</h3>

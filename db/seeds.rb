@@ -28,6 +28,12 @@ user_1 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 4.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050295/user_1.webp')
+
+user_1.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_1.save!
+
 puts "Created user 1"
 
 venue_1 = Venue.create!(
@@ -40,6 +46,12 @@ venue_1 = Venue.create!(
   verified: true,
   user: user_1,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615031833/Pub_1.jpg')
+
+venue_1.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_1.save!
+
 puts "Created venue 1"
 
 event_1 = Event.create!(
@@ -50,6 +62,12 @@ event_1 = Event.create!(
   total_spots: 12,
   bringer: true,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046879/event_1.jpg')
+
+event_1.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_1.save!
+
 puts "Created event 1"
 
 user_2 = User.create!(
@@ -63,6 +81,12 @@ user_2 = User.create!(
   biography: "I'm the funniest person I know....",
   dependability: 2.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050312/user_2.webp')
+
+user_2.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_2.save!
+
 puts "Created user 2"
 
 venue_2 = Venue.create!(
@@ -75,6 +99,12 @@ venue_2 = Venue.create!(
   verified: true,
   user: user_2,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035402/Pub_4.webp')
+
+venue_2.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_2.save!
+
 puts "Created venue 2"
 
 event_2 = Event.create!(
@@ -85,6 +115,12 @@ event_2 = Event.create!(
   total_spots: 12,
   bringer: true,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046868/event_2.webp')
+
+event_2.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_2.save!
+
 puts "Created event 2"
 
 user_3 = User.create!(
@@ -98,6 +134,12 @@ user_3 = User.create!(
   biography: "I was inspired by Freddie to give comedy a go.",
   dependability: 3.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050350/user_3.webp')
+
+user_3.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_3.save!
+
 puts "Created user 3"
 
 venue_3 = Venue.create!(
@@ -110,6 +152,12 @@ venue_3 = Venue.create!(
   verified: true,
   user: user_3,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035333/Pub_2.webp')
+
+venue_3.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_3.save!
+
 puts "Created venue 3"
 
 event_3 = Event.create!(
@@ -120,6 +168,12 @@ event_3 = Event.create!(
   total_spots: 12,
   bringer: false,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046972/event_3.webp')
+
+event_3.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_3.save!
+
 puts "Created event 3"
 
 
@@ -134,6 +188,12 @@ user_4 = User.create!(
   biography: "I'm amazing at music and comedy.",
   dependability: 4.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050389/user_4.webp')
+
+user_4.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_4.save!
+
 puts "Created user 4"
 
 venue_4 = Venue.create!(
@@ -146,6 +206,14 @@ venue_4 = Venue.create!(
   verified: true,
   user: user_4,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035374/Pub_3.webp')
+
+venue_4.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_4.save!
+
+
+
 puts "Created venue 4"
 
 event_4 = Event.create!(
@@ -156,6 +224,12 @@ event_4 = Event.create!(
   total_spots: 12,
   bringer: true,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047002/event_4.webp')
+
+event_4.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_4.save!
+
 puts "Created event 4"
 
 user_5 = User.create!(
@@ -169,6 +243,12 @@ user_5 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 1.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050418/user_5.webp')
+
+user_5.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_5.save!
+
 puts "Created user 5"
 
 venue_5 = Venue.create!(
@@ -181,6 +261,12 @@ venue_5 = Venue.create!(
   verified: false,
   user: user_5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035569/Pub_6.webp')
+
+venue_5.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_5.save!
+
 puts "Created venue 5"
 
 event_5 = Event.create!(
@@ -191,6 +277,12 @@ event_5 = Event.create!(
   total_spots: 10,
   bringer: true,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047126/event_5.webp')
+
+event_5.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_5.save!
+
 puts "Created event 5"
 
 user_6 = User.create!(
@@ -204,6 +296,12 @@ user_6 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 4.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050446/user_6.webp')
+
+user_6.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_6.save!
+
 puts "Created user 6"
 
 venue_6 = Venue.create!(
@@ -216,6 +314,12 @@ venue_6 = Venue.create!(
   verified: true,
   user: user_6,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615031833/Pub_1.jpg')
+
+venue_6.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_6.save!
+
 puts "Created venue 6"
 
 event_6 = Event.create!(
@@ -226,6 +330,12 @@ event_6 = Event.create!(
   total_spots: 15,
   bringer: true,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047150/event_6.webp')
+
+event_6.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_6.save!
+
 puts "Created event 6"
 
 user_7 = User.create!(
@@ -239,6 +349,12 @@ user_7 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 1.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050480/user_7.webp')
+
+user_7.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_7.save!
+
 puts "Created user 7"
 
 venue_7 = Venue.create!(
@@ -251,6 +367,12 @@ venue_7 = Venue.create!(
   verified: true,
   user: user_7,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035374/Pub_3.webp')
+
+venue_7.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_7.save!
+
 puts "Created venue 7"
 
 event_7 = Event.create!(
@@ -261,6 +383,12 @@ event_7 = Event.create!(
   total_spots: 12,
   bringer: true,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047167/event_7.webp')
+
+event_7.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_7.save!
+
 puts "Created event 7"
 
 
@@ -275,6 +403,12 @@ user_8 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 4.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050615/user_8.webp')
+
+user_8.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_8.save!
+
 puts "Created user 8"
 
 venue_8 = Venue.create!(
@@ -287,6 +421,12 @@ venue_8 = Venue.create!(
   verified: true,
   user: user_8,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035435/Pub_5.webp')
+
+venue_8.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_8.save!
+
 puts "Created venue 8"
 
 event_8 = Event.create!(
@@ -297,6 +437,12 @@ event_8 = Event.create!(
   total_spots: 12,
   bringer: false,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046868/event_2.webp')
+
+event_8.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_8.save!
+
 puts "Created event 8"
 
 user_9 = User.create!(
@@ -310,6 +456,12 @@ user_9 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 4.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050638/user_9.webp')
+
+user_9.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_9.save!
+
 puts "Created user 9"
 
 venue_9 = Venue.create!(
@@ -322,6 +474,12 @@ venue_9 = Venue.create!(
   verified: true,
   user: user_9,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035569/Pub_6.webp')
+
+venue_9.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_9.save!
+
 puts "Created venue 9"
 
 event_9 = Event.create!(
@@ -332,9 +490,13 @@ event_9 = Event.create!(
   total_spots: 12,
   bringer: true,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047126/event_5.webp')
+
+event_9.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_9.save!
+
 puts "Created event 9"
-
-
 
 user_10 = User.create!(
   first_name: Faker::Name.first_name,
@@ -347,6 +509,12 @@ user_10 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 4.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050659/user_10.webp')
+
+user_10.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_10.save!
+
 puts "Created user 10"
 
 venue_10 = Venue.create!(
@@ -359,6 +527,12 @@ venue_10 = Venue.create!(
   verified: true,
   user: user_10,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035374/Pub_3.webp')
+
+venue_10.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_10.save!
+
 puts "Created venue 10"
 
 event_10 = Event.create!(
@@ -369,6 +543,12 @@ event_10 = Event.create!(
   total_spots: 18,
   bringer: true,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047167/event_7.webp')
+
+event_10.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_10.save!
+
 puts "Created event 10"
 
 user_11 = User.create!(
@@ -382,6 +562,12 @@ user_11 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 4.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050295/user_1.webp')
+
+user_11.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_11.save!
+
 puts "Created user 11"
 
 venue_11 = Venue.create!(
@@ -394,6 +580,12 @@ venue_11 = Venue.create!(
   verified: true,
   user: user_11,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035435/Pub_5.webp')
+
+venue_11.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_11.save!
+
 puts "Created venue 11"
 
 event_11 = Event.create!(
@@ -404,6 +596,12 @@ event_11 = Event.create!(
   total_spots: 14,
   bringer: false,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046972/event_3.webp')
+
+event_11.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_11.save!
+
 puts "Created event 11"
 
 
@@ -418,6 +616,12 @@ user_12 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 4.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050312/user_2.webp')
+
+user_12.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_12.save!
+
 puts "Created user 12"
 
 venue_12 = Venue.create!(
@@ -430,6 +634,12 @@ venue_12 = Venue.create!(
   verified: true,
   user: user_12,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035402/Pub_4.webp')
+
+venue_12.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_12.save!
+
 puts "Created venue 12"
 
 event_12 = Event.create!(
@@ -440,6 +650,12 @@ event_12 = Event.create!(
   total_spots: 12,
   bringer: false,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047002/event_4.webp')
+
+event_12.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_12.save!
+
 puts "Created event 12"
 
 user_13 = User.create!(
@@ -453,6 +669,12 @@ user_13 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 4.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050350/user_3.webp')
+
+user_13.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_13.save!
+
 puts "Created user 13"
 
 venue_13 = Venue.create!(
@@ -465,6 +687,12 @@ venue_13 = Venue.create!(
   verified: true,
   user: user_13,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035569/Pub_6.webp')
+
+venue_13.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_13.save!
+
 puts "Created venue 13"
 
 event_13 = Event.create!(
@@ -475,6 +703,12 @@ event_13 = Event.create!(
   total_spots: 20,
   bringer: false,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046868/event_2.webp')
+
+event_13.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_13.save!
+
 puts "Created event 13"
 
 
@@ -490,6 +724,12 @@ user_14 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 4.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050389/user_4.webp')
+
+user_14.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_14.save!
+
 puts "Created user 14"
 
 venue_14 = Venue.create!(
@@ -502,6 +742,12 @@ venue_14 = Venue.create!(
   verified: true,
   user: user_14,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035435/Pub_5.webp')
+
+venue_14.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_14.save!
+
 puts "Created venue 14"
 
 event_14 = Event.create!(
@@ -512,6 +758,12 @@ event_14 = Event.create!(
   total_spots: 12,
   bringer: true,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047150/event_6.webp')
+
+event_14.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_14.save!
+
 puts "Created event 14"
 
 user_15 = User.create!(
@@ -525,6 +777,12 @@ user_15 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 4.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050418/user_5.webp')
+
+user_15.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_15.save!
+
 puts "Created user 15"
 
 venue_15 = Venue.create!(
@@ -537,6 +795,12 @@ venue_15 = Venue.create!(
   verified: true,
   user: user_15,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035402/Pub_4.webp')
+
+venue_15.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_15.save!
+
 puts "Created venue 15"
 
 event_15 = Event.create!(
@@ -547,6 +811,12 @@ event_15 = Event.create!(
   total_spots: 12,
   bringer: false,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047167/event_7.webp')
+
+event_15.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_15.save!
+
 puts "Created event 15"
 
 
@@ -561,6 +831,12 @@ user_16 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 4.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050446/user_6.webp')
+
+user_16.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_16.save!
+
 puts "Created user 16"
 
 venue_16 = Venue.create!(
@@ -573,6 +849,12 @@ venue_16 = Venue.create!(
   verified: true,
   user: user_16,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035374/Pub_3.webp')
+
+venue_16.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_16.save!
+
 puts "Created venue 16"
 
 event_16 = Event.create!(
@@ -583,6 +865,12 @@ event_16 = Event.create!(
   total_spots: 12,
   bringer: true,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046972/event_3.webp')
+
+event_16.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_16.save!
+
 puts "Created event 16"
 
 user_17 = User.create!(
@@ -596,6 +884,12 @@ user_17 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 4.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050480/user_7.webp')
+
+user_17.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_17.save!
+
 puts "Created user 17"
 
 venue_17 = Venue.create!(
@@ -608,6 +902,12 @@ venue_17 = Venue.create!(
   verified: true,
   user: user_17,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035333/Pub_2.webp')
+
+venue_17.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_17.save!
+
 puts "Created venue 17"
 
 event_17 = Event.create!(
@@ -618,6 +918,12 @@ event_17 = Event.create!(
   total_spots: 12,
   bringer: true,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047126/event_5.webp')
+
+event_17.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_17.save!
+
 puts "Created event 17"
 
 user_18 = User.create!(
@@ -631,6 +937,12 @@ user_18 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 4.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050615/user_8.webp')
+
+user_18.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_18.save!
+
 puts "Created user 18"
 
 venue_18 = Venue.create!(
@@ -643,6 +955,12 @@ venue_18 = Venue.create!(
   verified: true,
   user: user_18,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035569/Pub_6.webp')
+
+venue_18.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_18.save!
+
 puts "Created venue 18"
 
 event_18 = Event.create!(
@@ -653,6 +971,12 @@ event_18 = Event.create!(
   total_spots: 12,
   bringer: true,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046879/event_1.jpg')
+
+event_18.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_18.save!
+
 puts "Created event 18"
 
 user_19 = User.create!(
@@ -666,6 +990,12 @@ user_19 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 4.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050638/user_9.webp')
+
+user_19.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_19.save!
+
 puts "Created user 19"
 
 venue_19 = Venue.create!(
@@ -678,6 +1008,12 @@ venue_19 = Venue.create!(
   verified: true,
   user: user_19,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035402/Pub_4.webp')
+
+venue_19.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_19.save!
+
 puts "Created venue 19"
 
 event_19 = Event.create!(
@@ -688,6 +1024,12 @@ event_19 = Event.create!(
   total_spots: 12,
   bringer: false,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047002/event_4.webp')
+
+event_19.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_19.save!
+
 puts "Created event 19"
 
 user_20 = User.create!(
@@ -701,6 +1043,12 @@ user_20 = User.create!(
   biography: Faker::GreekPhilosophers.quote,
   dependability: 4.5,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050659/user_10.webp')
+
+user_20.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_20.save!
+
 puts "Created user 20"
 
 venue_20 = Venue.create!(
@@ -713,6 +1061,12 @@ venue_20 = Venue.create!(
   verified: true,
   user: user_20,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615035374/Pub_3.webp')
+
+venue_20.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+venue_20.save!
+
 puts "Created venue 20"
 
 event_20 = Event.create!(
@@ -723,4 +1077,10 @@ event_20 = Event.create!(
   total_spots: 12,
   bringer: true,
 )
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046868/event_2.webp')
+
+event_20.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_20.save!
+
 puts "Created event 20"

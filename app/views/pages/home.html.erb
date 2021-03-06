@@ -7,9 +7,3 @@
   <% end %>
 </div>
 <%= link_to "View All Events", events_path %>
-<%=
-        link_to "Delete",
-        user_registration_path(current_user),
-        method: :delete,
-        data: { confirm: "Really delete this user?" }
-      %>
