@@ -10,8 +10,21 @@
 <%= @event.available_spots %><br>
 
 <% if @event.venue == current_user.venues.first %>
-  <%= link_to 'Edit Event', edit_event_path(@event) %>
-  <%= link_to 'Cancel Event', cancel_event_path(@event), method: :patch %>
+  <%= link_to 'Edit Event', edit_event_path(@event) %><br>
+  <%= link_to 'Cancel Event', cancel_event_path(@event), method: :patch %><br>
+
+  <h2>Requested Bookings</h2>
+  <% @event.bookings.each do |booking| %>
+    <% if booking.approved %>
+      APPROVED
+    <% end %>
+    <%= booking.user.first_name %> <%= booking.user.last_name %> <%= booking.user.email %>
+    <% if booking.approved %>
+      Booked!
+    <% else %>
+      <%= link_to "Approve Booking", event_booking_approve_path(@event, booking), method: :patch %>
+    <% end %>
+  <% end %>
 <% end %>
 
 <% if Booking.where(["user_id = ? and event_id = ?", current_user, params[:id]]).empty? %>
