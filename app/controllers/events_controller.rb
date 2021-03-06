@@ -24,6 +24,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event[:venue_id] = current_user.venues.first.id
     @event[:available_spots] = @event.total_spots
+    @event[:booked_spots] = 0
     @event.save
     redirect_to event_path(@event)
   end

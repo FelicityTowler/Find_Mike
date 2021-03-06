@@ -18,7 +18,12 @@
     <% if booking.approved %>
       APPROVED
     <% end %>
-    <%= booking.user.first_name %> <%= booking.user.last_name %> <%= booking.user.email %> <%= link_to "Approve Booking", event_booking_approve_path(@event, booking), method: :patch %>
+    <%= booking.user.first_name %> <%= booking.user.last_name %> <%= booking.user.email %>
+    <% if booking.approved %>
+      Booked!
+    <% else %>
+      <%= link_to "Approve Booking", event_booking_approve_path(@event, booking), method: :patch %>
+    <% end %>
   <% end %>
 <% end %>
 
