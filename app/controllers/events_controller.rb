@@ -11,8 +11,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @booking = Booking.new
-    console
+    booking = Booking.find_by(user: current_user, event: @event)
+    booking ? @booking = booking : @booking = Booking.new
   end
 
   def new
