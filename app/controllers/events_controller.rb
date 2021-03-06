@@ -12,7 +12,6 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @booking = Booking.new
-    console
   end
 
   def new
@@ -30,6 +29,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :time, :date, :bringer, :information, :total_spots)
+    params.require(:event).permit(:name, :time, :date, :bringer, :information, :total_spots, :photo)
   end
 end

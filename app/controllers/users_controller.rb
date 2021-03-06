@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def destroy
-    @user = current_user
-    @user.destroy
-    redirect_to events_path
+    @user = User.find(params[:id])
+    if user.destroy
+      redirect_to root_path
+    end
   end
 end

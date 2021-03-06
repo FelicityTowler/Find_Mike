@@ -6,6 +6,6 @@ before_action :configure_permitted_parameters, if: :devise_controller?
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :password, :email])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :stage_name, :telephone, :city, :biography, :video, :email, :password])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :stage_name, :telephone, :city, :biography, :video, :email, :password, :photo])
   end
 end
