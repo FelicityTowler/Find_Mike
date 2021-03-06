@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :bookings, except: [:index]
+    member do
+      patch :cancel
+    end
   end
+
   root to: 'pages#home'
 end
