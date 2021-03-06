@@ -1,29 +1,32 @@
 class EventsController < ApplicationController
-  #test code for finding specific events
-  def event_find(location, radius, date)
-    #find all events on a certain date
-    @events = Event.where(["date = ? and available_spots > ? and cancelled = ?", params[:query], 0, false])
-    @locations = []
-    @markers = []
-    @events.geocoded.each do |event|
-      if event.venue.near(location, radius)
-        @locations << event
-        @markers << {
-        lat: event.venue.latitude,
-        lng: event.venue.longitude
-        }
-      end
-      @events = @locations
-    end
-  end
-
   def index
     if params[:query].present? && params[:availability].present?
       @events = Event.where(["date = ? and available_spots > ? and cancelled = ?", params[:query], 0, false])
+      @markers = @events.geocoded.map do |event|
+        {
+          lat: event.latitude,
+          lng: event.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { event: event })
+        }
+      end
     elsif params[:query].present?
       @events = Event.where(["date = ? and cancelled = ?", params[:query], false])
+      @markers = @events.geocoded.map do |event|
+        {
+          lat: event.latitude,
+          lng: event.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { event: event })
+        }
+      end
     else
       @events = Event.where(["cancelled = ?", false])
+      @markers = @events.geocoded.map do |event|
+        {
+          lat: event.latitude,
+          lng: event.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { event: event })
+        }
+      end
     end
   end
 
@@ -41,6 +44,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event[:venue_id] = current_user.venues.first.id
     @event[:available_spots] = @event.total_spots
+    @event[:address] = current_user.venues.first.address
     @event.save
     redirect_to event_path(@event)
   end
@@ -48,6 +52,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :time, :date, :bringer, :information, :total_spots)
+    params.require(:event).permit(:name, :time, :date, :bringer, :information, :total_spots, :address)
   end
 end
