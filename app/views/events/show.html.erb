@@ -20,6 +20,8 @@
 <% end %>
 <% else %>
 <p>You are already booked on to this event</p>
+<%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, event_booking_path(@event, @booking),
+    method: :delete, data: { confirm: "Delete your booking for #{@event.name}?" } %>
 <% end %>
 
 
