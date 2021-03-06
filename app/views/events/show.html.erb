@@ -6,6 +6,10 @@
 <%= @event.bringer %><br>
 <%= @event.available_spots %><br>
 
+<% if @event.venue == current_user.venues.first %>
+  <%= link_to 'Cancel Event', '#' %>
+<% end %>
+
 <% if Booking.where(["user_id = ? and event_id = ?", current_user, params[:id]]).empty? %>
 <%= simple_form_for([@event, @booking]) do |f| %>
   <%= f.submit %>
@@ -13,3 +17,5 @@
 <% else %>
 <p>You are already booked on to this event</p>
 <% end %>
+
+
