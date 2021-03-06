@@ -1,0 +1,15 @@
+<%= @event.name %><br>
+<%= @event.venue.address %><br>
+<%= @event.time %><br>
+<%= @event.date %><br>
+<%= @event.information %><br>
+<%= @event.bringer %><br>
+<%= @event.available_spots %><br>
+
+<% if Booking.where(["user_id = ? and event_id = ?", current_user, params[:id]]).empty? %>
+<%= simple_form_for([@event, @booking]) do |f| %>
+  <%= f.submit %>
+<% end %>
+<% else %>
+<p>You are already booked on to this event</p>
+<% end %>

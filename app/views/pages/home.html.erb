@@ -1,3 +1,11 @@
+<div>
+  <%= form_tag events_path, method: :get do %>
+    <%= date_field_tag :query%>
+    <%= check_box_tag :availability%>
+    <%= label_tag(:availability, "Only events with availability.") %>
+    <%= submit_tag "Search", class: "btn search-btn" %>
+  <% end %>
+</div>
 <%= link_to "View All Events", events_path %>
 <%=
         link_to "Delete",
