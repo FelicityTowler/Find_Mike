@@ -6,7 +6,7 @@ class EventsController < ApplicationController
         {
           lat: event.latitude,
           lng: event.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { event: event })
+          # infoWindow: render_to_string(partial: "info_window", locals: { event: event })
         }
       end
     elsif params[:query].present?
@@ -15,7 +15,7 @@ class EventsController < ApplicationController
         {
           lat: event.latitude,
           lng: event.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { event: event })
+          # infoWindow: render_to_string(partial: "info_window", locals: { event: event })
         }
       end
     else
@@ -24,7 +24,7 @@ class EventsController < ApplicationController
         {
           lat: event.latitude,
           lng: event.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { event: event })
+          # infoWindow: render_to_string(partial: "info_window", locals: { event: event })
         }
       end
     end
@@ -33,7 +33,11 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @booking = Booking.new
-    console
+    @markers = [{
+      lat: @event.latitude,
+      lng: @event.longitude
+      # infoWindow: render_to_string(partial: "info_window", locals: { venue: @venue })
+    }]
   end
 
   def new

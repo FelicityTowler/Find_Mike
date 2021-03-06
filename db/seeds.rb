@@ -705,8 +705,8 @@ user_19 = User.create!(
 puts "Created user 19"
 
 venue_19 = Venue.create!(
-  name: "The Princess Victoria, London",
-  address: "217 Uxbridge Rd",
+  name: "The Princess Victoria",
+  address: "217 Uxbridge Rd, London",
   postcode: "W12 9DH",
   telephone: "020 8749 4466",
   email: Faker::Internet.email,
@@ -720,7 +720,7 @@ event_19 = Event.create!(
   name: "Heavenly Comedy",
   time: "19:00",
   date: "05/05/2021",
-  address: "217 Uxbridge Rd",
+  address: "217 Uxbridge Rd, London",
   venue: venue_19,
   available_spots: 12,
   total_spots: 12,
