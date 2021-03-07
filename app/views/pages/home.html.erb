@@ -1,4 +1,8 @@
-<div>
+<div class="curtains">
+  <div class="curtain-left"></div>
+  <div class="scene"></div>
+  <div class="spotlight">
+    <div>
   <%= form_tag events_path, method: :get do %>
     <%= date_field_tag :query%>
     <%= check_box_tag :availability%>
@@ -7,3 +11,6 @@
   <% end %>
 </div>
 <%= link_to "View All Events", events_path %>
+  </div>
+  <div class="curtain-right"></div>
+</div>
