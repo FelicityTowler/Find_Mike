@@ -1,12 +1,19 @@
 <% if @events.blank? %>
   There are no events on this date.
 <% else %>
-  <ul>
+  <div class="card-container">
     <% @events.each do |event| %>
-      <li>
-        <%= link_to event.name,  event_path(event)%>
-      </li>
+      <div class="event-card">
+        <% if event.photo.attached? %>
+          <div><%= cl_image_tag event.photo.key, height: 150, width: 150, crop: :fill %></div>
+        <% end %>
+        <div class="event-details">
+          <h2><%= link_to event.name,  event_path(event)%></h2>
+          <span><%= event.venue.address %></span><br>
+          <span><%= event.available_spots %> spots left...</span>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 <% end %>
 
