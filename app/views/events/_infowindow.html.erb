@@ -1,0 +1,20 @@
+<%# <% if event.photo.attached? %> %>
+  <%# <div class="#"> %>
+      <%# <%= cl_image_tag flat.photo.key, height: 180, width: 270, crop: :fill %> %>
+  <%# </div> %>
+<%# <% end %> %>
+<div class="mapboxgl-popup-content-stats">
+  <div>
+    <h2>
+      <%= link_to event_path(event) do %>
+        <%= event.name %>
+      <% end %>
+    </h2>
+    <span><%= event.venue.name %></span>
+  </div>
+  <div>
+    <i class="fas"></i><br>
+    <%= event.date %>
+    <%= event.time %>
+  </div>
+</div>

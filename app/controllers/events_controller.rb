@@ -6,7 +6,8 @@ class EventsController < ApplicationController
         {
           lat: event.latitude,
           lng: event.longitude,
-          # infoWindow: render_to_string(partial: "info_window", locals: { event: event })
+          infoWindow: render_to_string(partial: "infowindow", locals: { event: event }),
+          image_url: helpers.asset_url('microphone-alt-solid')
         }
       end
     elsif params[:query].present?
@@ -15,7 +16,8 @@ class EventsController < ApplicationController
         {
           lat: event.latitude,
           lng: event.longitude,
-          # infoWindow: render_to_string(partial: "info_window", locals: { event: event })
+          infoWindow: render_to_string(partial: "infowindow", locals: { event: event }),
+          image_url: helpers.asset_url('microphone-alt-solid')
         }
       end
     else
@@ -24,7 +26,8 @@ class EventsController < ApplicationController
         {
           lat: event.latitude,
           lng: event.longitude,
-          # infoWindow: render_to_string(partial: "info_window", locals: { event: event })
+          infoWindow: render_to_string(partial: "infowindow", locals: { event: event }),
+          image_url: helpers.asset_url('microphone-alt-solid')
         }
       end
     end
@@ -35,8 +38,9 @@ class EventsController < ApplicationController
     @booking = Booking.new
     @markers = [{
       lat: @event.latitude,
-      lng: @event.longitude
-      # infoWindow: render_to_string(partial: "info_window", locals: { venue: @venue })
+      lng: @event.longitude,
+      infoWindow: render_to_string(partial: "infowindow", locals: { event: @event }),
+      image_url: helpers.asset_url('microphone-alt-solid')
     }]
   end
 
