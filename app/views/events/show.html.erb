@@ -1,19 +1,29 @@
-<h1>
+<div class="container">
+  <div class="row">
+  <div class="col-8">
+  <% if @event.photo.attached? %>
+  <div class="event-image">
+    <%= cl_image_tag @event.venue.photo.key, height: 400, width: 800, crop: :fill %></div>
+  <% end %>
+</div>
+<div class="card col-4">
 <% if @event.cancelled == true %>
   <h2>CANCELLED</h2>
 <% end %>
-<%= @event.name %><br>
+<h1><%= @event.name %></h1>
+<p><i class="far fa-clock"></i> <%= @event.time.strftime("%-l%P") %></p>
+<p><i class="far fa-calendar-alt"></i> <%= @event.date.strftime("%A #{@event.date.day.ordinalize} %B") %></p>
+<%= @event.venue.name %><br>
 <%= @event.venue.address %><br>
-<%= @event.time %><br>
-<%= @event.date %><br>
+<%= @event.venue.postcode %><br>
 <%= @event.information %><br>
-<%= @event.bringer %><br>
+<% if @event.bringer %>
+  <p><i class="fas fa-user-friends"></i> bringer</p>
+<% end %>
 <%= @event.available_spots %><br>
-</h1>
+</div>
+</div>
 <h2>
-  <% if @event.photo.attached? %>
-  <div><%= cl_image_tag @event.photo.key, height: 200, width: 800, crop: :fill %></div>
-  <% end %>
 </h2>
 <h3>
 <% if @event.venue == current_user.venues.first %>
@@ -43,3 +53,4 @@
     method: :delete, data: { confirm: "Delete your booking for #{@event.name}?" } %>
 <% end %>
 </h3>
+</div>
