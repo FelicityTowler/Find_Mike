@@ -9,8 +9,8 @@
 <ul>
   <li>Address: <%= @event.address %></li>
   <li>Postcode: <%= @event.venue.postcode %></li>
-  <li>Time: <%= @event.time %></li>
-  <li>Date: <%= @event.date %></li>
+  <li>Time: <%= @event.time.strftime("%H:%M") %></li>
+  <li>Date: <%= @event.date.strftime("%d/%m/%Y") %></li>
   <li>Information: <%= @event.information %></li>
   <li>Availability: <%= @event.available_spots %>/<%= @event.total_spots %></li>
   <li>Bringer: <%= @event.bringer %></li>
