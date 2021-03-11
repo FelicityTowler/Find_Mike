@@ -29,6 +29,7 @@
 <% if @event.venue == current_user.venues.first %>
   <%= link_to 'Edit Event', edit_event_path(@event) %><br>
   <%= link_to 'Cancel Event', cancel_event_path(@event), method: :patch %><br>
+</h3>
 
   <h2>Requested Bookings</h2>
   <% @event.bookings.each do |booking| %>
@@ -52,5 +53,13 @@
 <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, event_booking_path(@event, @booking),
     method: :delete, data: { confirm: "Delete your booking for #{@event.name}?" } %>
 <% end %>
-</h3>
+
 </div>
+
+
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
