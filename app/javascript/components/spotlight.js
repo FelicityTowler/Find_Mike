@@ -1,7 +1,7 @@
 
 const homepageSpotlight = () => {
-var spotlight = document.querySelector('.spotlight');
-var isUserMotion = false;
+  var spotlight = document.querySelector('.spotlight');
+  var isUserMotion = false;
   function move(e) {
     if (e.clientX || e.touches) {
       isUserMotion = true;
@@ -10,16 +10,17 @@ var isUserMotion = false;
     }
   }
 
-  if (window.PointerEvent) {
-    spotlight.addEventListener('pointermove', move);
-  } else {
-    spotlight.addEventListener('touchmove', move);
-    spotlight.addEventListener('mousemove', move);
-  }
+  if (spotlight) {
+    if (window.PointerEvent) {
+      spotlight.addEventListener('pointermove', move);
+    } else {
+      spotlight.addEventListener('touchmove', move);
+      spotlight.addEventListener('mousemove', move);
+    }
   window.onload = function() {
     document.body.className += " loaded";
   }
   document.getElementById('query').valueAsDate = new Date();
 }
-
+}
 export { homepageSpotlight };
