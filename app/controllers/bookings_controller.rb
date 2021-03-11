@@ -1,10 +1,4 @@
 class BookingsController < ApplicationController
-
-  # def new
-  #   @event = Event.find(params[:event_id])
-  #   @booking = Booking.new
-  # end
-
   def create
     @event = Event.find(params[:event_id])
     @booking = Booking.new
@@ -15,6 +9,27 @@ class BookingsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @event = Event.find(params[:event_id])
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    @event.available_spots = @event.available_spots + 1
+    @event.booked_spots = @event.booked_spots - 1
+    @event.save
+    redirect_to event_path(@event)
+  end
+
+  def approve
+    @booking = Booking.find(params[:booking_id])
+    @event = Event.find(params[:event_id])
+    @booking.approved = true
+    @booking.save
+    @event.available_spots = @event.available_spots - 1
+    @event.booked_spots = @event.booked_spots + 1
+    @event.save
+    redirect_to event_path(@event)
   end
 
   private

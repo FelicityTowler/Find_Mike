@@ -1,6 +1,9 @@
 <h1>
   <%= @venue.name %>
 </h1>
+<% if @venue.photo.attached? %>
+  <div><%= cl_image_tag @venue.photo.key, height: 200, width: 8000, crop: :fill %></div>
+<% end %>
 <h2>
   Created by: <%= @venue.user.first_name %> <%= @venue.user.last_name %>
 </h2>
@@ -14,7 +17,11 @@
 
 <% if @venue.user == current_user %>
   <div><%= link_to "Edit venue", edit_venue_path(@venue) %></div>
-  <p>Delete venue</p>
+<% end %>
+
+<h2>Events at the <%= @venue.name %></h2>
+<% @venue.events.each do |event| %>
+  <%= link_to event.name, event_path(event) %> on <%= event.date %><br>
 <% end %>
 
 <div id="map"

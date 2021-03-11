@@ -25,7 +25,7 @@ class VenuesController < ApplicationController
   def edit
     @venue = Venue.find(params[:id])
   end
-  
+
   def update
     @venue = Venue.find(params[:id])
     @venue.update(venue_params)
@@ -42,6 +42,6 @@ class VenuesController < ApplicationController
 
   def venue_params
     params.require(:venue).permit(:name, :address, :postcode, :telephone, :email,
-      :website, :user, :verified)
+      :website, :user, :verified, :photo)
   end
 end
