@@ -16,10 +16,20 @@
   }
 }
 
-body.loaded h1 {
-    color: #FFF;
-    z-index: 100;
-    transition: all 2s ease;
+body.loaded {
+    h1 {
+      color: #FFF;
+      z-index: 100;
+      transition: all 2s ease;
+    }
+    .view-all {
+      z-index: 100;
+
+      a {
+        color: #FFF;
+        text-decoration: none;
+      }
+    }
   }
 
 .curtain-left,
