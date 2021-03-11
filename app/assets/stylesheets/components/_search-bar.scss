@@ -1,0 +1,23 @@
+
+.search-bar {
+  color: transparent;
+  margin-bottom: 20px;
+}
+body.loaded .search-bar {
+  visibility: visible;
+  height: 50px;
+  z-index: 100;
+  border-radius: 25px;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #FFF;
+  transition: all 2s ease;
+
+  label {
+    color: #000;
+  }
+}
+
+

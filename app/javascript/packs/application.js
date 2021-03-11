@@ -28,10 +28,13 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 // External imports
 import "bootstrap";
 
+// Internal imports, e.g:
+import { homepageSpotlight } from '../components/spotlight';
 
 // Internal imports, e.g:
 import { initMapbox } from '../plugins/init_mapbox';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
+  homepageSpotlight();
   initMapbox();
 });
