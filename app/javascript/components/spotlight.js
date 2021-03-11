@@ -16,6 +16,10 @@ var isUserMotion = false;
     spotlight.addEventListener('touchmove', move);
     spotlight.addEventListener('mousemove', move);
   }
+  window.onload = function() {
+    document.body.className += " loaded";
+  }
+  document.getElementById('query').valueAsDate = new Date();
 }
 
 export { homepageSpotlight };

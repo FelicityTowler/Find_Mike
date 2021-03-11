@@ -5,7 +5,22 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    color: transparent;
+    margin-bottom: 20px;
+  }
 }
+
+body.loaded h1 {
+    color: #FFF;
+    z-index: 100;
+    transition: all 2s ease;
+  }
 
 .curtain-left,
 .curtain-right {
@@ -39,16 +54,16 @@
     -0px 320px 40px rgba(0, 0, 0, 0.5) inset;
 }
 
-.curtains:hover .curtain-left {
+body.loaded .curtain-left {
   transform: translateX(-100%) rotate(15deg);
-  transition: all 3s ease;
-  transform-origin: 50% bottom;
+  transition: all 2s ease;
+  // transform-origin: 50% bottom;
 }
 
-.curtains:hover .curtain-right {
+body.loaded .curtain-right {
   transform: translateX(100%) rotate(-15deg);
-  transition: all 3s ease;
-  transform-origin: 50% bottom;
+  transition: all 2s ease;
+  // transform-origin: 50% bottom;
 }
 
 
@@ -62,7 +77,7 @@
 .scene {
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/61811/figure8s.jpg) center center;
+  background: url(brick-wall.png) center center;
   background-size: cover;
   overflow:hidden;
 }

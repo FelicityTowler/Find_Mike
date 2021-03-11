@@ -1,16 +1,16 @@
 <div class="curtains">
   <div class="curtain-left"></div>
   <div class="scene"></div>
-  <div class="spotlight">
-    <div>
+  <div class="spotlight"></div>
+  <div class="curtain-right"></div>
+    <h1>Find your next gig in the spotlight...</h1>
+<div class="search-bar">
   <%= form_tag events_path, method: :get do %>
-    <%= date_field_tag :query%>
+    <%= date_field_tag :query %>
     <%= check_box_tag :availability%>
     <%= label_tag(:availability, "Only events with availability.") %>
-    <%= submit_tag "Search", class: "btn search-btn" %>
+    <%= submit_tag "search", class: "btn search-btn" %>
   <% end %>
 </div>
 <%= link_to "View All Events", events_path %>
-  </div>
-  <div class="curtain-right"></div>
 </div>
