@@ -7,7 +7,7 @@ class EventsController < ApplicationController
           lat: event.latitude,
           lng: event.longitude,
           infoWindow: render_to_string(partial: "infowindow", locals: { event: event }),
-          image_url: helpers.asset_url('microphone-alt-solid')
+          image_url: helpers.asset_url('microphone-alt-solid.svg')
         }
       end
     elsif params[:query].present?
@@ -17,7 +17,7 @@ class EventsController < ApplicationController
           lat: event.latitude,
           lng: event.longitude,
           infoWindow: render_to_string(partial: "infowindow", locals: { event: event }),
-          image_url: helpers.asset_url('microphone-alt-solid')
+          image_url: helpers.asset_url('microphone-alt-solid.svg')
         }
       end
     else
@@ -27,7 +27,7 @@ class EventsController < ApplicationController
           lat: event.latitude,
           lng: event.longitude,
           infoWindow: render_to_string(partial: "infowindow", locals: { event: event }),
-          image_url: helpers.asset_url('microphone-alt-solid')
+          image_url: helpers.asset_url('microphone-alt-solid.svg')
         }
       end
     end
@@ -36,12 +36,12 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @booking = Booking.new
-    
+
     @markers = [{
       lat: @event.latitude,
       lng: @event.longitude,
       infoWindow: render_to_string(partial: "infowindow", locals: { event: @event }),
-      image_url: helpers.asset_url('microphone-alt-solid')
+      image_url: helpers.asset_url('microphone-alt-solid.svg')
     }]
     booking = Booking.find_by(user: current_user, event: @event)
     booking ? @booking = booking : @booking = Booking.new
