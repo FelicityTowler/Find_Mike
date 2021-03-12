@@ -1,10 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# # This file should contain all the record creation needed to seed the database with its default values.
+# # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# #
+# # Examples:
+# #
+# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+# #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
 require 'faker'
@@ -1124,3 +1124,39 @@ event_20.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'imag
 event_20.save!
 
 puts "Created event 20"
+
+one_hundred_users = []
+
+count = 0
+
+100.times do 
+  user = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  stage_name: Faker::FunnyName.two_word_name,
+  email: Faker::Internet.email,
+  password: "password",
+  telephone: "0800 123 456",
+  city: "London",
+  biography: Faker::GreekPhilosophers.quote,
+  dependability: [1, 2, 3, 4, 5].sample,
+  )
+  one_hundred_users << user
+  count += 1
+  puts "Created #{count.to_s} users."
+end
+
+puts "Created 100 users"
+
+booking_count = 0
+
+one_hundred_users.each do |person|
+  Booking.create!(
+    user: person,
+    event: Event.all.sample,
+    performed: false,
+    approved: true,
+  )
+  booking_count += 1
+  puts "Created #{booking_count.to_s} bookings."  
+end
