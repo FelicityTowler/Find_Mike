@@ -1,20 +1,31 @@
-<div class="container">
+<div class="container e-card">
 
   <% if @event.photo.attached? %>
-    <div class="event-image"><%= cl_image_tag @event.photo.key, height: 800, width: 1140, crop: :fill %></div>
+    <div class="e-card-image"><%= cl_image_tag @event.photo.key, height: 800, width: 1140, crop: :fill %></div>
   <% else %>
     <%# Need to add in a defult image here if there is no event image%>
-    <div class="event-image"><%= cl_image_tag @dog.photo.key, height: 800, width: 1140, crop: :fill %></div>
+    <div class="e-card-image"><%= cl_image_tag @event.photo.key, height: 800, width: 1140, crop: :fill %></div>
   <% end %>
 
-  <div class="event-info">
+  <div class="e-card-info">
 
     <div id=date-time-share>
       <div><i class="fas fa-calendar-alt"></i> <%= @event.date.strftime("#{mytime.day.ordinalize} %B") %> <i class="far fa-clock"></i> <%= @event.time.strftime("%-l%P") %></div>
       <div><i class="fas fa-share-alt"></i></div>
     </div>
-
-    
+    <h2 id="event-name"><%= @event.name %></h2>
+    <h3 id="venue-name"><i class="fas fa-map-marker-alt"></i> <%= @event.venue.name %></h3>
+    <p id="event-address"><%= @event.address %></p>
   </div>
 
+  
+  <% unless @event.available_spots = 0 %>
+    <div class="e-card-button-available">
+      <p>Slots available: <%= @event.available_spots %></p>
+    </div>
+  <% else %>
+    <div class="e-card-button-unavailable">
+      <p>Fully booked</p>
+    </div>
+  <% end %>
 </div>
