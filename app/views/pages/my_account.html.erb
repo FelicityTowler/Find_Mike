@@ -1,5 +1,20 @@
-<h1>
-  <% if @user.photo.attached? %>
-  <div><%= cl_image_tag @user.photo.key, height: 200, width: 8000, crop: :fill %></div>
+<div class="container">
+  <h1 class="underline">Hi <%= current_user.first_name%>
+  </h1>
+  <div class="col-8">
+  <% if current_user.photo.attached? %>
+  <div class="user-image">
+    <%= cl_image_tag current_user.photo.key, height: 400, width: 800, crop: :fill %></div>
   <% end %>
-</h1>
+</div>
+    <h2>Your Account Details</h2>
+      <div class='box_container'>Biography: <%= current_user.biography%></div>
+       <div class='box_container'>Stage Name:  <%= current_user.stage_name%></div>
+        <div class='box_container'>First Name:  <%= current_user.first_name%></div>
+        <div class='box_container'>Last Name:  <%= current_user.last_name %><br></div>
+        <div class='box_container'>Email Address: <%= current_user.email %><br></div>
+        <div class='box_container'>Telephone Number:  <%= current_user.telephone%></div>
+        <div class='box_container'>Video:  <%= current_user.video%></div>
+        <div class="btn-primary"></div>
+        <div class="edit_account"><%= link_to "Edit Account", edit_user_registration_path %></div>
+</div>

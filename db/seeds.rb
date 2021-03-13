@@ -1129,7 +1129,7 @@ one_hundred_users = []
 
 count = 0
 
-100.times do 
+100.times do
   user = User.create!(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
@@ -1158,5 +1158,5 @@ one_hundred_users.each do |person|
     approved: true,
   )
   booking_count += 1
-  puts "Created #{booking_count.to_s} bookings."  
+  puts "Created #{booking_count.to_s} bookings."
 end
