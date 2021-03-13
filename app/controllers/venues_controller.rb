@@ -15,6 +15,7 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
+    @has_left_review = current_user.ratings.where(venue: @venue).any?
     @markers = [{
       lat: @venue.latitude,
       lng: @venue.longitude
