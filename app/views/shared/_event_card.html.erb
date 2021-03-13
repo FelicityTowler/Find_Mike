@@ -1,0 +1,31 @@
+ <div class="e-card">
+
+  <% if event.photo.attached? %>
+    <div class="e-card-image"><%= cl_image_tag event.photo.key, height: 200,  width: 300, crop: :fill %></div>
+  <% else %>
+    <%# Need to add in a defult image here if there is no event image%>
+    <div class="e-card-image"><%= cl_image_tag event.photo.key, height: 200,  width: 300, crop: :fill %></div>
+  <% end %>
+
+  <div class="e-card-info">
+
+    <div class=date-time-share>
+      <div><i class="fas fa-calendar-alt"></i> <%= event.date.strftime("#{event.date.day.ordinalize} %B") %> <i class="far fa-clock"></i> <%= event.time.strftime("%-l%P") %></div>
+      <div><i class="fas fa-share-alt"></i></div>
+    </div>
+    <h2 class="event-name"><%= event.name %></h2>
+    <h3 class="venue-name"><i class="fas fa-map-marker-alt"></i> <%= event.venue.name %></h3>
+    <p class="event-address"><%= event.address %></p>
+  </div>
+
+  
+  <% if event.available_spots %>
+    <div class="e-card-button-available e-card-button">
+      <p>Slots available: <%= event.available_spots %> <%= image_tag "Microphone.svg" %></p>
+    </div>
+  <% else %>
+    <div class="e-card-button-unavailable e-card-button">
+      <p>Fully booked</p>
+    </div>
+  <% end %>
+</div>

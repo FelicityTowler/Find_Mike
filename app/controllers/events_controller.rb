@@ -7,7 +7,7 @@ class EventsController < ApplicationController
           lat: event.latitude,
           lng: event.longitude,
           infoWindow: render_to_string(partial: "infowindow", locals: { event: event }),
-          image_url: helpers.asset_url('microphone-alt-solid.svg')
+          image_url: helpers.asset_url('Microphone.svg')
         }
       end
     elsif params[:query].present?
@@ -17,7 +17,7 @@ class EventsController < ApplicationController
           lat: event.latitude,
           lng: event.longitude,
           infoWindow: render_to_string(partial: "infowindow", locals: { event: event }),
-          image_url: helpers.asset_url('microphone-alt-solid.svg')
+          image_url: helpers.asset_url('Microphone.svg')
         }
       end
     else
@@ -27,7 +27,7 @@ class EventsController < ApplicationController
           lat: event.latitude,
           lng: event.longitude,
           infoWindow: render_to_string(partial: "infowindow", locals: { event: event }),
-          image_url: helpers.asset_url('microphone-alt-solid.svg')
+          image_url: helpers.asset_url('Microphone.svg')
         }
       end
     end
