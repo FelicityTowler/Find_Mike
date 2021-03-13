@@ -1,0 +1,59 @@
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.e-card {
+  border-radius: 5px;
+  background-color: $background;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.e-card-image img {
+  border-radius: 5px 5px 0px 0px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.e-card-info {
+  padding: 24px;
+  color: #fff;
+}
+
+.date-time-share {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.event-name {
+  font-size: 24px;
+}
+
+.venue-name {
+  font-size: 18px;
+}
+
+.event-address {
+  font-size: 16px;
+}
+
+.e-card-button {
+  font-size: 20px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.e-card-button-available {
+  background-color: $accent;
+  img {
+    width: 18px;
+  }
+}
+
+.e-card-button-unavailable {
+  background-color: $danger;
+}
