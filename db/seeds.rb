@@ -1,10 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# # This file should contain all the record creation needed to seed the database with its default values.
+# # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# #
+# # Examples:
+# #
+# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+# #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
 require 'faker'
@@ -57,7 +57,7 @@ puts "Created venue 1"
 event_1 = Event.create!(
   name: "Comedy Virgins",
   time: "19:00",
-  date: "03/05/2021",
+  date: "17/05/2021",
   address: "128 Hartington Road, London",
   venue: venue_1,
   available_spots: 12,
@@ -112,7 +112,7 @@ puts "Created venue 2"
 event_2 = Event.create!(
   name: "We Are Funny Project",
   time: "19:00",
-  date: "03/05/2021",
+  date: "17/05/2021",
   address: "440 Kingsland Rd, London",
   venue: venue_2,
   available_spots: 12,
@@ -167,7 +167,7 @@ puts "Created venue 3"
 event_3 = Event.create!(
   name: "Sam Rhodes Comedy Explosion",
   time: "19:00",
-  date: "05/05/2021",
+  date: "19/05/2021",
   address: "123 Shoreditch High St, London",
   venue: venue_3,
   available_spots: 12,
@@ -225,7 +225,7 @@ puts "Created venue 4"
 event_4 = Event.create!(
   name: "Vauxhall Comedy Club",
   time: "19:00",
-  date: "06/05/2021",
+  date: "20/05/2021",
   address: "6 South Lambeth Place, London",
   venue: venue_4,
   available_spots: 12,
@@ -280,7 +280,7 @@ puts "Created venue 5"
 event_5 = Event.create!(
   name: "Not Another Comedy Night",
   time: "19:00",
-  date: "04/05/2021",
+  date: "18/05/2021",
   address: "20 Prince of Wales Road, London",
   venue: venue_5,
   available_spots: 10,
@@ -335,7 +335,7 @@ puts "Created venue 6"
 event_6 = Event.create!(
   name: "Lion’s Den Comedy Car Crash",
   time: "19:00",
-  date: "04/05/2021",
+  date: "19/05/2021",
   address: "36 Shaftesbury Avenue, London",
   venue: venue_6,
   available_spots: 15,
@@ -390,7 +390,7 @@ puts "Created venue 7"
 event_7 = Event.create!(
   name: "Rising Stars",
   time: "19:00",
-  date: "09/05/2021",
+  date: "23/05/2021",
   address: "33 New Oxford St, London",
   venue: venue_7,
   available_spots: 12,
@@ -446,7 +446,7 @@ puts "Created venue 8"
 event_8 = Event.create!(
   name: "South Kensington Comedy Club",
   time: "19:00",
-  date: "08/05/2021",
+  date: "22/05/2021",
   address: "34a Thurloe Place, London",
   venue: venue_8,
   available_spots: 12,
@@ -501,7 +501,7 @@ puts "Created venue 9"
 event_9 = Event.create!(
   name: "Funny Feckers",
   time: "19:00",
-  date: "06/05/2021",
+  date: "20/05/2021",
   address: "10 Gainsford St, London",
   venue: venue_9,
   available_spots: 12,
@@ -556,7 +556,7 @@ puts "Created venue 10"
 event_10 = Event.create!(
   name: "Birdies Comedy",
   time: "19:00",
-  date: "07/05/2021",
+  date: "21/05/2021",
   address: "2 Savoy St, London",
   venue: venue_10,
   available_spots: 18,
@@ -611,7 +611,7 @@ puts "Created venue 11"
 event_11 = Event.create!(
   name: "Downstairs at the King’s Head",
   time: "19:00",
-  date: "06/05/2021",
+  date: "20/05/2021",
   address: "2 Crouch End Hill, London",
   venue: venue_11,
   available_spots: 14,
@@ -667,7 +667,7 @@ puts "Created venue 12"
 event_12 = Event.create!(
   name: "The Blackout",
   time: "19:00",
-  date: "06/05/2021",
+  date: "20/05/2021",
   address: "302 Creek Rd, London",
   venue: venue_12,
   available_spots: 12,
@@ -779,7 +779,7 @@ puts "Created venue 14"
 event_14 = Event.create!(
   name: "Freedom Fridge",
   time: "19:00",
-  date: "06/05/2021",
+  date: "20/05/2021",
   address: "71-73 Torriano Avenue, London",
   venue: venue_14,
   available_spots: 12,
@@ -834,7 +834,7 @@ puts "Created venue 15"
 event_15 = Event.create!(
   name: "Jesters: Raconteur Night",
   time: "19:00",
-  date: "05/05/2021",
+  date: "19/05/2021",
   address: "86 Junction Road, London",
   venue: venue_15,
   available_spots: 12,
@@ -890,7 +890,7 @@ puts "Created venue 16"
 event_16 = Event.create!(
   name: "Instant Laughs",
   time: "19:00",
-  date: "04/05/2021",
+  date: "18/05/2021",
   address: "83 Hammersmith Grove, London",
   venue: venue_16,
   available_spots: 12,
@@ -945,7 +945,7 @@ puts "Created venue 17"
 event_17 = Event.create!(
   name: "Comedy Gobbledegook",
   time: "19:00",
-  date: "11/05/2021",
+  date: "25/05/2021",
   address: "96 Jamaica Rd, London",
   venue: venue_17,
   available_spots: 12,
@@ -1000,7 +1000,7 @@ puts "Created venue 18"
 event_18 = Event.create!(
   name: "TNT Comedy",
   time: "19:00",
-  date: "04/05/2021",
+  date: "18/05/2021",
   address: "86 Highgate Rd, London",
   venue: venue_18,
   available_spots: 12,
@@ -1055,7 +1055,7 @@ puts "Created venue 19"
 event_19 = Event.create!(
   name: "Heavenly Comedy",
   time: "19:00",
-  date: "05/05/2021",
+  date: "19/05/2021",
   address: "217 Uxbridge Rd, London",
   venue: venue_19,
   available_spots: 12,
@@ -1110,7 +1110,7 @@ puts "Created venue 20"
 event_20 = Event.create!(
   name: "G&B Comedy",
   time: "19:00",
-  date: "04/05/2021",
+  date: "18/05/2021",
   address: "West Ham Arches, London",
   venue: venue_20,
   available_spots: 12,
@@ -1124,3 +1124,39 @@ event_20.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'imag
 event_20.save!
 
 puts "Created event 20"
+
+one_hundred_users = []
+
+count = 0
+
+100.times do 
+  user = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  stage_name: Faker::FunnyName.two_word_name,
+  email: Faker::Internet.email,
+  password: "password",
+  telephone: "0800 123 456",
+  city: "London",
+  biography: Faker::GreekPhilosophers.quote,
+  dependability: [1, 2, 3, 4, 5].sample,
+  )
+  one_hundred_users << user
+  count += 1
+  puts "Created #{count.to_s} users."
+end
+
+puts "Created 100 users"
+
+booking_count = 0
+
+one_hundred_users.each do |person|
+  Booking.create!(
+    user: person,
+    event: Event.all.sample,
+    performed: false,
+    approved: true,
+  )
+  booking_count += 1
+  puts "Created #{booking_count.to_s} bookings."  
+end
