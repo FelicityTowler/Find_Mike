@@ -14,8 +14,13 @@
       <div><i class="fas fa-share-alt"></i></div>
     </div>
     <h2 class="event-name"><%= event.name %></h2>
-    <h3 class="venue-name"><i class="fas fa-map-marker-alt"></i> <%= event.venue.name %></h3>
-    <p class="event-address"><%= event.address %>, <%= event.venue.postcode %></p>
+    <div class="e-card-info-address">
+      <i class="fas fa-map-marker-alt e-card-info-address-marker"></i>
+      <div>
+        <h3 class="venue-name"><%= event.venue.name %></h3>
+        <p class="event-address"><%= event.address %> <%= event.venue.postcode %></p>
+      </div>
+    </div>
   </div>
 
   
