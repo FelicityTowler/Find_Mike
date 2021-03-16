@@ -30,6 +30,7 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { homepageSpotlight } from '../components/spotlight';
+import { dropDown } from '../components/drop-down';
 
 // Internal imports, e.g:
 import { initMapbox } from '../plugins/init_mapbox';
@@ -37,4 +38,5 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   homepageSpotlight();
   initMapbox();
+  document.getElementById("drop-down-button").addEventListener("click", dropDown);
 });
