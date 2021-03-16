@@ -3,9 +3,9 @@
 <% else %>
   <div class="container card-container">
     <% @events.each do |event| %>
-      <%#= link_to event_path(event) do %>
+      <%= link_to event_path(event) do %>
         <%= render 'shared/event_card', event: event %>
-      <%# end %>
+      <% end %>
     <% end %>
   </div>
 <% end %>

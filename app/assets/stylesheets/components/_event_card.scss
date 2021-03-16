@@ -2,15 +2,19 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .e-card {
   border-radius: 5px;
   background-color: $background;
-  text-decoration: none;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
+  text-decoration: none;
 }
 
 .e-card-image img {
@@ -20,8 +24,17 @@
 }
 
 .e-card-info {
-  padding: 24px;
+  padding: 16px;
   color: #fff;
+}
+
+.e-card-info-address {
+  display: flex;
+  justify-content: start;
+}
+
+.e-card-info-address-marker {
+  margin: 0px 8px 0px 0px;
 }
 
 .date-time-share {
@@ -45,6 +58,11 @@
 .e-card-button {
   font-size: 20px;
   border-radius: 0px 0px 5px 5px;
+  text-align: center;
+  p {
+    margin: 8px 0px;
+    color: black;
+  }
 }
 
 .e-card-button-available {
@@ -52,8 +70,34 @@
   img {
     width: 18px;
   }
+  &:hover {
+    transform: scale(1.02);
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
+    padding: 8px 0px;
+    p {
+      display: none;
+    }
+    &:before {
+      content: "Book now";
+      color: black;
+    }
+  }
 }
 
 .e-card-button-unavailable {
   background-color: $danger;
+  &:hover {
+    transform: scale(1.02);
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
+    padding: 8px 0px;
+    p {
+      display: none;
+    }
+    &:before {
+      content: "Get notified";
+      color: white;
+    }
+  }
 }
