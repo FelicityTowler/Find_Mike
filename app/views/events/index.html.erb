@@ -1,18 +1,19 @@
-<% if @events.blank? %>
-  There are no events on this date.
-<% else %>
-  <div class="container card-container">
-    <% @events.each do |event| %>
-      <%= link_to event_path(event) do %>
-        <%= render 'shared/event_card', event: event %>
+<div class="container events-index-container">
+  <% if @events.blank? %>
+    There are no events on this date.
+  <% else %>
+    <div class="container card-container">
+      <% @events.each do |event| %>
+        <%= link_to event_path(event) do %>
+          <%= render 'shared/event_card', event: event %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-<% end %>
-</div>
+    </div>
+  <% end %>
 
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div id="map"
+      style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
