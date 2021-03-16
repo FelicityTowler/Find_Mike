@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
 }
 
 .e-card-image img {
@@ -45,6 +46,10 @@
 .e-card-button {
   font-size: 20px;
   border-radius: 0px 0px 5px 5px;
+  text-align: center;
+  p {
+    margin: 8px 0px;
+  }
 }
 
 .e-card-button-available {
@@ -52,8 +57,32 @@
   img {
     width: 18px;
   }
+  &:hover {
+    transform: scale(1.02);
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
+    padding: 8px 0px;
+    p {
+      display: none;
+    }
+    &:before {
+      content: "Book now";
+    }
+  }
 }
 
 .e-card-button-unavailable {
   background-color: $danger;
+  &:hover {
+    transform: scale(1.02);
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
+    padding: 8px 0px;
+    p {
+      display: none;
+    }
+    &:before {
+      content: "Get notified";
+    }
+  }
 }
