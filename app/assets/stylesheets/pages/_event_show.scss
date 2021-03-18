@@ -16,6 +16,7 @@
   background-color: #333;
   top:-60px;
   left:400px;
+  box-shadow: inset 0px 0px 0px 10px #333;
 }
 
 
@@ -39,6 +40,7 @@
   justify-content: space-around;
   border-right: solid;
   border-width: 0.25px;
+
 }
 
 .Booking_slot {
@@ -55,8 +57,27 @@
 .event_bio {
   color: black;
   text-align: center;
+  padding: 30px 30px;
 }
 
-.f.submit {
-  color: yellow;
+.container_2 {
+  display: flex;
+
+}
+
+.btn-primary {
+  background-color: yellow !important;
+  border: yellow;
+  color: black;
+}
+
+.event_address {
+  background-color: #333;
+  color: #333;
+  width: 300px;
+}
+
+.container_3 {
+  display: flex;
+  height: 300px;
 }

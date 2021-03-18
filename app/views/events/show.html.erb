@@ -42,14 +42,14 @@
 </div>
 
 
-
+<div class="container_2">
 <div class ="event_bio">
-  "<%= @event.name %> is the hottest open mic event in London. Each week, unwitting amatuers try to entertain the audience and last until the sound of the gong.
+  <%= @event.name %> is the hottest open mic event in London. Each week, unwitting amatuers try to entertain the audience and last until the sound of the gong.
 </div>
 <div>
   <div class="Booking_slot">
     <div>
-      <%= @event.available_spots%>available slots
+      <%= @event.available_spots%> available slots
     </div>
     <% if @event.venue == current_user.venues.first %>
       <h3>
@@ -71,7 +71,7 @@
     <% end %>
     <% if Booking.where(["user_id = ? and event_id = ?", current_user, params[:id]]).empty? %>
       <%= simple_form_for([@event, @booking]) do |f| %>
-        <%= f.submit %>
+        <%= f.submit class:'btn-primary'%>
       <% end %>
     <% else %>
       <p>You are already booked on to this event</p>
@@ -80,18 +80,24 @@
     <% end %>
   </div>
 </div>
-
+</div>
 
 
 <div class="performers_carousel"></div>
 
 
 
+<div class="container_3">
+  <div class= "event_address">
 
-<div id="map"
-     style="width: 100%; height: 600px;"
+  </div>
+  <div id="map"
+     style="width: 100%; height: 300px;"
      data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+
 <div class="card col-4">
   <% if @event.cancelled == true %>
     <h2>CANCELLED</h2>
