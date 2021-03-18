@@ -1,31 +1,36 @@
-<h1>
-  <%= @venue.name %>
-</h1>
+<div class="header" style="background-image: url(<%= image_url("brick-wall.png") %>)">
+  <h1 class="header-text"><%= @venue.name %></h1>
+</div>
+<div class="container">
 <% if @venue.photo.attached? %>
-  <div><%= cl_image_tag @venue.photo.key, height: 200, width: 8000, crop: :fill %></div>
+  <div class="event-image" style="background-image: url(<%= cl_image_path(@venue.photo.key) %>)">
+    </div>
 <% end %>
-<h2>
-  Created by: <%= @venue.user.first_name %> <%= @venue.user.last_name %>
-</h2>
-<ul>
-  <li>Address: <%= @venue.address %></li>
-  <li>Postcode: <%= @venue.postcode %></li>
-  <li>Email: <%= @venue.email %></li>
-  <li>Telephone: <%= @venue.telephone %></li>
-  <li>Website: <%= @venue.website %></li>
-  <li> Rating: <%= @venue.average_rating %></li>
-</ul>
+<div class="row venue-details-container">
+  <div class="venue-details col-md-6 col-sm-12">
+  <% lines = @venue.address.split(',') %>
+  <% lines.each do |line| %>
+    <p><%= line %></p>
+  <% end %>
+  <p>Postcode: <%= @venue.postcode %></p>
+  <p>Email: <%= @venue.email %></p>
+  <p>Telephone: <%= @venue.telephone %></p>
+  <p>Website: <%= @venue.website %></p>
+  <p> Rating: <%= @venue.average_rating %></p>
+  </div>
+  <div id="map" class="col-md-6 col-sm-12"
+     style="width: 100%; height: 300px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
 
 <h2>Events at the <%= @venue.name %></h2>
 <% @venue.events.each do |event| %>
   <%= link_to event.name, event_path(event) %> on <%= event.date %><br>
 <% end %>
-
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
+
 <% if @venue.user == current_user %>
   <div><%= link_to "Edit venue", edit_venue_path(@venue) %></div>
 <% end %>
