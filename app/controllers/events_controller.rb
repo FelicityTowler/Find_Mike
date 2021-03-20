@@ -45,6 +45,7 @@ class EventsController < ApplicationController
     }]
     booking = Booking.find_by(user: current_user, event: @event)
     booking ? @booking = booking : @booking = Booking.new
+    @bookings = Booking.where(event: @event)
   end
 
   def new
