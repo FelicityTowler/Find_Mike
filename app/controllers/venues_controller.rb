@@ -16,11 +16,12 @@ class VenuesController < ApplicationController
   def show
     @venue = Venue.find(params[:id])
     @has_left_review = current_user.ratings.where(venue: @venue).any?
-    @markers = [{
+    @markers = {
       lat: @venue.latitude,
-      lng: @venue.longitude
-      # infoWindow: render_to_string(partial: "info_window", locals: { venue: @venue })
-    }]
+      lng: @venue.longitude,
+      infoWindow: render_to_string(partial: "infowindow", locals: { venue: @venue }),
+      image_url: helpers.asset_url('Microphone.svg')
+    }
   end
 
   def edit

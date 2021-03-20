@@ -35,13 +35,14 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @venue = @event.venue
     @booking = Booking.new
 
     @markers = [{
       lat: @event.latitude,
       lng: @event.longitude,
       infoWindow: render_to_string(partial: "infowindow", locals: { event: @event }),
-      image_url: helpers.asset_url('microphone-alt-solid.svg')
+      image_url: helpers.asset_url('Microphone.svg')
     }]
     booking = Booking.find_by(user: current_user, event: @event)
     booking ? @booking = booking : @booking = Booking.new
