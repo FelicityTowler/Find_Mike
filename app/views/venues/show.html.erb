@@ -7,19 +7,54 @@
     </div>
 <% end %>
 <div class="row venue-details-container">
-  <div class="venue-details col-md-6 col-sm-12">
-  <% lines = @venue.address.split(',') %>
-  <% lines.each do |line| %>
-    <p><%= line %></p>
-  <% end %>
-  <p>Postcode: <%= @venue.postcode %></p>
-  <p>Email: <%= @venue.email %></p>
-  <p>Telephone: <%= @venue.telephone %></p>
-  <p>Website: <%= @venue.website %></p>
-  <p> Rating: <%= @venue.average_rating %></p>
+  <div class="venue-details">
+    <table class="venue-details-table">
+      <tr class="venue-detail-row">
+        <td class="venue-detail-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </td>
+        <td class="venue-detail-text">
+          <% @venue.address.split(',').each do |line| %>
+            <%= line %><br>
+          <% end %>
+          <%= @venue.postcode %>
+        </td>
+      </tr>
+      <tr class="venue-detail-row">
+        <td class="venue-detail-icon">
+          <i class="fas fa-phone"></i>
+        </td>
+        <td class="venue-detail-text">
+          <%= @venue.telephone %>
+        </td>
+      </tr>
+      <tr class="venue-detail-row">
+        <td class="venue-detail-icon">
+          <i class="fas fa-envelope"></i>
+        </td>
+        <td class="venue-detail-text">
+          <a href="mailto:<%= @venue.email %>">Email the venue</a>
+        </td>
+      </tr>
+      <tr class="venue-detail-row">
+        <td class="venue-detail-icon">
+          <i class="fas fa-globe-americas"></i>
+        </td>
+        <td class="venue-detail-text">
+          <a href="<%= @venue.website %>" target="blank">Go to their website</a>
+        </td>
+      </tr>
+      <tr class="venue-detail-row">
+        <td class="venue-detail-icon">
+          <i class="fas fa-star"></i>
+        </td>
+        <td class="venue-detail-text">
+          <%= @venue.average_rating %>
+        </td>
+      </tr>
+    </table>
   </div>
-  <div id="map" class="col-md-6 col-sm-12"
-     style="width: 100%; height: 300px;"
+  <div id="map" class="venue-map"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
@@ -34,7 +69,6 @@
 <% if @venue.user == current_user %>
   <div><%= link_to "Edit venue", edit_venue_path(@venue) %></div>
 <% end %>
-<%= link_to 'Back', venue_path %>
 <% unless @has_left_review %>
   <%= link_to 'Leave a review', new_venue_rating_path(@venue) %>
 <% end %>
