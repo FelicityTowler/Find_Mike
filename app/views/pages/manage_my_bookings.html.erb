@@ -1,0 +1,87 @@
+<div class="header" style="background-image: url(<%= image_url("brick-wall.png") %>)">
+  <h1 class="header-text">Hi <%= current_user.first_name %></h1>
+</div>
+<div class="user-area-container">
+  <div class="user-dashboard">
+    <table class="dashboard-table">
+      <tr>
+        <td class="dashboard-icon"><i class="fas fa-home"></i></td>
+        <td class="dashboard-link"> <%= link_to "Manage my venue", "#" %></td>
+      </tr>
+      <tr>
+        <td class="dashboard-icon"><%= image_tag "Microphone-white.svg", height: "20px" %></td>
+        <td class="dashboard-link"> <%= link_to "Manage my events", "#" %></td>
+      </tr>
+      <tr>
+        <td class="dashboard-icon dashboard-active"><i class="fas fa-users"></i></td>
+        <td class="dashboard-link dashboard-active"> <%= link_to "Manage bookings", "#" %></td>
+      </tr>
+      <tr>
+        <td class="dashboard-icon"><i class="fas fa-user"></i></i></td>
+        <td class="dashboard-link"> <%= link_to "My account", "#" %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="manage-bookings-container">
+    <% @events.each do |event| %>
+      <div class="heading">
+        <%= event.name %> - <%= event.date.strftime("#{event.date.day.ordinalize} %B %Y") %>
+      </div>
+      <div class="pending-bookings">
+        <% event.bookings.where(approved: false).each do |booking| %>
+          <div class="manage-booking-card-pending">
+            <div class="dark-top-strip"></div>
+            <div class="user-avatar-position">
+              <%= cl_image_tag current_user.photo.key, class: "avatar-large-bordered" %>
+            </div>
+            <div class="booking-user-info">
+              <div class="center-text">
+                <span id="booking-user-name"><%= booking.user.first_name %> <%= booking.user.last_name %></span><br>
+                <%= image_tag "Microphone.svg", height: "16px" %> <%= booking.user.user_rating %>
+              </div><br>
+              <div class="booking-user-details">
+                <%= booking.user.biography %><br><br>
+                <i class="fas fa-phone"></i> <%= booking.user.telephone %><br><br>
+                <i class="fas fa-envelope"></i> <%= booking.user.email %>
+              </div>
+              <div class="buttons-flex">
+                <%= link_to "Approve", "#", class: "approve_button" %><%= link_to "Decline", "#", class: "decline-button" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <p></p>
+
+      <div class="approved-bookings">
+        <% event.bookings.where(approved: true).each do |booking| %>
+          <div class="manage-booking-card-approved">
+            <div class="dark-top-strip"></div>
+            <div class="user-avatar-position">
+              <%= cl_image_tag current_user.photo.key, class: "avatar-large-bordered" %>
+            </div>
+            <div class="approved-tick-position">
+              <i class="fas fa-check"></i>
+            </div>
+            <div class="booking-user-info">
+              <div class="center-text">
+                <span id="booking-user-name"><%= booking.user.first_name %> <%= booking.user.last_name %></span><br>
+                <%= image_tag "Microphone.svg", height: "16px" %> <%= booking.user.user_rating %>
+              </div><br>
+              <div class="booking-user-details">
+                <%= booking.user.biography %><br><br>
+                <i class="fas fa-phone"></i> <%= booking.user.telephone %><br><br>
+                <i class="fas fa-envelope"></i> <%= booking.user.email %>
+              </div>
+              <div class="buttons-flex">
+                <%= link_to "Mark as no show", "#", class: "decline-button" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

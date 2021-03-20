@@ -12,4 +12,10 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :password, :email, presence: true
   validates :email, uniqueness: true
+
+  def user_rating
+    bookings_made = bookings.where(approved: true)
+    bookings_attended = bookings.where(performed: true)
+    "#{bookings_attended.size}/#{bookings_made.size} gigs attended"
+  end
 end

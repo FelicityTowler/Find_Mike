@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 2021_03_06_161346) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "event_id", null: false
     t.bigint "user_id", null: false
-    t.boolean "performed"
-    t.boolean "approved"
+    t.boolean "performed", default: false
+    t.boolean "approved", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_bookings_on_event_id"
