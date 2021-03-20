@@ -4,10 +4,11 @@
 
 <div class="events-search-bar">
   <%= form_tag events_path, method: :get do %>
-    <%= date_field_tag :query %>
-    <%= check_box_tag :availability%>
-    <%= label_tag(:availability, "Only show me events with availability.") %>
-    <%= submit_tag "search", class: "btn search-btn" %>
+    <div class="events-search-bar-items">
+      <span><%= date_field_tag :query %></span>
+      <span class="events-search-bar-checkbox"><%= check_box_tag :availability%> <%= label_tag(:availability, "Only show events with availability") %></span>
+      <span><%= submit_tag "Update", class: "btn events-search-btn" %></span>
+    </div>
   <% end %>
 </div>
 
@@ -25,7 +26,7 @@
   <% end %>
 
   <div id="map"
-      style="width: 100%; height: 600px;"
+      style="width: 100%; height: 100vh;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>

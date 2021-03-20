@@ -41,6 +41,30 @@
   </div>
 </div>
 
+<div class="card col-4">
+<% if @event.cancelled == true %>
+  <h2>CANCELLED</h2>
+<% end %>
+<h1><%= @event.name %></h1>
+<p><i class="far fa-clock"></i> <%= @event.time.strftime("%-l%P") %></p>
+<p><i class="far fa-calendar-alt"></i> <%= @event.date.strftime("%A #{@event.date.day.ordinalize} %B") %></p>
+<%= link_to venue_path(@venue) do %><%= @event.venue.name %><br><% end %>
+<%= @event.venue.address %><br>
+<%= @event.venue.postcode %><br>
+<%= @event.information %><br>
+<% if @event.bringer %>
+  <p><i class="fas fa-user-friends"></i> bringer</p>
+<% end %>
+<%= @event.available_spots %><br>
+</div>
+</div>
+<h2>
+</h2>
+<h3>
+<% if @event.venue == current_user.venues.first %>
+  <%= link_to 'Edit Event', edit_event_path(@event) %><br>
+  <%= link_to 'Cancel Event', cancel_event_path(@event), method: :patch %><br>
+</h3>
 
 <div class="container_2">
 <div class ="event_bio">

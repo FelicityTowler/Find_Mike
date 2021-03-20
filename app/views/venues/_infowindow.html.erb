@@ -1,0 +1,17 @@
+<div class="mapboxgl-popup-content-stats">
+  <div>
+    <h2>
+      <%= link_to venue_path(venue) do %>
+        <%= venue.name %>
+      <% end %>
+    </h2>
+    <span><%= venue.name %></span>
+  </div>
+  <div>
+    <i class="fas"></i><br>
+    <ul>
+      <li>Address: <%= venue.address %></li>
+      <li>Postcode: <%= venue.postcode %></li>
+    </ul>
+  </div>
+</div>
