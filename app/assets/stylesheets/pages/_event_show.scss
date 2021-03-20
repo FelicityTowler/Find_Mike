@@ -47,9 +47,10 @@
   background-color: #333;
   text-align: center;
   color: white;
-  padding: 70px 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-radius: 15px;
-  width: 350px;
+  width: 250px;
   height: 75px;
   justify-content: space-between;
 }
@@ -74,10 +75,70 @@
 .event_address {
   background-color: #333;
   color: #333;
-  width: 300px;
+  width: 700px;
+  color: white;
+  padding: 80px 80px;
+  border:200px
 }
 
 .container_3 {
   display: flex;
   height: 300px;
+  padding: 0px 30px;
+}
+
+#map {
+  height: 300px;
+}
+
+.performers_carousel {
+  display: flex;
+  margin: 20px;
+
+}
+
+.h1 {
+  text-align: center;
+  font-size: 25px;
+  margin-left: 20px;
+}
+
+.performer_card {
+  background-color: white;
+  height: 275px;
+  width: 250px;
+  margin: 20px;
+  text-align: center;
+}
+
+.artist {
+  background-color: #333;
+  height: 63px;
+  width: 250px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+}
+
+.performer_photo {
+  background-color: grey;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: 13px;
+}
+
+.performer_name {
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 50px;
+}
+
+.performer_bio {
+  margin-top: 50px;
+  padding: 0px 16px;
+  font-size: 16px;
+  font-weight: 300;
 }

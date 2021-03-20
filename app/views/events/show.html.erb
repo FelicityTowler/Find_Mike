@@ -26,7 +26,7 @@
     </div>
     <div class="d-flex">
       <div class="event_details_card_box">
-        <div><%= image_tag"Microphone.svg", id:'microphone_icon' %></div>
+        <div><%= image_tag"Microphone-white.svg", id:'microphone_icon' %></div>
         <div>5 minutes slot</div>
       </div>
       <div class="event_details_card_box">
@@ -39,7 +39,6 @@
       </div>
     </div>
   </div>
-</div>
 
 <div class="card col-4">
 <% if @event.cancelled == true %>
@@ -105,19 +104,31 @@
   </div>
 </div>
 </div>
-
-
-<div class="performers_carousel"></div>
-
+  <h1>Performers at this event</h1>
+  <div class="performers_carousel">
+    <% @bookings.each do |booking| %>
+    <div class="performer_card">
+      <div class="artist">
+        <div class="performer_photo"></div>
+      </div>
+        <div class="performer_name"><%= booking.user.stage_name %></div>
+        <div class="performer_bio"> <%= booking.user.biography %></div>
+    </div>
+    <% end %>
+  </div>
 
 
 <div class="container_3">
   <div class= "event_address">
+    <i class="fas fa-map-marker-alt"></i>
+    <%= @event.venue.name %>
     <% lines = @event.address.split(',') %>
      <% lines.each do |line| %>
      <p><%= line %></p>
      <% end %>
-     <div> see all events at <%= link_to @event.venue.name, venue_path(@event.venue) %> </div>
+     <p><%=@event.venue.postcode  %></p>
+     <div>
+      <p>See all events at <%= link_to @event.venue.name, venue_path(@event.venue) %> </p> </div>
   </div>
 
   <div id="map"
@@ -125,11 +136,12 @@
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+  </div>
 
 <div class="card col-4">
   <% if @event.cancelled == true %>
     <h2>CANCELLED</h2>
   <% end %>
 </div>
-</div>
 
+</div>
