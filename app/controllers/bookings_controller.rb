@@ -25,6 +25,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @event = Event.find(params[:event_id])
     @booking.approved = true
+    @booking.performed = true
     @booking.save
     @event.available_spots = @event.available_spots - 1
     @event.booked_spots = @event.booked_spots + 1
