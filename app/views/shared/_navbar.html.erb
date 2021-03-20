@@ -1,6 +1,7 @@
 <div class="navbar-findmike">
-  <span class="title">Find M<%= image_tag "Microphone-upright-white.svg", height: 40 %>ke</span>
-
+  <%= link_to root_path do %>
+    <span class="title">Find M<%= image_tag "Microphone-upright-white.svg", height: 40 %>ke</span>
+  <% end %>
 
     <ul>
       <% if user_signed_in? %>
