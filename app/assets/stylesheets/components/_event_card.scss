@@ -1,12 +1,3 @@
-.card-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  a:hover {
-    text-decoration: none;
-  }
-}
-
 .e-card {
   border-radius: 5px;
   background-color: $background;

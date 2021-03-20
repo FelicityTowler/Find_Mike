@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'pages/manage_my_bookings', to: 'pages#manage_my_bookings'
 
   resources :users, only: [:destroy]
+
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :venues, except: [:index] do
