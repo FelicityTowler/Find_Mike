@@ -28,57 +28,65 @@
         <%= event.name %> - <%= event.date.strftime("#{event.date.day.ordinalize} %B %Y") %>
       </div>
       <div class="pending-bookings">
-        <% event.bookings.where(approved: false).each do |booking| %>
-          <div class="manage-booking-card-pending">
-            <div class="dark-top-strip"></div>
-            <div class="user-avatar-position">
-              <%= cl_image_tag current_user.photo.key, class: "avatar-large-bordered" %>
-            </div>
-            <div class="booking-user-info">
-              <div class="center-text">
-                <span id="booking-user-name"><%= booking.user.first_name %> <%= booking.user.last_name %></span><br>
-                <%= image_tag "Microphone.svg", height: "16px" %> <%= booking.user.user_rating %>
-              </div><br>
-              <div class="booking-user-details">
-                <%= booking.user.biography %><br><br>
-                <i class="fas fa-phone"></i> <%= booking.user.telephone %><br><br>
-                <i class="fas fa-envelope"></i> <%= booking.user.email %>
+        <h2>Pending</h2>
+        <% if event.bookings.where(approved: false).size > 0 %>
+          <% event.bookings.where(approved: false).each do |booking| %>
+            <div class="manage-booking-card-pending">
+              <div class="dark-top-strip"></div>
+              <div class="user-avatar-position">
+                <%= cl_image_tag current_user.photo.key, class: "avatar-large-bordered" %>
               </div>
-              <div class="buttons-flex">
-                <%= link_to "Approve", "#", class: "approve_button" %><%= link_to "Decline", "#", class: "decline-button" %>
+              <div class="booking-user-info">
+                <div class="center-text">
+                  <span id="booking-user-name"><%= booking.user.first_name %> <%= booking.user.last_name %></span><br>
+                  <%= image_tag "Microphone.svg", height: "16px" %> <%= booking.user.user_rating %>
+                </div><br>
+                <div class="booking-user-details">
+                  <%= booking.user.biography %><br><br>
+                  <i class="fas fa-phone"></i> <%= booking.user.telephone %><br><br>
+                  <i class="fas fa-envelope"></i> <%= booking.user.email %>
+                </div>
+                <div class="buttons-flex">
+                  <%= link_to "Approve", event_booking_approve_path(booking.event, booking), method: :patch, class: "approve_button" %><%= link_to "Decline", event_booking_path(booking.event, booking), method: :delete, data: { confirm: "Delete your booking for #{booking.event.name}?" }, class: "decline-button" %>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
+        <% else %>
+          There are no pending bookings for this event.
         <% end %>
       </div>
 
-      <p></p>
-
+      <h2>Approved</h2>
       <div class="approved-bookings">
-        <% event.bookings.where(approved: true).each do |booking| %>
-          <div class="manage-booking-card-approved">
-            <div class="dark-top-strip"></div>
-            <div class="user-avatar-position">
-              <%= cl_image_tag current_user.photo.key, class: "avatar-large-bordered" %>
-            </div>
-            <div class="approved-tick-position">
-              <i class="fas fa-check"></i>
-            </div>
-            <div class="booking-user-info">
-              <div class="center-text">
-                <span id="booking-user-name"><%= booking.user.first_name %> <%= booking.user.last_name %></span><br>
-                <%= image_tag "Microphone.svg", height: "16px" %> <%= booking.user.user_rating %>
-              </div><br>
-              <div class="booking-user-details">
-                <%= booking.user.biography %><br><br>
-                <i class="fas fa-phone"></i> <%= booking.user.telephone %><br><br>
-                <i class="fas fa-envelope"></i> <%= booking.user.email %>
+        <% if event.bookings.where(approved: false).size > 0 %>
+          <% event.bookings.where(approved: true).each do |booking| %>
+            <div class="manage-booking-card-approved">
+              <div class="dark-top-strip"></div>
+              <div class="user-avatar-position">
+                <%= cl_image_tag current_user.photo.key, class: "avatar-large-bordered" %>
               </div>
-              <div class="buttons-flex">
-                <%= link_to "Mark as no show", "#", class: "decline-button" %>
+              <div class="approved-tick-position">
+                <i class="fas fa-check"></i>
+              </div>
+              <div class="booking-user-info">
+                <div class="center-text">
+                  <span id="booking-user-name"><%= booking.user.first_name %> <%= booking.user.last_name %></span><br>
+                  <%= image_tag "Microphone.svg", height: "16px" %> <%= booking.user.user_rating %>
+                </div><br>
+                <div class="booking-user-details">
+                  <%= booking.user.biography %><br><br>
+                  <i class="fas fa-phone"></i> <%= booking.user.telephone %><br><br>
+                  <i class="fas fa-envelope"></i> <%= booking.user.email %>
+                </div>
+                <div class="buttons-flex">
+                  <%= link_to "Mark as no show", "#", class: "decline-button" %>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
+        <% else %>
+          There are no approved bookings for this event.
         <% end %>
       </div>
     <% end %>
