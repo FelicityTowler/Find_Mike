@@ -10,11 +10,11 @@
       </tr>
       <tr>
         <td class="dashboard-icon dashboard-active"><%= image_tag "Microphone.svg", height: "20px" %></td>
-        <td class="dashboard-link dashboard-active"> <%= link_to "Manage my events", "#" %></td>
+        <td class="dashboard-link dashboard-active"> <%= link_to "Manage my events", pages_manage_my_events_path %></td>
       </tr>
       <tr>
         <td class="dashboard-icon"><i class="fas fa-users"></i></td>
-        <td class="dashboard-link"> <%= link_to "Manage my bookings", "#" %></td>
+        <td class="dashboard-link"> <%= link_to "Manage my bookings", pages_manage_my_bookings_path %></td>
       </tr>
       <tr>
         <td class="dashboard-icon"><i class="fas fa-user"></i></i></td>
@@ -51,14 +51,10 @@
 
 
         <div class="e-card-button-edit e-card-button">
-          <p>Edit event</p>
+          <p><%= link_to "Edit event", edit_event_path(event) %></p>
         </div>
       </div>
     <% end %>
-
-
-
-
   </div>
 </div>
 

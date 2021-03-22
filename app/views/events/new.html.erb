@@ -1,17 +1,49 @@
 <div class="header" style="background-image: url(<%= image_url("brick-wall.png") %>)">
-  <h1 class="header-text">Example</h1>
+  <h1 class="header-text">Hi <%= current_user.first_name %></h1>
+</div>
+<div class="user-area-container">
+  <div class="user-dashboard">
+    <table class="dashboard-table">
+      <tr>
+        <td class="dashboard-icon"><i class="fas fa-home"></i></td>
+        <td class="dashboard-link"> <%= link_to "Manage my venue", "#" %></td>
+      </tr>
+      <tr>
+        <td class="dashboard-icon dashboard-active"><%= image_tag "Microphone.svg", height: "20px" %></td>
+        <td class="dashboard-link dashboard-active"> <%= link_to "Manage my events", pages_manage_my_events_path %></td>
+      </tr>
+      <tr>
+        <td class="dashboard-icon"><i class="fas fa-users"></i></td>
+        <td class="dashboard-link"> <%= link_to "Manage my bookings", pages_manage_my_bookings_path %></td>
+      </tr>
+      <tr>
+        <td class="dashboard-icon"><i class="fas fa-user"></i></i></td>
+        <td class="dashboard-link"> <%= link_to "My account", "#" %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="create-event-container">
+    <h2>Create an event at <%= current_user.venues.first.name %> </h2>
+    <%= simple_form_for @event do |f| %>
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :photo, as: :file %>
+      <%= f.input :time, as: :time %>
+      <%= f.input :date, as: :date %>
+      <%= f.input :bringer, as: :boolean, checked_value: true, unchecked_value: false %>
+      <%= f.input :information, as: :text %>
+      <%= f.input :total_spots %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Create your event", class: "edit-button" %>
+    </div>
+    <% end %>
+  </div>
 </div>
 
-<%= simple_form_for @event do |f| %>
-<div class="form-inputs">
-  <%= f.input :name %>
-  <%= f.input :time, as: :time %>
-  <%= f.input :date, as: :date %>
-  <%= f.input :bringer, as: :boolean, checked_value: true, unchecked_value: false %>
-  <%= f.input :information, as: :text %>
-  <%= f.input :total_spots %>
-</div>
-<div class="form-actions">
-  <%= f.button :submit, "Create Your Event", class: "btn-login" %>
-</div>
-<% end %>
+
+
+
+
+
+
