@@ -1,0 +1,21 @@
+.manage-events-container {
+  padding: 16px 16px 16px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.edit-event-container {
+  padding: 16px 16px 16px 0px;
+}
+
+.create-event-container {
+  padding: 16px 16px 16px 0px;
+}
+
+.edit-button {
+  background-color: $accent;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+

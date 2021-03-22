@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/pages/my_bookings', to: 'pages#my_bookings'
   get '/pages/my_account', to: 'pages#my_account'
   get 'pages/manage_my_bookings', to: 'pages#manage_my_bookings'
+  get 'pages/manage_my_events', to: 'pages#manage_my_events'
 
   resources :users, only: [:destroy]
 

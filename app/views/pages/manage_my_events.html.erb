@@ -1,0 +1,61 @@
+<div class="header" style="background-image: url(<%= image_url("brick-wall.png") %>)">
+  <h1 class="header-text">Hi <%= current_user.first_name %></h1>
+</div>
+<div class="user-area-container">
+  <div class="user-dashboard">
+    <table class="dashboard-table">
+      <tr>
+        <td class="dashboard-icon"><i class="fas fa-home"></i></td>
+        <td class="dashboard-link"> <%= link_to "Manage my venue", "#" %></td>
+      </tr>
+      <tr>
+        <td class="dashboard-icon dashboard-active"><%= image_tag "Microphone.svg", height: "20px" %></td>
+        <td class="dashboard-link dashboard-active"> <%= link_to "Manage my events", pages_manage_my_events_path %></td>
+      </tr>
+      <tr>
+        <td class="dashboard-icon"><i class="fas fa-users"></i></td>
+        <td class="dashboard-link"> <%= link_to "Manage my bookings", pages_manage_my_bookings_path %></td>
+      </tr>
+      <tr>
+        <td class="dashboard-icon"><i class="fas fa-user"></i></i></td>
+        <td class="dashboard-link"> <%= link_to "My account", "#" %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="manage-events-container">
+    <% @events.each do |event| %>
+      <div class="e-card">
+
+        <% if event.photo.attached? %>
+          <div class="e-card-image"><%= cl_image_tag event.photo.key, height: 200,  width: 300, crop: :fill %></div>
+        <% else %>
+          <%# Need to add in a defult image here if there is no event image%>
+          <div class="e-card-image"><%= cl_image_tag event.photo.key, height: 200,  width: 300, crop: :fill %></div>
+        <% end %>
+
+        <div class="e-card-info">
+          <div class=date-time-share>
+            <div><i class="fas fa-calendar-alt"></i> <%= event.date.strftime("#{event.date.day.ordinalize} %B") %> | <i class="far fa-clock"></i> <%= event.time.strftime("%-l%P") %></div>
+            <div><i class="fas fa-share-alt"></i></div>
+          </div>
+          <h2 class="event-name"><%= link_to event.name, event_path(event) %> </h2>
+          <div class="e-card-info-address">
+            <i class="fas fa-map-marker-alt e-card-info-address-marker"></i>
+            <div>
+              <h3 class="venue-name"><%= event.venue.name %></h3>
+              <p class="event-address"><%= event.address %> <%= event.venue.postcode %></p>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="e-card-button-edit e-card-button">
+          <p><%= link_to "Edit event", edit_event_path(event) %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

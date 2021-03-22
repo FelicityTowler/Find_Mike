@@ -18,7 +18,10 @@ class PagesController < ApplicationController
   def manage_my_bookings
     @venue = current_user.venues.first
     @events = @venue.events
-
   end
 
+  def manage_my_events
+    @venue = current_user.venues.first
+    @events = @venue.events
+  end
 end
