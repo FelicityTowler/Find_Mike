@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :events do
     resources :bookings, except: [:index] do
       patch :approve
+      patch :mark_no_show
     end
     member do
       patch :cancel
