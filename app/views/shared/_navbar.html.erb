@@ -1,6 +1,7 @@
 <div class="navbar-findmike">
-  <span class="title">Find M<%= image_tag "Microphone-upright-white.svg", height: 40 %>ke</span>
-
+  <%= link_to root_path do %>
+    <span class="title">Find M<%= image_tag "Microphone-upright-white.svg", height: 40 %>ke</span>
+  <% end %>
 
     <ul>
       <% if user_signed_in? %>
@@ -28,7 +29,6 @@
               <% if current_user.venues.present? %>
                 <%= link_to "Manage my venue", "#" %>
                 <%= link_to "Manage my events", "#" %>
-                <%= link_to "Manage my venue", "#" %>
                 <%= link_to "Manage my bookings", "#" %>
                 <%= link_to "My account", "#" %>
               <% else %>

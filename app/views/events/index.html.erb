@@ -1,18 +1,33 @@
-<% if @events.blank? %>
-  There are no events on this date.
-<% else %>
-  <div class="container card-container">
-    <% @events.each do |event| %>
-      <%= link_to event_path(event) do %>
-        <%= render 'shared/event_card', event: event %>
-      <% end %>
-    <% end %>
-  </div>
-<% end %>
+<div class="header" style="background-image: url(<%= image_url("brick-wall.png") %>)">
+  <h1 class="header-text">Open Mics</h1>
 </div>
 
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="events-search-bar">
+  <%= form_tag events_path, method: :get do %>
+    <div class="events-search-bar-items">
+      <span><%= date_field_tag :query %></span>
+      <span class="events-search-bar-checkbox"><%= check_box_tag :availability%> <%= label_tag(:availability, "Only show events with availability") %></span>
+      <span><%= submit_tag "Update", class: "btn events-search-btn" %></span>
+    </div>
+  <% end %>
+</div>
+
+<div class="container events-index-container">
+  <% if @events.blank? %>
+    There are no events on this date.
+  <% else %>
+    <div class="container card-container">
+      <% @events.each do |event| %>
+        <%= link_to event_path(event) do %>
+          <%= render 'shared/event_card', event: event %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div id="map"
+      style="width: 100%; height: 100vh;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>

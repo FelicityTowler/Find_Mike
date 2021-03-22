@@ -14,4 +14,11 @@ class PagesController < ApplicationController
 
   def my_events
   end
+
+  def manage_my_bookings
+    @venue = current_user.venues.first
+    @events = @venue.events
+
+  end
+
 end

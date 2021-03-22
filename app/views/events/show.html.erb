@@ -1,65 +1,145 @@
+<div class="header" style="background-image: url(<%= image_url("brick-wall.png") %>)">
+  <h1 class="header-text"><%= @event.name %></h1>
+</div>
 <div class="container">
-  <div class="row">
-  <div class="col-8">
   <% if @event.photo.attached? %>
-  <div class="event-image">
-    <%= cl_image_tag @event.venue.photo.key, height: 400, width: 800, crop: :fill %></div>
+    <div class="event-image" style="background-image: url(<%= cl_image_path(@event.venue.photo.key) %>)">
+      <% if @event.cancelled == true %>
+        <h2>CANCELLED</h2>
+      <% end %>
+    </div>
   <% end %>
+  <div class="event_details_card">
+    <div class="d-flex">
+      <div class="event_details_card_box">
+        <div>
+          <i class="far fa-calendar-alt"></i>
+        </div>
+        <div>
+          <%= @event.date.strftime("%A #{@event.date.day.ordinalize} %B") %>
+        </div>
+      </div>
+      <div class="event_details_card_box">
+        <div><i class="far fa-clock"></i></div>
+        <div> <%= @event.time.strftime("%-l%P") %></div>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="event_details_card_box">
+        <div><%= image_tag"Microphone-white.svg", id:'microphone_icon' %></div>
+        <div>5 minutes slot</div>
+      </div>
+      <div class="event_details_card_box">
+        <div><i class="fas fa-user-friends"></i></div>
+        <div>
+          <% if @event.bringer %>
+            bringer
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card col-4">
+    <% if @event.cancelled == true %>
+      <h2>CANCELLED</h2>
+    <% end %>
+    <h1><%= @event.name %></h1>
+    <p><i class="far fa-clock"></i> <%= @event.time.strftime("%-l%P") %></p>
+    <p><i class="far fa-calendar-alt"></i> <%= @event.date.strftime("%A #{@event.date.day.ordinalize} %B") %></p>
+    <%= link_to venue_path(@venue) do %><%= @event.venue.name %><br><% end %>
+    <%= @event.venue.address %><br>
+    <%= @event.venue.postcode %><br>
+    <%= @event.information %><br>
+    <% if @event.bringer %>
+      <p><i class="fas fa-user-friends"></i> bringer</p>
+    <% end %>
+    <%= @event.available_spots %><br>
+  </div>
 </div>
-<div class="card col-4">
-<% if @event.cancelled == true %>
-  <h2>CANCELLED</h2>
-<% end %>
-<h1><%= @event.name %></h1>
-<p><i class="far fa-clock"></i> <%= @event.time.strftime("%-l%P") %></p>
-<p><i class="far fa-calendar-alt"></i> <%= @event.date.strftime("%A #{@event.date.day.ordinalize} %B") %></p>
-<%= @event.venue.name %><br>
-<%= @event.venue.address %><br>
-<%= @event.venue.postcode %><br>
-<%= @event.information %><br>
-<% if @event.bringer %>
-  <p><i class="fas fa-user-friends"></i> bringer</p>
-<% end %>
-<%= @event.available_spots %><br>
-</div>
-</div>
-<h2>
-</h2>
+
 <h3>
-<% if @event.venue == current_user.venues.first %>
-  <%= link_to 'Edit Event', edit_event_path(@event) %><br>
-  <%= link_to 'Cancel Event', cancel_event_path(@event), method: :patch %><br>
+  <% if @event.venue == current_user.venues.first %>
+    <%= link_to 'Edit Event', edit_event_path(@event) %><br>
+    <%= link_to 'Cancel Event', cancel_event_path(@event), method: :patch %><br>
+  <% end %>
 </h3>
 
-  <h2>Requested Bookings</h2>
-  <% @event.bookings.each do |booking| %>
-    <% if booking.approved %>
-      APPROVED
+<div class="container_2">
+  <div class ="event_bio">
+    <%= @event.name %> is the hottest open mic event in London. Each week, unwitting amatuers try to entertain the audience and last until the sound of the gong.
+  </div>
+  <div class="Booking_slot">
+    <div>
+      <%= @event.available_spots%> available slots
+    </div>
+    <% if @event.venue == current_user.venues.first %>
+      <h3>
+        <%= link_to 'Edit Event', edit_event_path(@event) %><br>
+        <%= link_to 'Cancel Event', cancel_event_path(@event), method: :patch %><br>
+      </h3>
+      <h2>Requested Bookings</h2>
+      <% @event.bookings.each do |booking| %>
+        <% if booking.approved %>
+          APPROVED
+        <% end %>
+        <%= booking.user.first_name %> <%= booking.user.last_name %> <%= booking.user.email %>
+        <% if booking.approved %>
+          Booked!
+        <% else %>
+          <%= link_to "Approve Booking", event_booking_approve_path(@event, booking), method: :patch %>
+        <% end %>
+      <% end %>
     <% end %>
-    <%= booking.user.first_name %> <%= booking.user.last_name %> <%= booking.user.email %>
-    <% if booking.approved %>
-      Booked!
+    <% if Booking.where(["user_id = ? and event_id = ?", current_user, params[:id]]).empty? %>
+      <%= simple_form_for([@event, @booking]) do |f| %>
+        <%= f.submit class:'btn-primary'%>
+      <% end %>
     <% else %>
-      <%= link_to "Approve Booking", event_booking_approve_path(@event, booking), method: :patch %>
+      <p>You are already booked on to this event</p>
+      <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, event_booking_path(@event, @booking),
+          method: :delete, data: { confirm: "Delete your booking for #{@event.name}?" } %>
     <% end %>
-  <% end %>
-<% end %>
-<% if Booking.where(["user_id = ? and event_id = ?", current_user, params[:id]]).empty? %>
-<%= simple_form_for([@event, @booking]) do |f| %>
-  <%= f.submit %>
-<% end %>
-<% else %>
-<p>You are already booked on to this event</p>
-<%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, event_booking_path(@event, @booking),
-    method: :delete, data: { confirm: "Delete your booking for #{@event.name}?" } %>
-<% end %>
+  </div>
+</div>
 
+<h1>Performers at this event</h1>
+<div class="performers_carousel">
+  <% @bookings.each do |booking| %>
+    <div class="performer_card">
+      <div class="artist">
+        <div class="performer_photo"></div>
+      </div>
+        <div class="performer_name"><%= booking.user.stage_name %></div>
+        <div class="performer_bio"> <%= booking.user.biography %></div>
+    </div>
+  <% end %>
 </div>
 
 
-<div id="map"
-     style="width: 100%; height: 600px;"
+<div class="container_3">
+  <div class= "event_address">
+    <i class="fas fa-map-marker-alt"></i>
+    <%= @event.venue.name %>
+    <% lines = @event.address.split(',') %>
+    <% lines.each do |line| %>
+      <p><%= line %></p>
+    <% end %>
+    <p><%= @event.venue.postcode %></p>
+    <div>
+      <p>See all events at <%= link_to @event.venue.name, venue_path(@event.venue) %> </p>
+    </div>
+  </div>
+
+  <div id="map"
+     style="width: 100%; height: 300px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
 
+<div class="card col-4">
+  <% if @event.cancelled == true %>
+    <h2>CANCELLED</h2>
+  <% end %>
+</div>

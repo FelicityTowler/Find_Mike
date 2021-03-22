@@ -62,6 +62,7 @@ event_1 = Event.create!(
   venue: venue_1,
   available_spots: 12,
   total_spots: 12,
+  booked_spots: 0,
   bringer: true,
 )
 
@@ -1125,38 +1126,38 @@ event_20.save!
 
 puts "Created event 20"
 
-one_hundred_users = []
+# one_hundred_users = []
 
-count = 0
+# count = 0
 
-100.times do
-  user = User.create!(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  stage_name: Faker::FunnyName.two_word_name,
-  email: Faker::Internet.email,
-  password: "password",
-  telephone: "0800 123 456",
-  city: "London",
-  biography: Faker::GreekPhilosophers.quote,
-  dependability: [1, 2, 3, 4, 5].sample,
-  )
-  one_hundred_users << user
-  count += 1
-  puts "Created #{count.to_s} users."
-end
+# 100.times do
+#   user = User.create!(
+#   first_name: Faker::Name.first_name,
+#   last_name: Faker::Name.last_name,
+#   stage_name: Faker::FunnyName.two_word_name,
+#   email: Faker::Internet.email,
+#   password: "password",
+#   telephone: "0800 123 456",
+#   city: "London",
+#   biography: Faker::GreekPhilosophers.quote,
+#   dependability: [1, 2, 3, 4, 5].sample,
+#   )
+#   one_hundred_users << user
+#   count += 1
+#   puts "Created #{count.to_s} users."
+# end
 
-puts "Created 100 users"
+# puts "Created 100 users"
 
-booking_count = 0
+# booking_count = 0
 
-one_hundred_users.each do |person|
-  Booking.create!(
-    user: person,
-    event: Event.all.sample,
-    performed: false,
-    approved: true,
-  )
-  booking_count += 1
-  puts "Created #{booking_count.to_s} bookings."
-end
+# one_hundred_users.each do |person|
+#   Booking.create!(
+#     user: person,
+#     event: Event.all.sample,
+#     performed: false,
+#     approved: true,
+#   )
+#   booking_count += 1
+#   puts "Created #{booking_count.to_s} bookings."
+# end
