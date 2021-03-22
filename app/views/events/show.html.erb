@@ -40,36 +40,35 @@
     </div>
   </div>
 
-<div class="card col-4">
-<% if @event.cancelled == true %>
-  <h2>CANCELLED</h2>
-<% end %>
-<h1><%= @event.name %></h1>
-<p><i class="far fa-clock"></i> <%= @event.time.strftime("%-l%P") %></p>
-<p><i class="far fa-calendar-alt"></i> <%= @event.date.strftime("%A #{@event.date.day.ordinalize} %B") %></p>
-<%= link_to venue_path(@venue) do %><%= @event.venue.name %><br><% end %>
-<%= @event.venue.address %><br>
-<%= @event.venue.postcode %><br>
-<%= @event.information %><br>
-<% if @event.bringer %>
-  <p><i class="fas fa-user-friends"></i> bringer</p>
-<% end %>
-<%= @event.available_spots %><br>
+  <div class="card col-4">
+    <% if @event.cancelled == true %>
+      <h2>CANCELLED</h2>
+    <% end %>
+    <h1><%= @event.name %></h1>
+    <p><i class="far fa-clock"></i> <%= @event.time.strftime("%-l%P") %></p>
+    <p><i class="far fa-calendar-alt"></i> <%= @event.date.strftime("%A #{@event.date.day.ordinalize} %B") %></p>
+    <%= link_to venue_path(@venue) do %><%= @event.venue.name %><br><% end %>
+    <%= @event.venue.address %><br>
+    <%= @event.venue.postcode %><br>
+    <%= @event.information %><br>
+    <% if @event.bringer %>
+      <p><i class="fas fa-user-friends"></i> bringer</p>
+    <% end %>
+    <%= @event.available_spots %><br>
+  </div>
 </div>
-</div>
-<h2>
-</h2>
+
 <h3>
-<% if @event.venue == current_user.venues.first %>
-  <%= link_to 'Edit Event', edit_event_path(@event) %><br>
-  <%= link_to 'Cancel Event', cancel_event_path(@event), method: :patch %><br>
+  <% if @event.venue == current_user.venues.first %>
+    <%= link_to 'Edit Event', edit_event_path(@event) %><br>
+    <%= link_to 'Cancel Event', cancel_event_path(@event), method: :patch %><br>
+  <% end %>
 </h3>
 
 <div class="container_2">
-<div class ="event_bio">
-  <%= @event.name %> is the hottest open mic event in London. Each week, unwitting amatuers try to entertain the audience and last until the sound of the gong.
-</div>
-<div>
+  <div class ="event_bio">
+    <%= @event.name %> is the hottest open mic event in London. Each week, unwitting amatuers try to entertain the audience and last until the sound of the gong.
+  </div>
   <div class="Booking_slot">
     <div>
       <%= @event.available_spots%> available slots
@@ -103,10 +102,10 @@
     <% end %>
   </div>
 </div>
-</div>
-  <h1>Performers at this event</h1>
-  <div class="performers_carousel">
-    <% @bookings.each do |booking| %>
+
+<h1>Performers at this event</h1>
+<div class="performers_carousel">
+  <% @bookings.each do |booking| %>
     <div class="performer_card">
       <div class="artist">
         <div class="performer_photo"></div>
@@ -114,8 +113,8 @@
         <div class="performer_name"><%= booking.user.stage_name %></div>
         <div class="performer_bio"> <%= booking.user.biography %></div>
     </div>
-    <% end %>
-  </div>
+  <% end %>
+</div>
 
 
 <div class="container_3">
@@ -123,12 +122,13 @@
     <i class="fas fa-map-marker-alt"></i>
     <%= @event.venue.name %>
     <% lines = @event.address.split(',') %>
-     <% lines.each do |line| %>
-     <p><%= line %></p>
-     <% end %>
-     <p><%=@event.venue.postcode  %></p>
-     <div>
-      <p>See all events at <%= link_to @event.venue.name, venue_path(@event.venue) %> </p> </div>
+    <% lines.each do |line| %>
+      <p><%= line %></p>
+    <% end %>
+    <p><%= @event.venue.postcode %></p>
+    <div>
+      <p>See all events at <%= link_to @event.venue.name, venue_path(@event.venue) %> </p>
+    </div>
   </div>
 
   <div id="map"
@@ -136,12 +136,10 @@
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  </div>
+</div>
 
 <div class="card col-4">
   <% if @event.cancelled == true %>
     <h2>CANCELLED</h2>
   <% end %>
-</div>
-
 </div>
