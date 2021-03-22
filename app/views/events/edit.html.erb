@@ -6,7 +6,7 @@
     <table class="dashboard-table">
       <tr>
         <td class="dashboard-icon"><i class="fas fa-home"></i></td>
-        <td class="dashboard-link"> <%= link_to "Manage my venue", "#" %></td>
+        <td class="dashboard-link"> <%= link_to "Manage my venue",  edit_venue_path(current_user.venues.first) %></td>
       </tr>
       <tr>
         <td class="dashboard-icon dashboard-active"><%= image_tag "Microphone.svg", height: "20px" %></td>
