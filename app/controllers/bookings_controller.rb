@@ -30,7 +30,15 @@ class BookingsController < ApplicationController
     @event.available_spots = @event.available_spots - 1
     @event.booked_spots = @event.booked_spots + 1
     @event.save
-    redirect_to event_path(@event)
+    redirect_to pages_manage_my_bookings_path
+  end
+
+  def mark_no_show
+    @booking = Booking.find(params[:booking_id])
+    @event = Event.find(params[:event_id])
+    @booking.performed = false
+    @booking.save
+    redirect_to pages_manage_my_bookings_path
   end
 
   private

@@ -59,7 +59,7 @@
 
       <h2>Approved</h2>
       <div class="approved-bookings">
-        <% if event.bookings.where(approved: false).size > 0 %>
+        <% if event.bookings.where(approved: true).size > 0 %>
           <% event.bookings.where(approved: true).each do |booking| %>
             <div class="manage-booking-card-approved">
               <div class="dark-top-strip"></div>
@@ -80,7 +80,11 @@
                   <i class="fas fa-envelope"></i> <%= booking.user.email %>
                 </div>
                 <div class="buttons-flex">
-                  <%= link_to "Mark as no show", "#", class: "decline-button" %>
+                  <% if booking.performed %>
+                    <%= link_to "Mark as no show", event_booking_mark_no_show_path(booking.event, booking), method: :patch, class: "decline-button" %>
+                  <% else %>
+                    <div class="decline-button">Marked as no show</div>
+                  <% end %>
                 </div>
               </div>
             </div>
