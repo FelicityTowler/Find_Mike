@@ -31,6 +31,9 @@ import "bootstrap";
 // Internal imports, e.g:
 import { homepageSpotlight } from '../components/spotlight';
 import { dropDown } from '../components/drop-down';
+import { eventBookingModal } from '../components/event_booking_modal';
+import { eventBookingModalClose } from '../components/event_booking_modal';
+import { eventBookingModalCloseElse } from '../components/event_booking_modal';
 
 // Internal imports, e.g:
 import { initMapbox } from '../plugins/init_mapbox';
@@ -39,4 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   homepageSpotlight();
   initMapbox();
   document.getElementById("drop-down-button").addEventListener("click", dropDown);
+  document.getElementById("event_booking_modal_button").addEventListener("click", eventBookingModal);
+  document.getElementById("close_event_booking_modal").addEventListener("click", eventBookingModalClose);
+  window.addEventListener("click", eventBookingModalCloseElse);
 });
