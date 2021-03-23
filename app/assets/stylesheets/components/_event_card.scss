@@ -116,3 +116,20 @@
     text-decoration: none;
   }
 }
+
+.e-card-button-cancel {
+  background-color: $negative;
+  transition: 0.2s;
+  img {
+    width: 18px;
+  }
+  &:hover {
+    transform: scale(1.04);
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}

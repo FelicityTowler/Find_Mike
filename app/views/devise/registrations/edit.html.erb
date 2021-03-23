@@ -4,22 +4,33 @@
 <div class="user-area-container">
   <div class="user-dashboard">
     <table class="dashboard-table">
-      <tr>
-        <td class="dashboard-icon"><i class="fas fa-home"></i></td>
-        <td class="dashboard-link"> <%= link_to "Manage my venue", edit_venue_path(current_user.venues.first) %></td>
-      </tr>
-      <tr>
-        <td class="dashboard-icon"><%= image_tag "Microphone-white.svg", height: "20px" %></td>
-        <td class="dashboard-link"> <%= link_to "Manage my events", pages_manage_my_events_path %></td>
-      </tr>
-      <tr>
-        <td class="dashboard-icon"><i class="fas fa-users"></i></td>
-        <td class="dashboard-link"> <%= link_to "Manage bookings", pages_manage_my_bookings_path %></td>
-      </tr>
-      <tr>
-        <td class="dashboard-icon dashboard-active"><i class="fas fa-user"></i></i></td>
-        <td class="dashboard-link dashboard-active"> <%= link_to "My account", edit_user_registration_path %></td>
-      </tr>
+      <% if current_user.venues.first.present? %>
+        <tr>
+          <td class="dashboard-icon"><i class="fas fa-home"></i></td>
+          <td class="dashboard-link"> <%= link_to "Manage my venue", edit_venue_path(current_user.venues.first) %></td>
+        </tr>
+        <tr>
+          <td class="dashboard-icon"><%= image_tag "Microphone-white.svg", height: "20px" %></td>
+          <td class="dashboard-link"> <%= link_to "Manage my events", pages_manage_my_events_path %></td>
+        </tr>
+        <tr>
+          <td class="dashboard-icon"><i class="fas fa-users"></i></td>
+          <td class="dashboard-link"> <%= link_to "Manage bookings", pages_manage_my_bookings_path %></td>
+        </tr>
+        <tr>
+          <td class="dashboard-icon dashboard-active"><i class="fas fa-user"></i></i></td>
+          <td class="dashboard-link dashboard-active"> <%= link_to "My account", edit_user_registration_path %></td>
+        </tr>
+      <% else %>
+        <tr>
+          <td class="dashboard-icon"><i class="fas fa-users"></i></td>
+          <td class="dashboard-link"> <%= link_to "My bookings", pages_my_bookings_path %></td>
+        </tr>
+        <tr>
+          <td class="dashboard-icon dashboard-active"><i class="fas fa-user"></i></i></td>
+          <td class="dashboard-link dashboard-active"> <%= link_to "My account", edit_user_registration_path %></td>
+        </tr>
+      <% end %>
     </table>
   </div>
   <div class="my-account-container">
