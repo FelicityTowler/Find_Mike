@@ -73,6 +73,9 @@
     <div>
       <%= @event.available_spots%> available slots
     </div>
+    <div id="event_booking_modal_button" class="modal_button">
+      Book event
+    </div>
     <% if @event.venue == current_user.venues.first %>
       <h3>
         <%= link_to 'Edit Event', edit_event_path(@event) %><br>
@@ -142,4 +145,39 @@
   <% if @event.cancelled == true %>
     <h2>CANCELLED</h2>
   <% end %>
+</div>
+
+<div id="event_booking_modal" class="event_booking_modal">
+  <div class="event_booking_modal_content">
+    <h2><%= @event.name %></h2>
+    <table>
+      <tr>
+        <td><i class="fas fa-map-marker-alt"></i></td>
+        <td><%= @event.venue.name %></td>
+      </tr>
+      <tr>
+        <td><i class="far fa-calendar-alt"></i></td>
+        <td><%= @event.date.strftime("#{@event.date.day.ordinalize} %B") %></td>
+      </tr>
+      <tr>
+        <td><i class="far fa-clock"></i></td>
+        <td><%= @event.time.strftime("%-l%P") %></td>
+      </tr>
+      <tr>
+        <td><%= image_tag "Microphone-white.svg", width: "20px" %></td>
+        <td>5 minute slot</td>
+      </tr>
+      <% if @event.bringer %>
+        <tr>
+          <td><i class="fas fa-user-friends"></i></td>
+          <td>Bringer</td>
+        </tr>
+      <% end %>
+    </table>
+    <%= form_with do |form| %>
+      <%= form.check_box :terms %> I agree to the terms and conditions for this event.
+    <% end %>
+    <span id="close_event_booking_modal"><i class="fas fa-times"></i></span>
+    <div class="event_booking_confirm"><%= link_to "Confirm", event_bookings_path(@event, @booking), method: :post %></div>
+  </div>
 </div>
