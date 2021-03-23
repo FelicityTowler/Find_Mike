@@ -44,9 +44,15 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   homepageSpotlight();
   initMapbox();
-  document.getElementById("drop-down-button").addEventListener("click", dropDown);
-  document.getElementById("event_booking_modal_button").addEventListener("click", eventBookingModal);
-  document.getElementById("close_event_booking_modal").addEventListener("click", eventBookingModalClose);
-  window.addEventListener("click", eventBookingModalCloseElse);
-  slickSlider()
+  if (document.getElementById("drop-down-button")) {
+    document.getElementById("drop-down-button").addEventListener("click", dropDown);
+  };
+  if (document.getElementById("event_booking_modal_button")) {
+    document.getElementById("event_booking_modal_button").addEventListener("click", eventBookingModal);
+    document.getElementById("close_event_booking_modal").addEventListener("click", eventBookingModalClose);
+    window.addEventListener("click", eventBookingModalCloseElse);
+  }
+  if (document.querySelector(".scrollable-card-list") || document.querySelector(".scrollable-card-list-performers")) {
+    slickSlider()
+  }
 });
