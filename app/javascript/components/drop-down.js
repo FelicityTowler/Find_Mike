@@ -2,6 +2,12 @@
 toggle between hiding and showing the dropdown content */
 function dropDown() {
   document.getElementById("drop-down-content").classList.toggle("show");
+  document.getElementById("drop-down-arrow").classList.toggle("hide");
+  const upArrow = document.getElementById("drop-up-arrow");
+  if(upArrow.style.display == 'block')
+            upArrow.style.display = 'none';
+         else
+            upArrow.style.display = 'block';
   console.log("Testing");
 }
 

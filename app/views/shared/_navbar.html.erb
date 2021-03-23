@@ -17,12 +17,24 @@
         <li>
           <div class="drop-down">
             <% if current_user.photo.present? %>
-              <div id="drop-down-button">
+              <div id="drop-down-button" class="dropdown-button-container">
                 <%= cl_image_tag current_user.photo.key, class: "avatar-bordered" %>
+                <div id="drop-down-arrow">
+                  <i class="fas fa-angle-down"></i>
+                </div>
+                <div id="drop-up-arrow">
+                  <i class="fas fa-angle-up"></i>
+                </div>
               </div>
             <% else %>
               <div id="drop-down-button">
                 <%= image_tag "user.svg", class: "avatar-bordered"%>
+                <div id="drop-down-arrow">
+                  <i class="fas fa-angle-down"></i>
+                </div>
+                <div id="drop-up-arrow">
+                  <i class="fas fa-angle-up"></i>
+                </div>
               </div>
             <% end %>
             <div id="drop-down-content" class="drop-down-content">
