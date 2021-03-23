@@ -7,6 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+var $ = require( "jquery" )
+require("slick-carousel")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -34,6 +36,7 @@ import { dropDown } from '../components/drop-down';
 import { eventBookingModal } from '../components/event_booking_modal';
 import { eventBookingModalClose } from '../components/event_booking_modal';
 import { eventBookingModalCloseElse } from '../components/event_booking_modal';
+import {slickSlider} from '../components/slick-slider';
 
 // Internal imports, e.g:
 import { initMapbox } from '../plugins/init_mapbox';
@@ -45,4 +48,5 @@ document.addEventListener('turbolinks:load', () => {
   document.getElementById("event_booking_modal_button").addEventListener("click", eventBookingModal);
   document.getElementById("close_event_booking_modal").addEventListener("click", eventBookingModalClose);
   window.addEventListener("click", eventBookingModalCloseElse);
+  slickSlider()
 });
