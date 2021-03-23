@@ -185,10 +185,10 @@ puts "Created event 3"
 
 
 user_4 = User.create!(
-  first_name: "Freddie",
-  last_name: "Millburn-Fryer",
-  stage_name: "Freddie Fryer",
-  email: "freddiefryercode@gmail.com",
+  first_name: "Robert",
+  last_name: "Burr",
+  stage_name: "Bill Burr",
+  email: "billburr@gmail.com",
   password: "password",
   telephone: "0800 123 456",
   city: "London",
@@ -1123,6 +1123,18 @@ image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v161504
 
 event_20.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
 event_20.save!
+
+user_21 = User.create!(
+  first_name: "Freddie",
+  last_name: "Millburn-Fryer",
+  stage_name: "Freddie Fryer",
+  email: "freddiefryer@gmail.com",
+  password: "password",
+  telephone: "0800 123 456",
+  city: "London",
+  biography: "I'm the funniest person I know....",
+  dependability: 2.5,
+)
 
 puts "Created event 20"
 
