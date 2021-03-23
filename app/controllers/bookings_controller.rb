@@ -18,7 +18,11 @@ class BookingsController < ApplicationController
     @event.available_spots = @event.available_spots + 1
     @event.booked_spots = @event.booked_spots - 1
     @event.save
-    redirect_to event_path(@event)
+    if @event.venue.user == current_user
+      redirect_to pages_manage_my_bookings_path
+    else
+      redirect_to pages_my_bookings_path
+    end
   end
 
   def approve
