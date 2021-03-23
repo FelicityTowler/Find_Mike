@@ -71,6 +71,28 @@
   border-bottom: 0px solid $accent;
 }
 
+.dropdown-button-container {
+  position: relative;
+}
+
+#drop-down-arrow {
+  position: absolute;
+  left: 50px;
+  top: 7px;
+}
+
+#drop-up-arrow {
+  display: none;
+  position: absolute;
+  left: 50px;
+  top: 7px;
+  color: $accent;
+}
+
 .show {
-  display:block;
+  display: block;
+}
+
+.hide {
+  display: none;
 }
