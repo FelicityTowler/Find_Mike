@@ -1,35 +1,78 @@
-<h1>
-  <%= @venue.name %>
-</h1>
-<% if @venue.photo.attached? %>
-  <div><%= cl_image_tag @venue.photo.key, height: 200, width: 8000, crop: :fill %></div>
-<% end %>
-<h2>
-  Created by: <%= @venue.user.first_name %> <%= @venue.user.last_name %>
-</h2>
-<ul>
-  <li>Address: <%= @venue.address %></li>
-  <li>Postcode: <%= @venue.postcode %></li>
-  <li>Email: <%= @venue.email %></li>
-  <li>Telephone: <%= @venue.telephone %></li>
-  <li>Website: <%= @venue.website %></li>
-  <li> Rating: <%= @venue.average_rating %></li>
-</ul>
-
-<h2>Events at the <%= @venue.name %></h2>
-<% @venue.events.each do |event| %>
-  <%= link_to event.name, event_path(event) %> on <%= event.date %><br>
-<% end %>
-
-<div id="map"
-     style="width: 70vw; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="header" style="background-image: url(<%= image_url("brick-wall.png") %>)">
+  <h1 class="header-text"><%= @venue.name %></h1>
 </div>
+<div class="container">
+  <% if @venue.photo.attached? %>
+    <div class="event-image" style="background-image: url(<%= cl_image_path(@venue.photo.key) %>)">
+    </div>
+  <% end %>
+  <div class="row venue-details-container">
+    <div class="venue-details">
+      <table class="venue-details-table">
+        <tr class="venue-detail-row">
+          <td class="venue-detail-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </td>
+          <td class="venue-detail-text">
+            <% @venue.address.split(',').each do |line| %>
+              <%= line %><br>
+            <% end %>
+            <%= @venue.postcode %>
+          </td>
+        </tr>
+        <tr class="venue-detail-row">
+          <td class="venue-detail-icon">
+            <i class="fas fa-phone"></i>
+          </td>
+          <td class="venue-detail-text">
+            <a href="tel:<%= @venue.telephone %>"><%= @venue.telephone %></a>
+          </td>
+        </tr>
+        <tr class="venue-detail-row">
+          <td class="venue-detail-icon">
+            <i class="fas fa-envelope"></i>
+          </td>
+          <td class="venue-detail-text">
+            <a href="mailto:<%= @venue.email %>">Email the venue</a>
+          </td>
+        </tr>
+        <tr class="venue-detail-row">
+          <td class="venue-detail-icon">
+            <i class="fas fa-globe-americas"></i>
+          </td>
+          <td class="venue-detail-text">
+            <a href="<%= @venue.website %>" target="blank">Go to their website</a>
+          </td>
+        </tr>
+        <tr class="venue-detail-row">
+          <td class="venue-detail-icon">
+            <i class="fas fa-star"></i>
+          </td>
+          <td class="venue-detail-text">
+            <%= @venue.average_rating %>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="map" class="venue-map"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+
+  <h2>Events at the <%= @venue.name %></h2>
+  <div class="scrollable-card-list left-align-slick">
+    <% @venue.events.each do |event| %>
+      <%= link_to event_path(event) do %>
+        <%= render 'shared/event_card', event: event %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
 <% if @venue.user == current_user %>
   <div><%= link_to "Edit venue", edit_venue_path(@venue) %></div>
 <% end %>
-<%= link_to 'Back', venue_path %>
 <% unless @has_left_review %>
   <%= link_to 'Leave a review', new_venue_rating_path(@venue) %>
 <% end %>

@@ -1,7 +1,6 @@
 <div class="header" style="background-image: url(<%= image_url("brick-wall.png") %>)">
   <h1 class="header-text">Open Mics</h1>
 </div>
-
 <div class="events-search-bar">
   <%= form_tag events_path, method: :get do %>
     <div class="events-search-bar-items">
@@ -11,8 +10,9 @@
     </div>
   <% end %>
 </div>
+<div class="container">
 
-<div class="container events-index-container">
+<div class="events-index-container">
   <% if @events.blank? %>
     There are no events on this date.
   <% else %>
@@ -30,4 +30,5 @@
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+</div>
 </div>

@@ -7,6 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+var $ = require( "jquery" )
+require("slick-carousel")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -31,6 +33,7 @@ import "bootstrap";
 // Internal imports, e.g:
 import { homepageSpotlight } from '../components/spotlight';
 import { dropDown } from '../components/drop-down';
+import {slickSlider} from '../components/slick-slider';
 
 // Internal imports, e.g:
 import { initMapbox } from '../plugins/init_mapbox';
@@ -39,4 +42,5 @@ document.addEventListener('turbolinks:load', () => {
   homepageSpotlight();
   initMapbox();
   document.getElementById("drop-down-button").addEventListener("click", dropDown);
+  slickSlider()
 });

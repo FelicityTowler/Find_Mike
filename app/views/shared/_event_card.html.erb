@@ -1,5 +1,6 @@
  <div class="e-card">
 
+
   <% if event.photo.attached? %>
     <div class="e-card-image"><%= cl_image_tag event.photo.key, height: 200,  width: 300, crop: :fill %></div>
   <% else %>
@@ -23,7 +24,7 @@
     </div>
   </div>
 
-  
+
   <% if event.available_spots %>
     <div class="e-card-button-available e-card-button">
       <p>Slots available: <%= event.available_spots %> <%= image_tag "Microphone.svg" %></p>
