@@ -34,10 +34,13 @@
   display: flex;
   justify-content: space-between;
   font-size: 16px;
+  font-weight: 200;
 }
 
 .event-name {
   font-size: 24px;
+  font-weight: 500;
+  font
   a {
     color: white;
     text-decoration: none;
@@ -46,11 +49,13 @@
 
 .venue-name {
   font-size: 18px;
+  font-weight: 400;
 }
 
 .event-address {
   font-size: 16px;
   margin: 0px 0px 0px 0px;
+  font-weight: 200;
 }
 
 .e-card-button {
