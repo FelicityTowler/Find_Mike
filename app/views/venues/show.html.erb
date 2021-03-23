@@ -60,7 +60,7 @@
     </div>
   </div>
 
-  <h2>Events at the <%= @venue.name %></h2>
+  <h2 class="event-banner-title">Events at the <%= @venue.name %></h2>
   <div class="scrollable-card-list left-align-slick">
     <% @venue.events.each do |event| %>
       <%= link_to event_path(event) do %>
