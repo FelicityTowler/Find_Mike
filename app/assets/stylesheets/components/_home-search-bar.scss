@@ -1,23 +1,33 @@
-
+.curtains {
+#query {
+    color: #000;
+    border: none;
+    background: transparent;
+    padding-right: 20px;
+    width: 300px;
+  }
 .search-bar {
-  color: transparent;
-  margin-bottom: 20px;
-}
-body.loaded .search-bar {
   visibility: visible;
   height: 50px;
-  z-index: 100;
+  z-index: 99;
   border-radius: 25px;
   box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
   padding: 10px;
   display: flex;
   align-items: center;
   background-color: #FFF;
-  transition: all 2s ease;
+  margin-bottom: 20px;
 
   label {
     color: #000;
   }
 }
+.btn-search {
+  background-color: $accent;
+  border-radius: 50%;
 
-
+  &:hover {
+    transform: scale(1.04);
+  }
+}
+}
