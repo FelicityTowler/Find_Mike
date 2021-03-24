@@ -60,6 +60,8 @@
     </div>
   </div>
 
+  <div id="rating_modal_button" class="rating_modal_button">How was your experience performing at the <%= @venue.name %>? Leave a rating now.</div>
+
   <h2 class="event-banner-title">Events at the <%= @venue.name %></h2>
   <div class="scrollable-card-list left-align-slick">
     <% @venue.events.each do |event| %>
@@ -76,3 +78,17 @@
 <% unless @has_left_review %>
   <%= link_to 'Leave a review', new_venue_rating_path(@venue) %>
 <% end %>
+
+<div id="rating_modal" class="rating_modal">
+  <div class="rating_modal_content">
+    <span id="close_rating_modal"><i class="fas fa-times"></i></span>
+    <%= simple_form_for [@venue, @review] do |f| %>
+      <%= f.input :performer_experience, collection: (1..5).to_a, label: "Rate your experience" %>
+      <%= f.submit "Submit" %>
+    <% end %>
+
+
+
+  </div>
+</div>
+

@@ -22,6 +22,7 @@ class VenuesController < ApplicationController
       infoWindow: render_to_string(partial: "infowindow", locals: { venue: @venue }),
       image_url: helpers.asset_url('Microphone.svg')
     }]
+    @review = Rating.new
   end
 
   def edit
