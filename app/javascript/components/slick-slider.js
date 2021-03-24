@@ -18,7 +18,7 @@ $(document).ready(function(){
   slidesToScroll: 4,
   focusOnSelect: true,
   nextArrow: '<i class="fas fa-chevron-right slick-next"></i>',
-    prevArrow: '<i class="fas fa-chevron-left slick-prev"></i>',
+  prevArrow: '<i class="fas fa-chevron-left slick-prev"></i>',
   });
 });
 }

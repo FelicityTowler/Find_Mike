@@ -2,84 +2,62 @@
   <h1 class="header-text"><%= @event.name %></h1>
 </div>
 <div class="container">
-  <% if @event.photo.attached? %>
-    <div class="event-image" style="background-image: url(<%= cl_image_path(@event.venue.photo.key) %>)">
-      <% if @event.cancelled == true %>
-        <h2>CANCELLED</h2>
-      <% end %>
-    </div>
-  <% end %>
-  <div class="event_details_card">
-    <div class="d-flex">
-      <div class="event_details_card_box">
-        <div>
-          <i class="far fa-calendar-alt"></i>
+
+  <div class="row mt-5">
+    <div class ="event_bio col-8">
+      <div class="event-show-image-card">
+        <% if @event.photo.attached? %>
+          <div class="event-image" style="background-image: url(<%= cl_image_path(@event.venue.photo.key) %>)">
+            <% if @event.cancelled == true %>
+              <h2>CANCELLED</h2>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="event_details_card">
+          <div class="d-flex">
+            <div class="event_details_card_box">
+              <div>
+                <i class="far fa-calendar-alt"></i>
+                <%= @event.date.strftime("%A #{@event.date.day.ordinalize} %B") %>
+              </div>
+            </div>
+            <div class="event_details_card_box">
+              <div><i class="far fa-clock"></i>
+                <%= @event.time.strftime("%-l%P") %>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="event_details_card_box">
+              <div><%= image_tag"Microphone.svg", id:'microphone_icon' %>
+                5 minutes slot
+              </div>
+            </div>
+            <div class="event_details_card_box">
+              <div><i class="fas fa-user-friends"></i>
+                <% if @event.bringer %>
+                  bringer
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <%= @event.date.strftime("%A #{@event.date.day.ordinalize} %B") %>
-        </div>
       </div>
-      <div class="event_details_card_box">
-        <div><i class="far fa-clock"></i></div>
-        <div> <%= @event.time.strftime("%-l%P") %></div>
+        <div><%= @event.name %> is the hottest open mic event in London. Each week, unwitting amatuers try to entertain the audience and last until the sound of the gong.</div>
       </div>
-    </div>
-    <div class="d-flex">
-      <div class="event_details_card_box">
-        <div><%= image_tag"Microphone-white.svg", id:'microphone_icon' %></div>
-        <div>5 minutes slot</div>
-      </div>
-      <div class="event_details_card_box">
-        <div><i class="fas fa-user-friends"></i></div>
-        <div>
-          <% if @event.bringer %>
-            bringer
+      <div class="col-4">
+        <div class="Booking_slot">
+          <% if Booking.where(["user_id = ? and event_id = ?", current_user, params[:id]]).empty? %>
+            <div><p><%= @event.available_spots%> slots remaining</p></div>
+            <div id="event_booking_modal_button" class="modal_button">Book event</div>
+          <% else %>
+            <p>You are booked on to this event</p>
+            <%= link_to 'Cancel your booking', event_booking_path(@event, @booking), class: "delete-booking btn",
+            method: :delete, data: { confirm: "Delete your booking for #{@event.name}?" } %>
           <% end %>
         </div>
       </div>
-    </div>
   </div>
-
-  <div class="row">
-  <div class ="event_bio d-flex col-8">
-    <%= @event.name %> is the hottest open mic event in London. Each week, unwitting amatuers try to entertain the audience and last until the sound of the gong.
-  </div>
-  <div class="Booking_slot col-4">
-    <div>
-      <%= @event.available_spots%> slots remaining
-    </div>
-    <div id="event_booking_modal_button" class="modal_button">
-      Book event
-    </div>
-    <% if @event.venue == current_user.venues.first %>
-      <h3>
-        <%= link_to 'Edit Event', edit_event_path(@event) %><br>
-        <%= link_to 'Cancel Event', cancel_event_path(@event), method: :patch %><br>
-      </h3>
-      <h2>Requested Bookings</h2>
-      <% @event.bookings.each do |booking| %>
-        <% if booking.approved %>
-          APPROVED
-        <% end %>
-        <%= booking.user.first_name %> <%= booking.user.last_name %> <%= booking.user.email %>
-        <% if booking.approved %>
-          Booked!
-        <% else %>
-          <%= link_to "Approve Booking", event_booking_approve_path(@event, booking), method: :patch %>
-        <% end %>
-      <% end %>
-    <% end %>
-    <% if Booking.where(["user_id = ? and event_id = ?", current_user, params[:id]]).empty? %>
-      <%= simple_form_for([@event, @booking]) do |f| %>
-        <%= f.submit class:'btn-primary'%>
-      <% end %>
-    <% else %>
-      <p>You are already booked on to this event</p>
-      <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, event_booking_path(@event, @booking),
-          method: :delete, data: { confirm: "Delete your booking for #{@event.name}?" } %>
-    <% end %>
-  </div>
-</div>
 
 <h2>Performers at this event</h2>
 <div class="scrollable-card-list-performers left-align-slick">
@@ -93,21 +71,26 @@
     </div>
   <% end %>
 </div>
+
 <div class= "event_address">
-    <i class="fas fa-map-marker-alt"></i>
-    <%= @event.venue.name %>
-    <% lines = @event.address.split(',') %>
-    <% lines.each do |line| %>
-      <p><%= line %></p>
-    <% end %>
-    <p><%= @event.venue.postcode %></p>
+  <div class="event-address-details">
+    <div class="event-address-icon-text">
+      <div><i class="fas fa-map-marker-alt"></i></div>
+      <div>
+        <h3><%= @event.venue.name %></h3>
+        <% lines = @event.address.split(',') %>
+        <p><% lines.each do |line| %>
+          <%= line %><br>
+        <% end %>
+        <%= @event.venue.postcode %></p>
+      </div>
+    </div>
     <div>
-      <p>See all events at <%= link_to @event.venue.name, venue_path(@event.venue) %> </p>
+      <%= link_to "See all events at #{@event.venue.name}", venue_path(@event.venue) %>
     </div>
   </div>
-
   <div id="map"
-     style="width: 100%; height: 300px;"
+     style="width: 100%; min-height: 400px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
