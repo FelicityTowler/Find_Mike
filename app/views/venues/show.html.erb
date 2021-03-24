@@ -60,6 +60,10 @@
     </div>
   </div>
 
+  <% unless @has_left_review %>
+    <%= link_to 'Leave a review', new_venue_rating_path(@venue) %>
+  <% end %>
+
   <h2 class="event-banner-title">Events at the <%= @venue.name %></h2>
   <div class="scrollable-card-list left-align-slick">
     <% @venue.events.each do |event| %>
@@ -73,6 +77,4 @@
 <% if @venue.user == current_user %>
   <div><%= link_to "Edit venue", edit_venue_path(@venue) %></div>
 <% end %>
-<% unless @has_left_review %>
-  <%= link_to 'Leave a review', new_venue_rating_path(@venue) %>
-<% end %>
+
