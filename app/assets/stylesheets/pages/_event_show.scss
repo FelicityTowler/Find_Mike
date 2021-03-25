@@ -103,6 +103,7 @@ padding: 20px;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
+min-width: 400px;
 
   a {
     color: white;
@@ -173,4 +174,8 @@ h2 {
   padding: 20px 16px;
   font-size: 16px;
   font-weight: 300;
+}
+
+.event-heading {
+  margin-top: 50px;
 }
