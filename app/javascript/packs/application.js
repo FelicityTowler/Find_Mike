@@ -37,6 +37,8 @@ import { eventBookingModal } from '../components/event_booking_modal';
 import { eventBookingModalClose } from '../components/event_booking_modal';
 import { eventBookingModalCloseElse } from '../components/event_booking_modal';
 import { slickSlider } from '../components/slick-slider';
+import { slickSlider2 } from '../components/slick-slider2';
+
 import { ratingModal } from '../components/venue_rating_modal';
 import { ratingModalClose } from '../components/venue_rating_modal';
 import { ratingModalCloseElse } from '../components/venue_rating_modal';
@@ -55,8 +57,14 @@ document.addEventListener('turbolinks:load', () => {
     document.getElementById("close_event_booking_modal").addEventListener("click", eventBookingModalClose);
     window.addEventListener("click", eventBookingModalCloseElse);
   }
-  if (document.querySelector(".scrollable-card-list") || document.querySelector(".scrollable-card-list-performers")) {
-    slickSlider()
+  if (document.querySelector(".scrollable-cards-list")) {
+    slickSlider();
+    console.log("testing");
+  }
+
+  if (document.querySelector(".scrollable-card-list-performers")) {
+    slickSlider2();
+    console.log("testing");
   }
   if (document.getElementById("rating_modal_button")) {
     document.getElementById("rating_modal_button").addEventListener("click", ratingModal);

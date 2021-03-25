@@ -8,7 +8,6 @@ function dropDown() {
             upArrow.style.display = 'none';
          else
             upArrow.style.display = 'block';
-  console.log("Testing");
 }
 
 // Close the dropdown menu if the user clicks outside of it
