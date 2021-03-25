@@ -140,3 +140,21 @@
     text-decoration: none;
   }
 }
+
+.e-card-button-previous {
+  background-color: $accent;
+  transition: 0.2s;
+  text-decoration: none;
+  img {
+    width: 18px;
+  }
+  &:hover {
+    transform: scale(1.04);
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
