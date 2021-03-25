@@ -32,15 +32,16 @@
         <% if event.bookings.where(approved: false).size > 0 %>
           <div class="scrollable-cards-list">
             <% event.bookings.where(approved: false).each do |booking| %>
-              <div class="manage-booking-card-pending">
-                <div class="dark-top-strip"></div>
-                <div class="user-avatar-position">
-                  <%= cl_image_tag current_user.photo.key, class: "avatar-large-bordered" %>
+              <div class="manage-booking-card">
+                <div class="dark-top-strip">
+                  <div class="user-avatar-position">
+                    <%= cl_image_tag booking.user.photo.key, width:120, height:120, crop: :fill, class: "avatar-large-bordered" %>
+                  </div>
                 </div>
                 <div class="booking-user-info">
                   <div class="center-text">
                     <span id="booking-user-name"><%= booking.user.first_name %> <%= booking.user.last_name %></span><br>
-                    <%= image_tag "Microphone.svg", height: "16px" %> <%= booking.user.user_rating %>
+                    <%= booking.user.user_rating %>
                   </div><br>
                   <div class="booking-user-details">
                     <%= booking.user.biography %><br><br>
@@ -62,35 +63,37 @@
       <h2>Approved</h2>
       <div class="approved-bookings">
         <% if event.bookings.where(approved: true).size > 0 %>
-          <% event.bookings.where(approved: true).each do |booking| %>
-            <div class="manage-booking-card-approved">
-              <div class="dark-top-strip"></div>
-              <div class="user-avatar-position">
-                <%= cl_image_tag current_user.photo.key, class: "avatar-large-bordered" %>
-              </div>
-              <div class="approved-tick-position">
-                <i class="fas fa-check"></i>
-              </div>
-              <div class="booking-user-info">
-                <div class="center-text">
-                  <span id="booking-user-name"><%= booking.user.first_name %> <%= booking.user.last_name %></span><br>
-                  <%= image_tag "Microphone.svg", height: "16px" %> <%= booking.user.user_rating %>
-                </div><br>
-                <div class="booking-user-details">
-                  <%= booking.user.biography %><br><br>
-                  <i class="fas fa-phone"></i> <%= booking.user.telephone %><br><br>
-                  <i class="fas fa-envelope"></i> <%= booking.user.email %>
+            <% event.bookings.where(approved: true).each do |booking| %>
+              <div class="manage-booking-card">
+                <div class="dark-top-strip">
+                  <div class="user-avatar-position">
+                    <%= cl_image_tag booking.user.photo.key, class: "avatar-large-bordered" %>
+                  </div>
+                  <div class="approved-tick-position">
+                    <i class="fas fa-check"></i>
+                  </div>
                 </div>
-                <div class="buttons-flex">
-                  <% if booking.performed %>
-                    <%= link_to "Mark as no show", event_booking_mark_no_show_path(booking.event, booking), method: :patch, class: "decline-button" %>
-                  <% else %>
-                    <div class="decline-button">Marked as no show</div>
-                  <% end %>
+
+                <div class="booking-user-info">
+                  <div class="center-text">
+                    <span id="booking-user-name"><%= booking.user.first_name %> <%= booking.user.last_name %></span><br>
+                    <%= booking.user.user_rating %>
+                  </div><br>
+                  <div class="booking-user-details">
+                    <%= booking.user.biography %><br><br>
+                    <i class="fas fa-phone"></i> <%= booking.user.telephone %><br><br>
+                    <i class="fas fa-envelope"></i> <%= booking.user.email %>
+                  </div>
+                  <div class="buttons-flex">
+                    <% if booking.performed %>
+                      <%= link_to "Mark as no show", event_booking_mark_no_show_path(booking.event, booking), method: :patch, class: "decline-button" %>
+                    <% else %>
+                      <div class="decline-button">Marked as no show</div>
+                    <% end %>
+                  </div>
                 </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
         <% else %>
           There are no approved bookings for this event.
         <% end %>
