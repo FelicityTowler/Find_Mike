@@ -62,13 +62,15 @@
   <h2 class="event-heading">Performers at this event</h2>
   <div class="scrollable-card-list-performers left-align-slick">
     <% @bookings.each do |booking| %>
-      <div class="performer_card">
-        <div class="artist">
-          <div class="performer_photo" style="background-image: url(<%= cl_image_path(booking.user.photo.key, width: 100, height: 100, crop: :fill) %>)"></div>
+      <% if booking.approved %>
+        <div class="performer_card">
+          <div class="artist">
+            <div class="performer_photo" style="background-image: url(<%= cl_image_path(booking.user.photo.key, width: 100, height: 100, crop: :fill) %>)"></div>
+          </div>
+            <div class="performer_name"><%= booking.user.stage_name %></div>
+            <div class="performer_bio"> <%= booking.user.biography %></div>
         </div>
-          <div class="performer_name"><%= booking.user.stage_name %></div>
-          <div class="performer_bio"> <%= booking.user.biography %></div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 <% else %>

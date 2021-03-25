@@ -43,9 +43,16 @@
             </div>
           </div>
         </div>
-        <div class="e-card-button-cancel e-card-button">
-          <span><%= link_to "Cancel your slot", event_booking_path(event, booking), method: :delete, data: { confirm: "Delete booking for #{booking.event.name}?" } %></span>
-        </div>
+        <% if booking.event.date > DateTime.now %>
+          <div class="e-card-button-cancel e-card-button">
+            <span><%= link_to "Cancel your slot", event_booking_path(event, booking), method: :delete, data: { confirm: "Delete booking for #{booking.event.name}?" } %></span>
+          </div>
+        <% elsif current_user.ratings.where(venue: booking.event.venue).any? %>
+        <% else %>
+          <div class="e-card-button-previous e-card-button">
+            <span><%= link_to "Rate this venue", venue_path(booking.event.venue) %></span>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>

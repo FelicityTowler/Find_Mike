@@ -15,7 +15,7 @@ Event.destroy_all
 Venue.destroy_all
 puts "Database Cleaned"
 
-user_image_array = ['https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050295/user_1.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050312/user_2.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050350/user_3.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050389/user_4.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050418/user_5.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050446/user_6.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050480/user_7.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050615/user_8.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050638/user_9.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050659/user_10.webp']
+user_image_array = ['https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050295/user_1.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050312/user_2.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050350/user_3.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050389/user_4.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050418/user_5.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050446/user_6.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050480/user_7.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050615/user_8.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050638/user_9.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050659/user_10.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050295/user_1.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050312/user_2.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050350/user_3.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050389/user_4.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050418/user_5.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050446/user_6.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050480/user_7.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050615/user_8.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050638/user_9.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050659/user_10.webp']
 
 # Creating 20 users
 
@@ -1298,9 +1298,6 @@ sam_rhodes_unapproved_users.each do |person|
     performed: false,
     approved: false,
   )
-  booking.event.available_spots -= 1
-  booking.event.booked_spots += 1
-  booking.event.save
 end
 
 puts "Created approved and unapproved bookings for Sam Rhodes Comedy Explosion"
@@ -1378,10 +1375,6 @@ lions_den_unapproved_users.each do |person|
     performed: false,
     approved: false,
   )
-
-  booking.event.available_spots -= 1
-  booking.event.booked_spots += 1
-  booking.event.save
 end
 
 puts "Created approved and unapproved bookings for Lion's Den Comedy Car Crash"
@@ -1458,9 +1451,6 @@ jesters_unapproved_users.each do |person|
     performed: false,
     approved: false,
   )
-  booking.event.available_spots -= 1
-  booking.event.booked_spots += 1
-  booking.event.save
 end
 
 puts "Created approved and unapproved bookings for Jesters night"
@@ -1470,7 +1460,7 @@ puts "Creating bookings for Heavenly Comedy"
 heavenly_approved_users = []
 heavenly_approved_users_count = 0
 
-4.times do
+12.times do
 
   user = User.create!(
   first_name: Faker::Name.first_name,
@@ -1508,7 +1498,7 @@ end
 heavenly_unapproved_users = []
 heavenly_unapproved_users_count = 0
 
-8.times do
+2.times do
   user = User.create!(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
@@ -1538,9 +1528,6 @@ heavenly_unapproved_users.each do |person|
     performed: false,
     approved: false,
   )
-  booking.event.available_spots -= 1
-  booking.event.booked_spots += 1
-  booking.event.save
 end
 
 puts "Created approved and unapproved bookings for Heavenly Comedy"
