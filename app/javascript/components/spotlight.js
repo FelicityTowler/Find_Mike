@@ -17,9 +17,11 @@ const homepageSpotlight = () => {
       spotlight.addEventListener('touchmove', move);
       spotlight.addEventListener('mousemove', move);
     }
-  window.onload = function() {
+  let loaded = function() {
     document.body.className += " loaded";
   }
+  $(document).ready(loaded);
+  $(document).on('turbolinks:load', loaded)
   document.getElementById('query').valueAsDate = new Date();
 }
 }
