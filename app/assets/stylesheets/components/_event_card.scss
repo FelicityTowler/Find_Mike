@@ -40,7 +40,9 @@
 .event-name {
   font-size: 24px;
   font-weight: 500;
-  font
+  font-family: $body-font;
+  text-decoration: none;
+  color: white;
   a {
     color: white;
     text-decoration: none;
@@ -62,14 +64,15 @@
   font-size: 20px;
   border-radius: 0px 0px 5px 5px;
   text-align: center;
-  p {
-    margin: 8px 0px;
+  padding: 8px 0px;
+  span {
     color: black;
   }
 }
 
 .e-card-button-available {
   background-color: $accent;
+  transition: 0.2s;
   img {
     width: 18px;
   }
@@ -77,8 +80,7 @@
     transform: scale(1.02);
     border-radius: 5px;
     box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
-    padding: 8px 0px;
-    p {
+    span {
       display: none;
     }
     &:before {
@@ -95,7 +97,7 @@
     border-radius: 5px;
     box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
     padding: 8px 0px;
-    p {
+    span {
       display: none;
     }
     &:before {
