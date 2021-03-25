@@ -173,10 +173,11 @@ h2 {
   text-align: center;
   border-radius: 5px;
   box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
+  min-height: 300px;
 }
 
 .artist {
-  background-color: #333;
+  background-color: #FFD639;
   height: 63px;
   position: relative;
   display: flex;
