@@ -15,6 +15,8 @@ Event.destroy_all
 Venue.destroy_all
 puts "Database Cleaned"
 
+user_image_array = ['https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050295/user_1.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050312/user_2.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050350/user_3.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050389/user_4.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050418/user_5.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050446/user_6.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050480/user_7.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050615/user_8.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050638/user_9.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050659/user_10.webp']
+
 # Creating 20 users
 
 user_1 = User.create!(
@@ -1160,10 +1162,68 @@ image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v161505
 user_21.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
 user_21.save!
 
+event_41 = Event.create!(
+  name: "Vauxhall Comedy Club",
+  time: "19:00",
+  date: "24/09/2020",
+  address: "6 South Lambeth Place, London",
+  venue: venue_4,
+  available_spots: 12,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047002/event_4.webp')
+
+event_41.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_41.save!
+
+Booking.create!(
+  user: user_21,
+  event: Event.find_by(date:"24/09/2020"),
+  performed: true,
+  approved: true,
+)
+
+past_event_approved_users = []
+past_event_approved_users_count = 0
+
+9.times do
+  user = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  stage_name: Faker::FunnyName.two_word_name,
+  email: Faker::Internet.email,
+  password: "password",
+  telephone: "0800 123 456",
+  city: "London",
+  biography: Faker::GreekPhilosophers.quote,
+  dependability: [1, 2, 3, 4, 5].sample,
+  )
+
+  image_data = URI.open(user_image_array[past_event_approved_users_count])
+  
+  past_event_approved_users_count += 1
+
+  user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+  user.save!
+  past_event_approved_users << user
+end
+
+past_event_approved_users.each do |person|
+  booking = Booking.create!(
+    user: person,
+    event: Event.find_by(date:"24/09/2020"),
+    performed: true,
+    approved: true,
+  )
+  
+  booking.event.available_spots -= 1
+  booking.event.booked_spots += 1
+  booking.event.save
+end
 puts "Created event 20"
-
-
-user_image_array = ['https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050295/user_1.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050312/user_2.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050350/user_3.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050389/user_4.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050418/user_5.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050446/user_6.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050480/user_7.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050615/user_8.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050638/user_9.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050659/user_10.webp']
 
 puts "Creating bookings for Sam Rhodes Comedy Explosion"
 
@@ -1194,12 +1254,16 @@ sam_rhodes_approved_users_count = 0
 end
 
 sam_rhodes_approved_users.each do |person|
-  Booking.create!(
+  booking = Booking.create!(
     user: person,
     event: Event.find_by(name:"Sam Rhodes Comedy Explosion"),
     performed: false,
     approved: true,
   )
+
+  booking.event.available_spots -= 1
+  booking.event.booked_spots += 1
+  booking.event.save
 end
 
 sam_rhodes_unapproved_users = []
@@ -1228,12 +1292,15 @@ sam_rhodes_unapproved_users = []
 end
 
 sam_rhodes_unapproved_users.each do |person|
-  Booking.create!(
+  booking = Booking.create!(
     user: person,
     event: Event.find_by(name:"Sam Rhodes Comedy Explosion"),
     performed: false,
     approved: false,
   )
+  booking.event.available_spots -= 1
+  booking.event.booked_spots += 1
+  booking.event.save
 end
 
 puts "Created approved and unapproved bookings for Sam Rhodes Comedy Explosion"
@@ -1268,12 +1335,15 @@ lions_den_approved_users_count = 0
 end
 
 lions_den_approved_users.each do |person|
-  Booking.create!(
+  booking = Booking.create!(
     user: person,
     event: Event.find_by(name:"Lion’s Den Comedy Car Crash"),
     performed: false,
     approved: true,
   )
+  booking.event.available_spots -= 1
+  booking.event.booked_spots += 1
+  booking.event.save
 end
 
 lions_den_unapproved_users = []
@@ -1302,12 +1372,16 @@ lions_den_unapproved_users = []
 end
 
 lions_den_unapproved_users.each do |person|
-  Booking.create!(
+  booking = Booking.create!(
     user: person,
     event: Event.find_by(name:"Lion’s Den Comedy Car Crash"),
     performed: false,
     approved: false,
   )
+
+  booking.event.available_spots -= 1
+  booking.event.booked_spots += 1
+  booking.event.save
 end
 
 puts "Created approved and unapproved bookings for Lion's Den Comedy Car Crash"
@@ -1341,12 +1415,15 @@ jesters_approved_users_count = 0
 end
 
 jesters_approved_users.each do |person|
-  Booking.create!(
+  booking = Booking.create!(
     user: person,
     event: Event.find_by(name:"Jesters: Raconteur Night"),
     performed: false,
     approved: true,
   )
+  booking.event.available_spots -= 1
+  booking.event.booked_spots += 1
+  booking.event.save
 end
 
 jesters_unapproved_users = []
@@ -1375,12 +1452,15 @@ jesters_unapproved_users = []
 end
 
 jesters_unapproved_users.each do |person|
-  Booking.create!(
+  booking = Booking.create!(
     user: person,
     event: Event.find_by(name:"Jesters: Raconteur Night"),
     performed: false,
     approved: false,
   )
+  booking.event.available_spots -= 1
+  booking.event.booked_spots += 1
+  booking.event.save
 end
 
 puts "Created approved and unapproved bookings for Jesters night"
@@ -1390,7 +1470,7 @@ puts "Creating bookings for Heavenly Comedy"
 heavenly_approved_users = []
 heavenly_approved_users_count = 0
 
-2.times do
+4.times do
 
   user = User.create!(
   first_name: Faker::Name.first_name,
@@ -1414,15 +1494,19 @@ heavenly_approved_users_count = 0
 end
 
 heavenly_approved_users.each do |person|
-  Booking.create!(
+  booking = Booking.create!(
     user: person,
     event: Event.find_by(name:"Heavenly Comedy"),
     performed: false,
     approved: true,
   )
+  booking.event.available_spots -= 1
+  booking.event.booked_spots += 1
+  booking.event.save
 end
 
 heavenly_unapproved_users = []
+heavenly_unapproved_users_count = 0
 
 8.times do
   user = User.create!(
@@ -1437,7 +1521,7 @@ heavenly_unapproved_users = []
   dependability: [1, 2, 3, 4, 5].sample,
   )
 
-  image_data = URI.open(user_image_array[heavenly_approved_users_count])
+  image_data = URI.open(user_image_array[heavenly_unapproved_users_count])
   
   heavenly_approved_users_count += 1
 
@@ -1448,12 +1532,15 @@ heavenly_unapproved_users = []
 end
 
 heavenly_unapproved_users.each do |person|
-  Booking.create!(
+  booking = Booking.create!(
     user: person,
     event: Event.find_by(name:"Heavenly Comedy"),
     performed: false,
     approved: false,
   )
+  booking.event.available_spots -= 1
+  booking.event.booked_spots += 1
+  booking.event.save
 end
 
 puts "Created approved and unapproved bookings for Heavenly Comedy"
