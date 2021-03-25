@@ -16,26 +16,31 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 5px 5px 0px 0px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
 }
 
 .event-show-image-card{
-  box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
-  margin-bottom: 50px;
-  border-radius: 5px;
+  position: relative;
+   margin-bottom: 100px;
 }
 
 .event_details_card {
+  position: absolute;
   background-color: #fff;
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 5px;
+  width: 70%;
+  left: 50%;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
+  transform: translate(-50%, -50%);
 }
 
 .event_bio {
-  align-items: center;
   font-weight: 300;
   font-size: 20px;
   padding-right: 70px;
 }
+
 
 #microphone_icon {
   height: 16px;
