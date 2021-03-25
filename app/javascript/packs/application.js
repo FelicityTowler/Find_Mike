@@ -38,6 +38,7 @@ import { eventBookingModalClose } from '../components/event_booking_modal';
 import { eventBookingModalCloseElse } from '../components/event_booking_modal';
 import { slickSlider } from '../components/slick-slider';
 import { slickSlider2 } from '../components/slick-slider2';
+
 import { ratingModal } from '../components/venue_rating_modal';
 import { ratingModalClose } from '../components/venue_rating_modal';
 import { ratingModalCloseElse } from '../components/venue_rating_modal';
