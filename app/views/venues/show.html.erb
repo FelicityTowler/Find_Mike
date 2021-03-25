@@ -1,7 +1,6 @@
 <title><%= meta_title %></title>
   <% content_for :meta_title, "#{@venue.name} is on #{DEFAULT_META["meta_product_name"]}" %>
-  <% content_for :meta_description, @venue.description %>
-  <% content_for :meta_image, cl_image_path(@venue.photo.path) %>
+  <% content_for :meta_image, cl_image_path(@venue.photo.key) %>
 <div class="header" style="background-image: url(<%= image_url("brick-wall.png") %>)">
   <h1 class="header-text"><%= @venue.name %></h1>
 </div>

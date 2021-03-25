@@ -26,7 +26,7 @@
 
   .dashboard-table {
     width: 100%;
-    margin-top: 16px;
+    margin-top: 0px;
   }
 
   a {
@@ -186,6 +186,10 @@
     width: 100%;
     text-align: center;
     margin-right: 8px;
+    transition: 0.2s;
+    &:hover {
+      transform: scale(1.04);
+    }
   }
 
   .decline-button {
@@ -198,6 +202,10 @@
     width: 100%;
     text-align: center;
     margin-left: 8px;
+    transition: 0.2s;
+    &:hover {
+      transform: scale(1.04);
+    }
   }
 
   .buttons-flex {

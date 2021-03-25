@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="e-card-button-cancel e-card-button">
-          <p><%= link_to "Cancel your slot", event_booking_path(event, booking), method: :delete, data: { confirm: "Delete booking for #{booking.event.name}?" } %></p>
+          <span><%= link_to "Cancel your slot", event_booking_path(event, booking), method: :delete, data: { confirm: "Delete booking for #{booking.event.name}?" } %></span>
         </div>
       </div>
     <% end %>
