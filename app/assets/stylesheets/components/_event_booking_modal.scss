@@ -59,10 +59,15 @@
   border-radius: 4px;
   padding: 4px 8px;
   color: black;
+  font-family: $body-font;
   font-size: 32px;
   font-weight: 400;
   text-align: center;
   margin-top: 24px;
+  transition: 0.2s;
+  &:hover {
+    transform: scale(1.04);
+  }
   a {
     text-decoration: none;
     color: black;
