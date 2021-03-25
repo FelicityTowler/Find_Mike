@@ -36,7 +36,7 @@ import { dropDown } from '../components/drop-down';
 import { eventBookingModal } from '../components/event_booking_modal';
 import { eventBookingModalClose } from '../components/event_booking_modal';
 import { eventBookingModalCloseElse } from '../components/event_booking_modal';
-import {slickSlider} from '../components/slick-slider';
+import { slickSlider } from '../components/slick-slider';
 import { ratingModal } from '../components/venue_rating_modal';
 import { ratingModalClose } from '../components/venue_rating_modal';
 import { ratingModalCloseElse } from '../components/venue_rating_modal';
