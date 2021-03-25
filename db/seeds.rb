@@ -118,6 +118,7 @@ event_2 = Event.create!(
   venue: venue_2,
   available_spots: 12,
   total_spots: 12,
+  booked_spots: 0,
   bringer: true,
 )
 
@@ -173,6 +174,7 @@ event_3 = Event.create!(
   venue: venue_3,
   available_spots: 12,
   total_spots: 12,
+  booked_spots: 0,
   bringer: false,
 )
 
@@ -231,6 +233,7 @@ event_4 = Event.create!(
   venue: venue_4,
   available_spots: 12,
   total_spots: 12,
+  booked_spots: 0,
   bringer: true,
 )
 
@@ -286,6 +289,7 @@ event_5 = Event.create!(
   venue: venue_5,
   available_spots: 10,
   total_spots: 10,
+  booked_spots: 0,
   bringer: true,
 )
 
@@ -341,6 +345,7 @@ event_6 = Event.create!(
   venue: venue_6,
   available_spots: 15,
   total_spots: 15,
+  booked_spots: 0,
   bringer: true,
 )
 
@@ -396,6 +401,7 @@ event_7 = Event.create!(
   venue: venue_7,
   available_spots: 12,
   total_spots: 12,
+  booked_spots: 0,
   bringer: true,
 )
 
@@ -452,6 +458,7 @@ event_8 = Event.create!(
   venue: venue_8,
   available_spots: 12,
   total_spots: 12,
+  booked_spots: 0,
   bringer: false,
 )
 
@@ -507,6 +514,7 @@ event_9 = Event.create!(
   venue: venue_9,
   available_spots: 12,
   total_spots: 12,
+  booked_spots: 0,
   bringer: true,
 )
 
@@ -562,6 +570,7 @@ event_10 = Event.create!(
   venue: venue_10,
   available_spots: 18,
   total_spots: 18,
+  booked_spots: 0,
   bringer: true,
 )
 
@@ -617,6 +626,7 @@ event_11 = Event.create!(
   venue: venue_11,
   available_spots: 14,
   total_spots: 14,
+  booked_spots: 0,
   bringer: false,
 )
 
@@ -673,6 +683,7 @@ event_12 = Event.create!(
   venue: venue_12,
   available_spots: 12,
   total_spots: 12,
+  booked_spots: 0,
   bringer: false,
 )
 
@@ -728,6 +739,7 @@ event_13 = Event.create!(
   venue: venue_13,
   available_spots: 20,
   total_spots: 20,
+  booked_spots: 0,
   bringer: false,
 )
 
@@ -785,6 +797,7 @@ event_14 = Event.create!(
   venue: venue_14,
   available_spots: 12,
   total_spots: 12,
+  booked_spots: 0,
   bringer: true,
 )
 
@@ -840,6 +853,7 @@ event_15 = Event.create!(
   venue: venue_15,
   available_spots: 12,
   total_spots: 12,
+  booked_spots: 0,
   bringer: false,
 )
 
@@ -896,6 +910,7 @@ event_16 = Event.create!(
   venue: venue_16,
   available_spots: 12,
   total_spots: 12,
+  booked_spots: 0,
   bringer: true,
 )
 
@@ -951,6 +966,7 @@ event_17 = Event.create!(
   venue: venue_17,
   available_spots: 12,
   total_spots: 12,
+  booked_spots: 0,
   bringer: true,
 )
 
@@ -1006,6 +1022,7 @@ event_18 = Event.create!(
   venue: venue_18,
   available_spots: 12,
   total_spots: 12,
+  booked_spots: 0,
   bringer: true,
 )
 
@@ -1061,6 +1078,7 @@ event_19 = Event.create!(
   venue: venue_19,
   available_spots: 12,
   total_spots: 12,
+  booked_spots: 0,
   bringer: false,
 )
 
@@ -1116,6 +1134,7 @@ event_20 = Event.create!(
   venue: venue_20,
   available_spots: 12,
   total_spots: 12,
+  booked_spots: 0,
   bringer: true,
 )
 
@@ -1132,11 +1151,312 @@ user_21 = User.create!(
   password: "password",
   telephone: "0800 123 456",
   city: "London",
-  biography: "I'm the funniest person I know....",
+  biography: "I'm a musical comedian who belnds slick electric guitar licks with awkward humour.",
   dependability: 2.5,
 )
 
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050659/user_10.webp')
+
+user_21.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+user_21.save!
+
 puts "Created event 20"
+
+
+user_image_array = ['https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050295/user_1.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050312/user_2.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050350/user_3.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050389/user_4.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050418/user_5.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050446/user_6.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050480/user_7.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050615/user_8.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050638/user_9.webp', 'https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615050659/user_10.webp']
+
+puts "Creating bookings for Sam Rhodes Comedy Explosion"
+
+sam_rhodes_approved_users = []
+sam_rhodes_approved_users_count = 0
+
+5.times do
+
+  user = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  stage_name: Faker::FunnyName.two_word_name,
+  email: Faker::Internet.email,
+  password: "password",
+  telephone: "0800 123 456",
+  city: "London",
+  biography: Faker::GreekPhilosophers.quote,
+  dependability: [1, 2, 3, 4, 5].sample,
+  )
+
+  image_data = URI.open(user_image_array[sam_rhodes_approved_users_count])
+  
+  sam_rhodes_approved_users_count += 1
+
+  user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+  user.save!
+  sam_rhodes_approved_users << user
+end
+
+sam_rhodes_approved_users.each do |person|
+  Booking.create!(
+    user: person,
+    event: Event.find_by(name:"Sam Rhodes Comedy Explosion"),
+    performed: false,
+    approved: true,
+  )
+end
+
+sam_rhodes_unapproved_users = []
+
+3.times do
+  user = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  stage_name: Faker::FunnyName.two_word_name,
+  email: Faker::Internet.email,
+  password: "password",
+  telephone: "0800 123 456",
+  city: "London",
+  biography: Faker::GreekPhilosophers.quote,
+  dependability: [1, 2, 3, 4, 5].sample,
+  )
+
+  image_data = URI.open(user_image_array[sam_rhodes_approved_users_count])
+  
+  sam_rhodes_approved_users_count += 1
+
+  user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+  user.save!
+
+  sam_rhodes_unapproved_users << user
+end
+
+sam_rhodes_unapproved_users.each do |person|
+  Booking.create!(
+    user: person,
+    event: Event.find_by(name:"Sam Rhodes Comedy Explosion"),
+    performed: false,
+    approved: false,
+  )
+end
+
+puts "Created approved and unapproved bookings for Sam Rhodes Comedy Explosion"
+
+
+puts "Creating bookings for Lions Den Comedy Car Crash"
+
+lions_den_approved_users = []
+lions_den_approved_users_count = 0
+
+6.times do
+
+  user = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  stage_name: Faker::FunnyName.two_word_name,
+  email: Faker::Internet.email,
+  password: "password",
+  telephone: "0800 123 456",
+  city: "London",
+  biography: Faker::GreekPhilosophers.quote,
+  dependability: [1, 2, 3, 4, 5].sample,
+  )
+
+  image_data = URI.open(user_image_array[lions_den_approved_users_count])
+  
+  lions_den_approved_users_count += 1
+
+  user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+  user.save!
+  lions_den_approved_users << user
+end
+
+lions_den_approved_users.each do |person|
+  Booking.create!(
+    user: person,
+    event: Event.find_by(name:"Lion’s Den Comedy Car Crash"),
+    performed: false,
+    approved: true,
+  )
+end
+
+lions_den_unapproved_users = []
+
+2.times do
+  user = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  stage_name: Faker::FunnyName.two_word_name,
+  email: Faker::Internet.email,
+  password: "password",
+  telephone: "0800 123 456",
+  city: "London",
+  biography: Faker::GreekPhilosophers.quote,
+  dependability: [1, 2, 3, 4, 5].sample,
+  )
+
+  image_data = URI.open(user_image_array[lions_den_approved_users_count])
+  
+  lions_den_approved_users_count += 1
+
+  user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+  user.save!
+
+  lions_den_unapproved_users << user
+end
+
+lions_den_unapproved_users.each do |person|
+  Booking.create!(
+    user: person,
+    event: Event.find_by(name:"Lion’s Den Comedy Car Crash"),
+    performed: false,
+    approved: false,
+  )
+end
+
+puts "Created approved and unapproved bookings for Lion's Den Comedy Car Crash"
+
+puts "Creating bookings for Jesters raconteur night"
+
+jesters_approved_users = []
+jesters_approved_users_count = 0
+
+4.times do
+
+  user = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  stage_name: Faker::FunnyName.two_word_name,
+  email: Faker::Internet.email,
+  password: "password",
+  telephone: "0800 123 456",
+  city: "London",
+  biography: Faker::GreekPhilosophers.quote,
+  dependability: [1, 2, 3, 4, 5].sample,
+  )
+
+  image_data = URI.open(user_image_array[jesters_approved_users_count])
+  
+  jesters_approved_users_count += 1
+
+  user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+  user.save!
+  jesters_approved_users << user
+end
+
+jesters_approved_users.each do |person|
+  Booking.create!(
+    user: person,
+    event: Event.find_by(name:"Jesters: Raconteur Night"),
+    performed: false,
+    approved: true,
+  )
+end
+
+jesters_unapproved_users = []
+
+5.times do
+  user = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  stage_name: Faker::FunnyName.two_word_name,
+  email: Faker::Internet.email,
+  password: "password",
+  telephone: "0800 123 456",
+  city: "London",
+  biography: Faker::GreekPhilosophers.quote,
+  dependability: [1, 2, 3, 4, 5].sample,
+  )
+
+  image_data = URI.open(user_image_array[jesters_approved_users_count])
+  
+  jesters_approved_users_count += 1
+
+  user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+  user.save!
+
+  jesters_unapproved_users << user
+end
+
+jesters_unapproved_users.each do |person|
+  Booking.create!(
+    user: person,
+    event: Event.find_by(name:"Jesters: Raconteur Night"),
+    performed: false,
+    approved: false,
+  )
+end
+
+puts "Created approved and unapproved bookings for Jesters night"
+
+puts "Creating bookings for Heavenly Comedy"
+
+heavenly_approved_users = []
+heavenly_approved_users_count = 0
+
+2.times do
+
+  user = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  stage_name: Faker::FunnyName.two_word_name,
+  email: Faker::Internet.email,
+  password: "password",
+  telephone: "0800 123 456",
+  city: "London",
+  biography: Faker::GreekPhilosophers.quote,
+  dependability: [1, 2, 3, 4, 5].sample,
+  )
+
+  image_data = URI.open(user_image_array[heavenly_approved_users_count])
+  
+  heavenly_approved_users_count += 1
+
+  user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+  user.save!
+  heavenly_approved_users << user
+end
+
+heavenly_approved_users.each do |person|
+  Booking.create!(
+    user: person,
+    event: Event.find_by(name:"Heavenly Comedy"),
+    performed: false,
+    approved: true,
+  )
+end
+
+heavenly_unapproved_users = []
+
+8.times do
+  user = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  stage_name: Faker::FunnyName.two_word_name,
+  email: Faker::Internet.email,
+  password: "password",
+  telephone: "0800 123 456",
+  city: "London",
+  biography: Faker::GreekPhilosophers.quote,
+  dependability: [1, 2, 3, 4, 5].sample,
+  )
+
+  image_data = URI.open(user_image_array[heavenly_approved_users_count])
+  
+  heavenly_approved_users_count += 1
+
+  user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+  user.save!
+
+  heavenly_unapproved_users << user
+end
+
+heavenly_unapproved_users.each do |person|
+  Booking.create!(
+    user: person,
+    event: Event.find_by(name:"Heavenly Comedy"),
+    performed: false,
+    approved: false,
+  )
+end
+
+puts "Created approved and unapproved bookings for Heavenly Comedy"
 
 # one_hundred_users = []
 
