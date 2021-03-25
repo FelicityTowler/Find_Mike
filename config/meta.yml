@@ -1,5 +1,4 @@
-meta_product_name: "Product Name"
-meta_title: "Product name - Product tagline"
-meta_description: "Relevant description"
-meta_image: "cover.png" # should exist in `app/assets/images/`
-twitter_account: "@product_twitter_account"   # required for Twitter Cards
+meta_product_name: "Find Mike"
+meta_title: "Find Mike - Find your next gig in the spotlight "
+meta_description: "Find Mike allows amateur comedians or have a go heros to find venues to perform. Will you find Mike for your next gig? "
+meta_image: "Venue.png" # should exist in `app/assets/images/`

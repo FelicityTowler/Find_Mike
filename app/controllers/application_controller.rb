@@ -8,4 +8,8 @@ before_action :configure_permitted_parameters, if: :devise_controller?
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :stage_name, :telephone, :city, :biography, :video, :email, :password, :photo])
   end
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 end
