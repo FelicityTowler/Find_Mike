@@ -15,6 +15,12 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
+    @has_performed = false
+    current_user.bookings.each do |booking|
+      if booking.event.venue == @venue && booking.performed
+        @has_performed = true
+      end
+    end
     @has_left_review = current_user.ratings.where(venue: @venue).any?
     @markers = [{
       lat: @venue.latitude,
@@ -22,6 +28,7 @@ class VenuesController < ApplicationController
       infoWindow: render_to_string(partial: "infowindow", locals: { venue: @venue }),
       image_url: helpers.asset_url('Microphone.svg')
     }]
+    @review = Rating.new
   end
 
   def edit

@@ -60,8 +60,9 @@
     </div>
   </div>
 
-  <% unless @has_left_review %>
-    <%= link_to 'Leave a review', new_venue_rating_path(@venue) %>
+
+  <% if @has_performed && @has_left_review == false %>
+      <div id="rating_modal_button" class="rating_modal_button">How was your experience performing at the <%= @venue.name %>? Leave a rating now.</div>
   <% end %>
 
   <h2 class="event-banner-title">Events at the <%= @venue.name %></h2>
@@ -74,7 +75,14 @@
   </div>
 </div>
 
-<% if @venue.user == current_user %>
-  <div><%= link_to "Edit venue", edit_venue_path(@venue) %></div>
-<% end %>
+<div id="rating_modal" class="rating_modal">
+  <div class="rating_modal_content">
+    <span id="close_rating_modal"><i class="fas fa-times"></i></span>
+    <%= simple_form_for [@venue, @review] do |f| %>
+      <p>How would you rate your experience performing at the <%= @venue.name %>?</p>
 
+      <%= f.input :performer_experience, collection: (1..5).to_a, label: false %>
+      <%= f.submit "Submit", class: :rating_confirm %>
+    <% end %>
+  </div>
+</div>
