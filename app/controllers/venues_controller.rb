@@ -15,6 +15,12 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
+    @has_performed = false
+    current_user.bookings.each do |booking|
+      if booking.event.venue == @venue && booking.performed
+        @has_performed = true
+      end
+    end
     @has_left_review = current_user.ratings.where(venue: @venue).any?
     @markers = [{
       lat: @venue.latitude,
