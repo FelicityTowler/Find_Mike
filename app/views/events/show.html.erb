@@ -85,7 +85,7 @@
     <div class="event-address-icon-text">
       <div><i class="fas fa-map-marker-alt"></i></div>
       <div>
-        <h3><%= @event.venue.name %></h3>
+        <h3><%= link_to @event.venue.name, venue_path(@event.venue) %></h3>
         <% lines = @event.address.split(',') %>
         <p><% lines.each do |line| %>
           <%= line %><br>
@@ -93,7 +93,7 @@
         <%= @event.venue.postcode %></p>
       </div>
     </div>
-    <div>
+    <div class="accent_button">
       <%= link_to "See all events at #{@event.venue.name}", venue_path(@event.venue) %>
     </div>
   </div>
