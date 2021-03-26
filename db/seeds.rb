@@ -1508,6 +1508,44 @@ image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v161504
 event_40.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
 event_40.save!
 
+event_41 = Event.create!(
+  name: "Lion’s Den Comedy Car Crash",
+  time: "19:00",
+  date: "26/05/2021",
+  address: "36 Shaftesbury Avenue, London",
+  venue: venue_6,
+  available_spots: 7,
+  total_spots: 15,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047150/event_6.webp')
+
+event_41.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_41.save!
+
+puts "Created event 41"
+
+event_42 = Event.create!(
+  name: "Lion’s Den Comedy Car Crash",
+  time: "19:00",
+  date: "24/05/2021",
+  address: "36 Shaftesbury Avenue, London",
+  venue: venue_6,
+  available_spots: 7,
+  total_spots: 15,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047150/event_6.webp')
+
+event_42.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_42.save!
+
+puts "Created event 42"
+
 user_21 = User.create!(
   first_name: "Freddie",
   last_name: "Millburn-Fryer",
