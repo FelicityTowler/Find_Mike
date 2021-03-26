@@ -1,0 +1,23 @@
+#footer-content {
+  margin: 0 auto;
+  display: flex;
+  background-color: $background;
+  text-align: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.sm-icon {
+  padding: 0 16px;
+  color: #FFFFFF;
+
+  &:hover {
+    color: $accent;
+  }
+}
+
+#footer-icons {
+  margin: 0 auto;
+}
