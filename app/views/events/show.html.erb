@@ -133,9 +133,11 @@
         </tr>
       <% end %>
     </table>
-    <%= form_with do |form| %>
-      <%= form.check_box :terms %> I agree to the terms and conditions for this event.
-    <% end %>
+    <div class="terms">
+      <%= form_with do |form| %>
+        <%= form.check_box :terms %> I agree to the terms and conditions for this event.
+      <% end %>
+    </div>
     <span id="close_event_booking_modal"><i class="fas fa-times"></i></span>
     <div class="event_booking_confirm"><%= link_to "Confirm", event_bookings_path(@event, @booking), method: :post %></div>
   </div>
