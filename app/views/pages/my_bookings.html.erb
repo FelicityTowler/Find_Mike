@@ -14,45 +14,136 @@
       </tr>
     </table>
   </div>
-  <div class="manage-events-container">
-    <% if @bookings.empty? %>
-      <h2>You have no bookings.</h2>
+  <div class="manage-bookings-container">
+    <h2>Approved</h2>
+    <% if @approved_bookings.empty? %>
+      You have no approved bookings.
     <% end %>
-    <% @bookings.each do |booking| %>
+    <% @approved_bookings.each do |booking| %>
       <% event = booking.event %>
-      <div class="e-card">
+      <div class="booking-card-container">
+        <div class="e-card">
 
-        <% if event.photo.attached? %>
-          <div class="e-card-image"><%= cl_image_tag event.photo.key, height: 200,  width: 300, crop: :fill %></div>
-        <% else %>
-          <%# Need to add in a defult image here if there is no event image%>
-          <div class="e-card-image"><%= cl_image_tag event.photo.key, height: 200,  width: 300, crop: :fill %></div>
-        <% end %>
+          <% if event.photo.attached? %>
+            <div class="e-card-image"><%= cl_image_tag event.photo.key, height: 200,  width: 300, crop: :fill %></div>
+          <% else %>
+            <%# Need to add in a defult image here if there is no event image%>
+            <div class="e-card-image"><%= cl_image_tag event.photo.key, height: 200,  width: 300, crop: :fill %></div>
+          <% end %>
 
-        <div class="e-card-info">
-          <div class=date-time-share>
-            <div><i class="fas fa-calendar-alt"></i> <%= event.date.strftime("#{event.date.day.ordinalize} %B %Y") %> | <i class="far fa-clock"></i> <%= event.time.strftime("%-l%P") %></div>
-            <div><i class="fas fa-share-alt"></i></div>
-          </div>
-          <h2 class="event-name"><%= link_to event.name, event_path(event) %> </h2>
-          <div class="e-card-info-address">
-            <i class="fas fa-map-marker-alt e-card-info-address-marker"></i>
-            <div>
-              <h3 class="venue-name"><%= event.venue.name %></h3>
-              <p class="event-address"><%= event.address %> <%= event.venue.postcode %></p>
+          <div class="e-card-info">
+            <div class=date-time-share>
+              <div><i class="fas fa-calendar-alt"></i> <%= event.date.strftime("#{event.date.day.ordinalize} %B %Y") %> | <i class="far fa-clock"></i> <%= event.time.strftime("%-l%P") %></div>
+              <div><i class="fas fa-share-alt"></i></div>
+            </div>
+            <h2 class="event-name"><%= link_to event.name, event_path(event) %> </h2>
+            <div class="e-card-info-address">
+              <i class="fas fa-map-marker-alt e-card-info-address-marker"></i>
+              <div>
+                <h3 class="venue-name"><%= event.venue.name %></h3>
+                <p class="event-address"><%= event.address %> <%= event.venue.postcode %></p>
+              </div>
             </div>
           </div>
+          <% if booking.event.date > DateTime.now %>
+            <div class="e-card-button-cancel e-card-button">
+              <span><%= link_to "Cancel your slot", event_booking_path(event, booking), method: :delete, data: { confirm: "Delete booking for #{booking.event.name}?" } %></span>
+            </div>
+          <% elsif current_user.ratings.where(venue: booking.event.venue).any? %>
+          <% else %>
+            <div class="e-card-button-previous e-card-button">
+              <span><%= link_to "Rate this venue", venue_path(booking.event.venue) %></span>
+            </div>
+          <% end %>
         </div>
-        <% if booking.event.date > DateTime.now %>
-          <div class="e-card-button-cancel e-card-button">
-            <span><%= link_to "Cancel your slot", event_booking_path(event, booking), method: :delete, data: { confirm: "Delete booking for #{booking.event.name}?" } %></span>
+      </div>
+    <% end %>
+
+    <h2>Pending</h2>
+    <% if @approved_bookings.empty? %>
+      You have no pending bookings.
+    <% end %>
+    <% @pending_bookings.each do |booking| %>
+      <% event = booking.event %>
+      <div class="booking-card-container">
+        <div class="e-card">
+
+          <% if event.photo.attached? %>
+            <div class="e-card-image"><%= cl_image_tag event.photo.key, height: 200,  width: 300, crop: :fill %></div>
+          <% else %>
+            <%# Need to add in a defult image here if there is no event image%>
+            <div class="e-card-image"><%= cl_image_tag event.photo.key, height: 200,  width: 300, crop: :fill %></div>
+          <% end %>
+
+          <div class="e-card-info">
+            <div class=date-time-share>
+              <div><i class="fas fa-calendar-alt"></i> <%= event.date.strftime("#{event.date.day.ordinalize} %B %Y") %> | <i class="far fa-clock"></i> <%= event.time.strftime("%-l%P") %></div>
+              <div><i class="fas fa-share-alt"></i></div>
+            </div>
+            <h2 class="event-name"><%= link_to event.name, event_path(event) %> </h2>
+            <div class="e-card-info-address">
+              <i class="fas fa-map-marker-alt e-card-info-address-marker"></i>
+              <div>
+                <h3 class="venue-name"><%= event.venue.name %></h3>
+                <p class="event-address"><%= event.address %> <%= event.venue.postcode %></p>
+              </div>
+            </div>
           </div>
-        <% elsif current_user.ratings.where(venue: booking.event.venue).any? %>
-        <% else %>
-          <div class="e-card-button-previous e-card-button">
-            <span><%= link_to "Rate this venue", venue_path(booking.event.venue) %></span>
+          <% if booking.event.date > DateTime.now %>
+            <div class="e-card-button-cancel e-card-button">
+              <span><%= link_to "Cancel your request", event_booking_path(event, booking), method: :delete, data: { confirm: "Delete booking for #{booking.event.name}?" } %></span>
+            </div>
+          <% elsif current_user.ratings.where(venue: booking.event.venue).any? %>
+          <% else %>
+            <div class="e-card-button-previous e-card-button">
+              <span><%= link_to "Rate this venue", venue_path(booking.event.venue) %></span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <h2>Previous</h2>
+    <% if @approved_bookings.empty? %>
+      You have no previous bookings.
+    <% end %>
+    <% @old_bookings.each do |booking| %>
+      <% event = booking.event %>
+      <div class="booking-card-container">
+        <div class="e-card">
+
+          <% if event.photo.attached? %>
+            <div class="e-card-image"><%= cl_image_tag event.photo.key, height: 200,  width: 300, crop: :fill %></div>
+          <% else %>
+            <%# Need to add in a defult image here if there is no event image%>
+            <div class="e-card-image"><%= cl_image_tag event.photo.key, height: 200,  width: 300, crop: :fill %></div>
+          <% end %>
+
+          <div class="e-card-info">
+            <div class=date-time-share>
+              <div><i class="fas fa-calendar-alt"></i> <%= event.date.strftime("#{event.date.day.ordinalize} %B %Y") %> | <i class="far fa-clock"></i> <%= event.time.strftime("%-l%P") %></div>
+              <div><i class="fas fa-share-alt"></i></div>
+            </div>
+            <h2 class="event-name"><%= link_to event.name, event_path(event) %> </h2>
+            <div class="e-card-info-address">
+              <i class="fas fa-map-marker-alt e-card-info-address-marker"></i>
+              <div>
+                <h3 class="venue-name"><%= event.venue.name %></h3>
+                <p class="event-address"><%= event.address %> <%= event.venue.postcode %></p>
+              </div>
+            </div>
           </div>
-        <% end %>
+          <% if booking.event.date > DateTime.now %>
+            <div class="e-card-button-cancel e-card-button">
+              <span><%= link_to "Cancel your slot", event_booking_path(event, booking), method: :delete, data: { confirm: "Delete booking for #{booking.event.name}?" } %></span>
+            </div>
+          <% elsif current_user.ratings.where(venue: booking.event.venue).any? %>
+          <% else %>
+            <div class="e-card-button-previous e-card-button">
+              <span><%= link_to "Rate this venue", venue_path(booking.event.venue) %></span>
+            </div>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>

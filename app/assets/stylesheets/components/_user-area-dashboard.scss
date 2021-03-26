@@ -64,6 +64,13 @@
     border-bottom: 1px solid black;
     margin-bottom: 16px;
   }
+
+  .booking-card-container {
+    padding: 16px 16px 16px 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
+  }
 }
 
 .manage-booking-card {
