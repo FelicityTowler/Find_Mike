@@ -67,7 +67,7 @@
               <div class="manage-booking-card">
                 <div class="dark-top-strip">
                   <div class="user-avatar-position">
-                    <%= cl_image_tag booking.user.photo.key, class: "avatar-large-bordered" %>
+                    <%= cl_image_tag booking.user.photo.key, width:120, height:120, crop: :fill, class: "avatar-large-bordered" %>
                   </div>
                   <div class="approved-tick-position">
                     <i class="fas fa-check"></i>
