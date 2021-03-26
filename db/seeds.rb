@@ -1145,6 +1145,369 @@ image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v161504
 event_20.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
 event_20.save!
 
+puts "Created event 20"
+
+event_21 = Event.create!(
+  name: "Comedy Virgins",
+  time: "19:00",
+  date: "19/05/2021",
+  address: "128 Hartington Road, London",
+  venue: venue_1,
+  available_spots: 0,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046879/event_1.jpg')
+
+event_21.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_21.save!
+
+puts "Created event 21"
+
+event_22 = Event.create!(
+  name: "We Are Funny Project",
+  time: "19:00",
+  date: "19/05/2021",
+  address: "440 Kingsland Rd, London",
+  venue: venue_2,
+  available_spots: 1,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046868/event_2.webp')
+
+event_22.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_22.save!
+
+puts "Created event 22"
+
+event_24 = Event.create!(
+  name: "Vauxhall Comedy Club",
+  time: "19:00",
+  date: "17/05/2021",
+  address: "6 South Lambeth Place, London",
+  venue: venue_4,
+  available_spots: 4,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047002/event_4.webp')
+
+event_24.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_24.save!
+
+puts "Created event 24"
+
+event_25 = Event.create!(
+  name: "Not Another Comedy Night",
+  time: "19:00",
+  date: "17/05/2021",
+  address: "20 Prince of Wales Road, London",
+  venue: venue_5,
+  available_spots: 3,
+  total_spots: 10,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047126/event_5.webp')
+
+event_25.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_25.save!
+
+puts "Created event 25"
+
+event_26 = Event.create!(
+  name: "Lion’s Den Comedy Car Crash",
+  time: "19:00",
+  date: "17/05/2021",
+  address: "36 Shaftesbury Avenue, London",
+  venue: venue_6,
+  available_spots: 7,
+  total_spots: 15,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047150/event_6.webp')
+
+event_26.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_26.save!
+
+puts "Created event 26"
+
+event_27 = Event.create!(
+  name: "Rising Stars",
+  time: "19:00",
+  date: "19/05/2021",
+  address: "33 New Oxford St, London",
+  venue: venue_7,
+  available_spots: 0,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047167/event_7.webp')
+
+event_27.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_27.save!
+
+puts "Created event 27"
+
+event_28 = Event.create!(
+  name: "South Kensington Comedy Club",
+  time: "19:00",
+  date: "19/05/2021",
+  address: "34a Thurloe Place, London",
+  venue: venue_8,
+  available_spots: 1,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: false,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046868/event_2.webp')
+
+event_28.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_28.save!
+
+puts "Created event 28"
+
+event_29 = Event.create!(
+  name: "Funny Feckers",
+  time: "19:00",
+  date: "19/05/2021",
+  address: "10 Gainsford St, London",
+  venue: venue_9,
+  available_spots: 4,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047126/event_5.webp')
+
+event_29.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_29.save!
+
+puts "Created event 29"
+
+event_30 = Event.create!(
+  name: "Birdies Comedy",
+  time: "19:00",
+  date: "17/05/2021",
+  address: "2 Savoy St, London",
+  venue: venue_10,
+  available_spots: 2,
+  total_spots: 18,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047167/event_7.webp')
+
+event_30.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_30.save!
+
+puts "Created event 30"
+
+event_31 = Event.create!(
+  name: "Downstairs at the King’s Head",
+  time: "19:00",
+  date: "19/05/2021",
+  address: "2 Crouch End Hill, London",
+  venue: venue_11,
+  available_spots: 6,
+  total_spots: 14,
+  booked_spots: 0,
+  bringer: false,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046972/event_3.webp')
+
+event_31.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_31.save!
+
+puts "Created event 31"
+
+event_32 = Event.create!(
+  name: "The Blackout",
+  time: "19:00",
+  date: "17/05/2021",
+  address: "302 Creek Rd, London",
+  venue: venue_12,
+  available_spots: 7,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: false,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047002/event_4.webp')
+
+event_32.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_32.save!
+
+puts "Created event 32"
+
+event_33 = Event.create!(
+  name: "King Gong",
+  time: "19:00",
+  date: "19/05/2021",
+  address: "1a Oxendon St, London",
+  venue: venue_13,
+  available_spots: 0,
+  total_spots: 20,
+  booked_spots: 0,
+  bringer: false,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046868/event_2.webp')
+
+event_33.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_33.save!
+
+puts "Created event 33"
+
+event_34 = Event.create!(
+  name: "Freedom Fridge",
+  time: "19:00",
+  date: "17/05/2021",
+  address: "71-73 Torriano Avenue, London",
+  venue: venue_14,
+  available_spots: 3,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047150/event_6.webp')
+
+event_34.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_34.save!
+
+puts "Created event 34"
+
+event_35 = Event.create!(
+  name: "Jesters: Raconteur Night",
+  time: "19:00",
+  date: "17/05/2021",
+  address: "86 Junction Road, London",
+  venue: venue_15,
+  available_spots: 1,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: false,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047167/event_7.webp')
+
+event_35.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_35.save!
+
+puts "Created event 35"
+
+event_36 = Event.create!(
+  name: "Instant Laughs",
+  time: "19:00",
+  date: "17/05/2021",
+  address: "83 Hammersmith Grove, London",
+  venue: venue_16,
+  available_spots: 5,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046972/event_3.webp')
+
+event_36.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_36.save!
+
+puts "Created event 36"
+
+event_37 = Event.create!(
+  name: "Comedy Gobbledegook",
+  time: "19:00",
+  date: "19/05/2021",
+  address: "96 Jamaica Rd, London",
+  venue: venue_17,
+  available_spots: 0,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047126/event_5.webp')
+
+event_37.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_37.save!
+
+puts "Created event 37"
+
+event_38 = Event.create!(
+  name: "TNT Comedy",
+  time: "19:00",
+  date: "17/05/2021",
+  address: "86 Highgate Rd, London",
+  venue: venue_18,
+  available_spots: 2,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046879/event_1.jpg')
+
+event_38.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_38.save!
+
+puts "Created event 38"
+
+event_39 = Event.create!(
+  name: "Heavenly Comedy",
+  time: "19:00",
+  date: "17/05/2021",
+  address: "217 Uxbridge Rd, London",
+  venue: venue_19,
+  available_spots: 10,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: false,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047002/event_4.webp')
+
+event_39.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_39.save!
+
+puts "Created event 39"
+
+event_40 = Event.create!(
+  name: "G&B Comedy",
+  time: "19:00",
+  date: "19/05/2021",
+  address: "West Ham Arches, London",
+  venue: venue_20,
+  available_spots: 4,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
+
+puts "Created event 40"
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046868/event_2.webp')
+
+event_40.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_40.save!
+
 user_21 = User.create!(
   first_name: "Freddie",
   last_name: "Millburn-Fryer",
@@ -1345,7 +1708,7 @@ end
 
 lions_den_unapproved_users = []
 
-2.times do
+4.times do
   user = User.create!(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
