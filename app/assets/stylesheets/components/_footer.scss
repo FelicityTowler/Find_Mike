@@ -1,6 +1,5 @@
 #footer-content {
   margin: 0 auto;
-  margin-top: 50px;
   display: flex;
   background-color: $background;
   text-align: center;
@@ -11,7 +10,7 @@
 }
 
 .sm-icon {
-  padding: 0 6px;
+  padding: 0 16px;
   color: #FFFFFF;
 
   &:hover {
