@@ -69,10 +69,32 @@
   <% end %>
 
   <h2 class="event-banner-title">Events at the <%= @venue.name %></h2>
-  <div class="scrollable-card-list left-align-slick">
+  <div class="scrollable-card-list-performers left-align-slick">
     <% @venue.events.each do |event| %>
       <%= link_to event_path(event) do %>
-        <%= render 'shared/event_card', event: event %>
+        <div class="venue-event-card">
+          <div class="venue-event-card-details">
+            <div class="venue-event-calendar">
+              <div class="month"><%= event.date.strftime("%b").upcase %></div>
+              <div class="date"><%= event.date.strftime("%d") %></div>
+              <div class="day"><%= event.date.strftime("%a") %></div>
+            </div>
+            <div class="venue-event-name-time">
+              <h3><%= event.name %></h3>
+              <i class="far fa-clock"></i>
+              <%= event.time.strftime("%-l%P") %>
+            </div>
+          </div>
+          <% if event.available_spots > 0 %>
+            <div class="e-card-button-available e-card-button">
+              <span>Slots available: <%= event.available_spots %></span>
+            </div>
+          <% else %>
+            <div class="e-card-button-unavailable e-card-button">
+              <span>Fully booked</span>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     <% end %>
   </div>

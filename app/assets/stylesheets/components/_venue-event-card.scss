@@ -1,0 +1,57 @@
+.scrollable-card-list-performers {
+  a {
+    text-decoration: none;
+  }
+  margin-bottom: 50px;
+}
+
+.venue-event-card {
+  background-color: #333;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
+}
+
+.venue-event-card-details {
+  display: flex;
+  padding: 10px;
+}
+
+.venue-event-calendar{
+  width: 80px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.month {
+  font-size: 16px;
+  color: white;
+  background-color: $negative;
+  border-radius: 5px 5px 0px 0px;
+  width: 80px;
+}
+
+.date {
+  font-size: 26px;
+  font-weight: 500;
+  background-color: white;
+  width: 100%;
+  color: black;
+}
+
+.day {
+  font-size: 16px;
+  color: black;
+  background-color: white;
+  border-radius: 0px 0px 5px 5px;
+  width: 80px;
+  font-weight: 200;
+}
+
+.venue-event-name-time {
+  h3 {
+    font-size: 20px;
+    color: white;
+  }
+  color: white;
+  font-weight: 200;
+}
