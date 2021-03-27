@@ -4,7 +4,7 @@ $(document).ready(function(){
   infinite: false,
   speed: 300,
   slidesToShow: 3,
-  slidesToScroll: 3,
+  slidesToScroll: 1,
   focusOnSelect: true,
   nextArrow: '<i class="fas fa-chevron-right slick-next"></i>',
     prevArrow: '<i class="fas fa-chevron-left slick-prev"></i>',
