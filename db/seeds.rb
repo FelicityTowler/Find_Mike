@@ -1546,6 +1546,25 @@ event_42.save!
 
 puts "Created event 42"
 
+puts "Created venue 3"
+
+event_43 = Event.create!(
+  name: "Sam Rhodes Comedy Explosion",
+  time: "19:00",
+  date: "16/09/2020",
+  address: "123 Shoreditch High St, London",
+  venue: venue_3,
+  available_spots: 12,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: false,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046972/event_3.webp')
+
+event_43.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_43.save!
+
 user_21 = User.create!(
   first_name: "Freddie",
   last_name: "Millburn-Fryer",
@@ -1624,7 +1643,20 @@ past_event_approved_users.each do |person|
   booking.event.booked_spots += 1
   booking.event.save
 end
+
 puts "Created event 20"
+
+Rating.create!(
+  user: past_event_approved_users.sample,
+  venue: venue_4, 
+  performer_experience: 4,
+)
+
+Rating.create!(
+  user: past_event_approved_users.sample,
+  venue: venue_4, 
+  performer_experience: 5,
+)
 
 puts "Creating bookings for Sam Rhodes Comedy Explosion"
 
@@ -1932,6 +1964,45 @@ heavenly_unapproved_users.each do |person|
 end
 
 puts "Created approved and unapproved bookings for Heavenly Comedy"
+
+
+car_crash_users = []
+car_crash_users_count = 0
+
+4.times do
+
+  user = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  stage_name: Faker::FunnyName.two_word_name,
+  email: Faker::Internet.email,
+  password: "password",
+  telephone: "0800 123 456",
+  city: "London",
+  biography: Faker::GreekPhilosophers.quote,
+  dependability: [1, 2, 3, 4, 5].sample,
+  )
+
+  image_data = URI.open(user_image_array[heavenly_approved_users_count])
+  
+  car_crash_users_count += 1
+
+  user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+  user.save!
+  car_crash_users << user
+end
+
+car_crash_users.each do |person|
+  booking = Booking.create!(
+    user: person,
+    event: event_43,
+    performed: false,
+    approved: true,
+  )
+  booking.event.available_spots -= 1
+  booking.event.booked_spots += 1
+  booking.event.save
+end
 
 # one_hundred_users = []
 
