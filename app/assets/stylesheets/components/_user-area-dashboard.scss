@@ -181,7 +181,7 @@
 
 .approved-bookings {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
   .manage-booking-card {
     margin: 10px;
