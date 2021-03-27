@@ -70,7 +70,7 @@
 
   <h2 class="event-banner-title">Events at the <%= @venue.name %></h2>
   <div class="scrollable-card-list-performers left-align-slick">
-    <% @venue.events.each do |event| %>
+    <% @sorted_events.each do |event| %>
       <%= link_to event_path(event) do %>
         <div class="venue-event-card">
           <div class="venue-event-card-details">

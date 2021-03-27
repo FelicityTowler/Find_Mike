@@ -15,6 +15,8 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
+    arr = @venue.events
+    @sorted_events = arr.sort_by { |s| s.date.strftime('%m/%d/%Y') }
     @has_performed = false
     current_user.bookings.each do |booking|
       if booking.event.venue == @venue && booking.performed
