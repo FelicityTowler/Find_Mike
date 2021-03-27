@@ -60,7 +60,7 @@
     <% end %>
 
     <h2>Pending</h2>
-    <% if @approved_bookings.empty? %>
+    <% if @pending_bookings.empty? %>
       You have no pending bookings.
     <% end %>
     <% @pending_bookings.each do |booking| %>
@@ -104,7 +104,7 @@
     <% end %>
 
     <h2>Previous</h2>
-    <% if @approved_bookings.empty? %>
+    <% if @old_bookings.empty? %>
       You have no previous bookings.
     <% end %>
     <% @old_bookings.each do |booking| %>
