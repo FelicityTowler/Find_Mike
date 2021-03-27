@@ -27,7 +27,6 @@
       <div class="heading">
         <%= event.name %> - <%= event.date.strftime("#{event.date.day.ordinalize} %B %Y") %>
       </div>
-      <div class="pending-bookings">
         <h2>Pending</h2>
         <% if event.bookings.where(approved: false).size > 0 %>
           <div class="scrollable-cards-list">
@@ -58,8 +57,6 @@
         <% else %>
           There are no pending bookings for this event.
         <% end %>
-      </div>
-
       <h2>Approved</h2>
       <div class="approved-bookings">
         <% if event.bookings.where(approved: true).size > 0 %>
