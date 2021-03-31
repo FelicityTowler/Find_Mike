@@ -2,7 +2,7 @@
 
 An event booking platform for open mic comedy.
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Find Mike logo](app/assets/images/FindMike.PNG)
 
 ## What is Find Mike?
 
