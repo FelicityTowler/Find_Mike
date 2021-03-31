@@ -56,4 +56,16 @@ You are able to approve or refuse a request. You are also able to cancel someone
 #### Mark a performer as a "no-show"
 If a performer booked to perform at your event doesn't arrive on the night, you are able to mark them as a "no-show" which will negatively affect their dependability rating and potentially make it harder for them to get booked in the future.
 
+## Project Status
 
+### 31/03/2021
+Find Mike is the final project from a team on batch #476 of [Le Wagon's](https://www.lewagon.com/) part-time full-stack webdevelopment course. As such, we are presently not looking for other contributors and will continue developing the app as a team.
+
+We would like to push it to production when we've got it to the point where it's ready for real world usage (and when lockdown ends).
+
+## Contributors
+
+[Chris Bellairs](https://github.com/chrisbellairs)
+[Felicity Towler](https://github.com/FelicityTowler)
+[Matt Woods](https://github.com/the-real-woody)
+[Freddie Millburn-Fryer](https://github.com/Freddie-Fryer)
