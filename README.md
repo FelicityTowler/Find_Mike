@@ -27,6 +27,33 @@ If you can't....welcome to **Find Mike**.
 
 ### As a comedian
 
+#### Searching for an event
 As a comedian, you can simply select a date that you'd like to perform on, click on the search icon, and be taken to a page diaplaying all open mic events added to the website on that date. 
 
-You 
+#### Requesting a spot at an event
+You can view information on each event and make your decision as to whether you'd like to perform there. If the event has availability you can book a spot. That booking will then show up under your *Pending* bookings on your *My bookings* page in your account.
+
+The event manager (the person who created the event on Find Mike) will then decide to approve or decline your request. If approved the booking will appear under *Approved* on your *My bookings* page.
+
+#### Cancelling a spot at an event
+You are able to cancel your place at any event you have either been approved for or requested a spot for. It is best practice to try an give as much notice as possible if you know you are no longer able to perform.
+
+#### Rating a venue
+Once you have performed at an event, you are able to see the event in your past bookings and click a button allowing you to rate the event's venue out of 5. Please try to be fair with your rating and rate a venue based only on your experience of performing open mic comedy there.
+
+
+### As an event manager
+
+#### Creating a venue (tbc)
+
+#### Creating an event (tbc)
+
+#### Choose who performs at your event
+On your *Manage my bookings* page, you will be able to see who's requested a spot at your event and whether they are pending your approval or you've already accepted them.
+
+You are able to approve or refuse a request. You are also able to cancel someone you have previously approved for the event. It is advised that you excercise this power with caution as it is illadvisable to get a comedian' hopes up only to shatter them a moment later.
+
+#### Mark a performer as a "no-show"
+If a performer booked to perform at your event doesn't arrive on the night, you are able to mark them as a "no-show" which will negatively affect their dependability rating and potentially make it harder for them to get booked in the future.
+
+
