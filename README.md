@@ -80,7 +80,7 @@ We would like to push it to production when we've got it to the point where it's
 
 ## Contributors
 
-[Chris Bellairs](https://github.com/chrisbellairs)
-[Felicity Towler](https://github.com/FelicityTowler)
-[Matt Woods](https://github.com/the-real-woody)
-[Freddie Millburn-Fryer](https://github.com/Freddie-Fryer)
+Chris Bellairs [GitHub profile](https://github.com/chrisbellairs)
+Felicity Towler [GitHub profile](https://github.com/FelicityTowler)
+Matt Woods [GitHub profile](https://github.com/the-real-woody)
+Freddie Millburn-Fryer [GitHub profile](https://github.com/Freddie-Fryer)
