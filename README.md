@@ -1,5 +1,5 @@
 # Find Mike
-[Find Mike](www.findmike.co.uk)
+[Visit FindMike.co.uk](www.findmike.co.uk)
 
 An event booking platform for open mic comedy.
 
