@@ -1528,7 +1528,7 @@ event_41.save!
 puts "Created event 41"
 
 event_42 = Event.create!(
-  name: "Lion’s Den Comedy Car Crash",
+  name: "Big Hullaballoo",
   time: "19:00",
   date: "24/05/2021",
   address: "36 Shaftesbury Avenue, London",
@@ -1623,7 +1623,7 @@ past_event_approved_users_count = 0
   )
 
   image_data = URI.open(user_image_array[past_event_approved_users_count])
-  
+
   past_event_approved_users_count += 1
 
   user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
@@ -1638,7 +1638,7 @@ past_event_approved_users.each do |person|
     performed: true,
     approved: true,
   )
-  
+
   booking.event.available_spots -= 1
   booking.event.booked_spots += 1
   booking.event.save
@@ -1648,13 +1648,13 @@ puts "Created event 20"
 
 Rating.create!(
   user: past_event_approved_users.sample,
-  venue: venue_4, 
+  venue: venue_4,
   performer_experience: 4,
 )
 
 Rating.create!(
   user: past_event_approved_users.sample,
-  venue: venue_4, 
+  venue: venue_4,
   performer_experience: 5,
 )
 
@@ -1678,7 +1678,7 @@ sam_rhodes_approved_users_count = 0
   )
 
   image_data = URI.open(user_image_array[sam_rhodes_approved_users_count])
-  
+
   sam_rhodes_approved_users_count += 1
 
   user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
@@ -1715,7 +1715,7 @@ sam_rhodes_unapproved_users = []
   )
 
   image_data = URI.open(user_image_array[sam_rhodes_approved_users_count])
-  
+
   sam_rhodes_approved_users_count += 1
 
   user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
@@ -1756,7 +1756,7 @@ lions_den_approved_users_count = 0
   )
 
   image_data = URI.open(user_image_array[lions_den_approved_users_count])
-  
+
   lions_den_approved_users_count += 1
 
   user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
@@ -1792,7 +1792,7 @@ lions_den_unapproved_users = []
   )
 
   image_data = URI.open(user_image_array[lions_den_approved_users_count])
-  
+
   lions_den_approved_users_count += 1
 
   user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
@@ -1832,7 +1832,7 @@ jesters_approved_users_count = 0
   )
 
   image_data = URI.open(user_image_array[jesters_approved_users_count])
-  
+
   jesters_approved_users_count += 1
 
   user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
@@ -1868,7 +1868,7 @@ jesters_unapproved_users = []
   )
 
   image_data = URI.open(user_image_array[jesters_approved_users_count])
-  
+
   jesters_approved_users_count += 1
 
   user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
@@ -1908,7 +1908,7 @@ heavenly_approved_users_count = 0
   )
 
   image_data = URI.open(user_image_array[heavenly_approved_users_count])
-  
+
   heavenly_approved_users_count += 1
 
   user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
@@ -1945,7 +1945,7 @@ heavenly_unapproved_users_count = 0
   )
 
   image_data = URI.open(user_image_array[heavenly_unapproved_users_count])
-  
+
   heavenly_approved_users_count += 1
 
   user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
@@ -1984,7 +1984,7 @@ car_crash_users_count = 0
   )
 
   image_data = URI.open(user_image_array[heavenly_approved_users_count])
-  
+
   car_crash_users_count += 1
 
   user.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
@@ -2004,38 +2004,287 @@ car_crash_users.each do |person|
   booking.event.save
 end
 
-# one_hundred_users = []
+event_45 = Event.create!(
+  name: "Vauxhall Comedy Club",
+  time: "19:00",
+  date: "24/06/2020",
+  address: "6 South Lambeth Place, London",
+  venue: venue_4,
+  available_spots: 4,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
 
-# count = 0
+puts "Created event 45"
 
-# 100.times do
-#   user = User.create!(
-#   first_name: Faker::Name.first_name,
-#   last_name: Faker::Name.last_name,
-#   stage_name: Faker::FunnyName.two_word_name,
-#   email: Faker::Internet.email,
-#   password: "password",
-#   telephone: "0800 123 456",
-#   city: "London",
-#   biography: Faker::GreekPhilosophers.quote,
-#   dependability: [1, 2, 3, 4, 5].sample,
-#   )
-#   one_hundred_users << user
-#   count += 1
-#   puts "Created #{count.to_s} users."
-# end
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047002/event_4.webp')
 
-# puts "Created 100 users"
+event_45.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_45.save!
 
-# booking_count = 0
+event_44 = Event.create!(
+  name: "Sam Rhodes Comedy Explosion",
+  time: "19:00",
+  date: "16/07/2020",
+  address: "123 Shoreditch High St, London",
+  venue: venue_3,
+  available_spots: 9,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: false,
+)
 
-# one_hundred_users.each do |person|
-#   Booking.create!(
-#     user: person,
-#     event: Event.all.sample,
-#     performed: false,
-#     approved: true,
-#   )
-#   booking_count += 1
-#   puts "Created #{booking_count.to_s} bookings."
-# end
+puts "Created event 44"
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046972/event_3.webp')
+
+event_44.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_44.save!
+
+event_46 = Event.create!(
+  name: "Lion’s Den Comedy Car Crash",
+  time: "19:00",
+  date: "24/08/2021",
+  address: "36 Shaftesbury Avenue, London",
+  venue: venue_6,
+  available_spots: 7,
+  total_spots: 15,
+  booked_spots: 0,
+  bringer: true,
+)
+
+puts "Created event 46"
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047150/event_6.webp')
+
+event_46.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_46.save!
+
+event_47 = Event.create!(
+  name: "G&B Comedy",
+  time: "19:00",
+  date: "19/08/2021",
+  address: "West Ham Arches, London",
+  venue: venue_20,
+  available_spots: 2,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
+
+puts "Created event 47"
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046868/event_2.webp')
+
+event_47.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_47.save!
+
+event_48 = Event.create!(
+  name: "Funny Feckers",
+  time: "19:00",
+  date: "19/08/2021",
+  address: "10 Gainsford St, London",
+  venue: venue_9,
+  available_spots: 1,
+  total_spots: 10,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047126/event_5.webp')
+
+event_48.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_48.save!
+
+puts "Created event 48"
+
+event_49 = Event.create!(
+  name: "Birdies Comedy Goes Wild",
+  time: "19:00",
+  date: "17/08/2021",
+  address: "2 Savoy St, London",
+  venue: venue_10,
+  available_spots: 5,
+  total_spots: 11,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047167/event_7.webp')
+
+event_49.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_49.save!
+
+puts "Created event 49"
+
+event_50 = Event.create!(
+  name: "Knock Knock at the King’s Head",
+  time: "19:00",
+  date: "19/09/2021",
+  address: "2 Crouch End Hill, London",
+  venue: venue_11,
+  available_spots: 6,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: false,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046972/event_3.webp')
+
+event_50.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_50.save!
+
+puts "Created event 50"
+
+event_51 = Event.create!(
+  name: "The Blackout Curtain",
+  time: "19:00",
+  date: "17/10/2021",
+  address: "302 Creek Rd, London",
+  venue: venue_12,
+  available_spots: 2,
+  total_spots: 7,
+  booked_spots: 0,
+  bringer: false,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047002/event_4.webp')
+
+event_51.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_51.save!
+
+puts "Created event 51"
+
+event_52 = Event.create!(
+  name: "King Gong - the comeback tour",
+  time: "19:00",
+  date: "19/10/2021",
+  address: "1a Oxendon St, London",
+  venue: venue_13,
+  available_spots: 2,
+  total_spots: 18,
+  booked_spots: 2,
+  bringer: false,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046868/event_2.webp')
+
+event_52.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_52.save!
+
+puts "Created event 52"
+
+event_53 = Event.create!(
+  name: "La Casa Blanca - Search for Funny ",
+  time: "19:00",
+  date: "17/10/2021",
+  address: "71-73 Torriano Avenue, London",
+  venue: venue_14,
+  available_spots: 3,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047150/event_6.webp')
+
+event_53.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_53.save!
+
+puts "Created event 53"
+
+event_54 = Event.create!(
+  name: "Rumble in The Jungle",
+  time: "19:00",
+  date: "17/10/2021",
+  address: "86 Junction Road, London",
+  venue: venue_15,
+  available_spots: 1,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: false,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047167/event_7.webp')
+
+event_54.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_54.save!
+
+puts "Created event 54"
+
+event_55 = Event.create!(
+  name: "Laugh a minute",
+  time: "19:00",
+  date: "17/10/2021",
+  address: "83 Hammersmith Grove, London",
+  venue: venue_16,
+  available_spots: 8,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046972/event_3.webp')
+
+event_55.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_55.save!
+
+puts "Created event 55"
+
+event_56 = Event.create!(
+  name: "The Grown Ups",
+  time: "19:00",
+  date: "19/10/2021",
+  address: "96 Jamaica Rd, London",
+  venue: venue_17,
+  available_spots: 0,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047126/event_5.webp')
+
+event_56.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_56.save!
+
+puts "Created event 56"
+
+event_57 = Event.create!(
+  name: "TNT - It blows",
+  time: "19:00",
+  date: "17/10/2021",
+  address: "86 Highgate Rd, London",
+  venue: venue_18,
+  available_spots: 2,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: true,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615046879/event_1.jpg')
+
+event_57.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_57.save!
+
+puts "Created event 57"
+
+event_58 = Event.create!(
+  name: "Comedy Kings",
+  time: "19:00",
+  date: "17/11/2021",
+  address: "217 Uxbridge Rd, London",
+  venue: venue_19,
+  available_spots: 10,
+  total_spots: 12,
+  booked_spots: 0,
+  bringer: false,
+)
+
+image_data = URI.open('https://res.cloudinary.com/dxoxrsvm2/image/upload/v1615047002/event_4.webp')
+
+event_58.photo.attach(io: image_data, filename: 'image.jpg', content_type: 'image/jpg')
+event_58.save!
+
+puts "Created event 58"
